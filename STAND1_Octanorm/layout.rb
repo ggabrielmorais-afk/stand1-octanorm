@@ -22,7 +22,24 @@ module STAND1
       MEIO_TOLERANCIA = 5.0
 
       # sobra de ~50 cm vira meio modulo (TS e vidro tem peca de 0,50), nao folha especial
-      def self.folhas(comprimento, modulo = MODULO, meio: true)
+      # inicio: true poe a sobra (meio modulo ou folha especial) no COMECO do
+      # trecho, nao no fim (ver sobra_no_inicio).
+      def self.folhas(comprimento, modulo = MODULO, meio: true, inicio: false)
+        r = folhas_no_fim(comprimento, modulo, meio: meio)
+        fs = r[:folhas]
+        return r unless inicio && fs.size > 1 && (fs.last[:meio] || fs.last[:especial])
+
+        ordem = [fs.last] + fs[0...-1]
+        x = 0.0
+        r.merge(folhas: ordem.map { |f| g = f.merge(x: x.round(2)); x += f[:largura]; g })
+      end
+
+      # Folhas do trecho, ja com a sobra do lado certo.
+      def self.folhas_do(t, meio: true)
+        folhas(t[:comprimento], meio: meio, inicio: t[:sobra_no_inicio] ? true : false)
+      end
+
+      def self.folhas_no_fim(comprimento, modulo = MODULO, meio: true)
         raise ArgumentError, "comprimento invalido" unless comprimento.to_f > 0
 
         comprimento = comprimento.to_f
@@ -54,10 +71,19 @@ module STAND1
         ja_tem = ->(p) { compartilhados.any? { |c| dist(c, p) < 1.0 } }
         pares = pts.each_cons(2).to_a
         pares << [pts.last, pts.first] if fechado && pts.size >= 3
+        # Sobra (meio modulo) sempre do mesmo lado da sala: no sistema do 1o
+        # trecho (u pra frente, v pra esquerda), fica na ponta de maior
+        # coordenada. Trecho que anda pra tras tem a sobra no comeco. Assim as
+        # paredes opostas casam montante com montante (e o teto cai no montante).
+        u = unitario(pares[0][0], pares[0][1]) rescue [1.0, 0.0]
+        v = [-u[1], u[0]]
         pares.each_with_index.map do |(a, b), i|
           dx = b[0] - a[0]
           dy = b[1] - a[1]
+          pu = dx * u[0] + dy * u[1]
+          pv = dx * v[0] + dy * v[1]
           {
+            sobra_no_inicio: (pu.abs >= pv.abs ? pu : pv) < -EPS,
             inicio: a,
             fim: b,
             comprimento: Math.sqrt(dx * dx + dy * dy).round(2),
@@ -78,7 +104,7 @@ module STAND1
           c = t[:comprimento]
           next if c <= 0
 
-          ([0.0] + folhas(c, meio: meio)[:folhas].map { |f| f[:x] + f[:largura] }).each do |d|
+          ([0.0] + folhas_do(t, meio: meio)[:folhas].map { |f| f[:x] + f[:largura] }).each do |d|
             u = d / c
             p = [(ax + u * (bx - ax)).round(2), (ay + u * (by - ay)).round(2)]
             lista << p unless lista.any? { |q| dist(q, p) < 1.0 }
@@ -93,7 +119,7 @@ module STAND1
         m2 = 0.0
         avisos = []
         trechos.each_with_index do |t, i|
-          r = folhas(t[:comprimento], meio: meio)
+          r = folhas_do(t, meio: meio)
           normais   += r[:folhas].count { |f| !f[:especial] && !f[:meio] }
           meios     += r[:folhas].count { |f| f[:meio] }
           especiais += r[:folhas].count { |f| f[:especial] }
@@ -110,7 +136,7 @@ module STAND1
       # Devolve { trecho:, vao: } ou nil se nenhum vao inteiro existe.
       def self.porta_padrao(trechos, meio: true)
         trechos.each_index.to_a.reverse_each do |ti|
-          fs = folhas(trechos[ti][:comprimento], meio: meio)[:folhas]
+          fs = folhas_do(trechos[ti], meio: meio)[:folhas]
           vi = fs.rindex { |f| inteiro?(f) }
           return { trecho: ti, vao: vi } if vi
         end
@@ -132,7 +158,7 @@ module STAND1
           u = (((x - ax) * dx + (y - ay) * dy) / len2).clamp(0.0, 1.0)
           d = dist([ax + u * dx, ay + u * dy], [x, y])
           ao_longo = u * t[:comprimento]
-          fs = folhas(t[:comprimento], meio: meio)[:folhas]
+          fs = folhas_do(t, meio: meio)[:folhas]
           vi = fs.index { |f| ao_longo >= f[:x] && ao_longo <= f[:x] + f[:largura] } || fs.size - 1
           next unless inteiro?(fs[vi])
 

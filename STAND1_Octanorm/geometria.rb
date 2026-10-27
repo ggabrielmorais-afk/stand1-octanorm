@@ -212,7 +212,7 @@ module STAND1
 
       # Componente de um trecho (parede ou testeira). vao_porta: indice do vao com
       # porta (nil = sem porta).
-      def self.definicao(model, nome, chave, comprimento, altura, fechamento, tipo, mats, pecas, vao_porta = nil)
+      def self.definicao(model, nome, chave, comprimento, altura, fechamento, tipo, mats, pecas, vao_porta = nil, inicio = false)
         existente = model.definitions.find { |d| d.get_attribute(ATRIB, "chave") == chave }
         return existente if existente
 
@@ -224,7 +224,7 @@ module STAND1
         p = largura_montante(pecas[:montante]) / 2.0
         ht = altura_travessa(pecas[:travessa])
 
-        Layout.folhas(comprimento)[:folhas].each_with_index do |f, i|
+        Layout.folhas(comprimento, inicio: inicio)[:folhas].each_with_index do |f, i|
           xa = f[:x] + p
           xb = f[:x] + f[:largura] - p
           if tipo == :ilha
@@ -465,7 +465,7 @@ module STAND1
           tr = Geom::Transformation.translation(origem) * Geom::Transformation.rotation(ORIGIN, Z_AXIS, t[:angulo]) * espelho
 
           # montantes (e spiders do vidro) fora do componente da parede, sem tag
-          eixos = Layout.folhas(c, meio: meio)[:folhas].map { |f| f[:x] + f[:largura] }
+          eixos = Layout.folhas_do(t, meio: meio)[:folhas].map { |f| f[:x] + f[:largura] }
           eixos.unshift(0.0) if t[:montante_inicio]
           eixos.pop unless t[:montante_fim] # encostou num montante de outra parede
           g_m = grupo.entities.add_group
@@ -480,7 +480,7 @@ module STAND1
 
           if so_testeira
             if placa_frontal?(fechamento)
-              fs = Layout.folhas(c, meio: meio)[:folhas]
+              fs = Layout.folhas_do(t, meio: meio)[:folhas]
               ([0.0] + fs.map { |f| f[:x] + f[:largura] }).each_with_index do |x, k|
                 lados = []
                 lados << :esq if k > 0
@@ -490,8 +490,8 @@ module STAND1
               end
             end
             nome_i = Layout.nome_memorial("Testeira", fechamento) # testeira sozinha: item proprio
-            chave_i = ["v4", "ilha", fechamento, c].join("|")
-            di = definicao(model, nome_i, chave_i, c, TESTEIRA_ALTURA, fechamento, :ilha, mats, pecas)
+            chave_i = ["v4", "ilha", fechamento, c, t[:sobra_no_inicio]].join("|")
+            di = definicao(model, nome_i, chave_i, c, TESTEIRA_ALTURA, fechamento, :ilha, mats, pecas, nil, t[:sobra_no_inicio])
             tr_i = Geom::Transformation.translation(Geom::Vector3d.new(0, 0, altura.cm)) * tr
             grupo.entities.add_instance(di, tr_i).layer = tag
             next
@@ -500,7 +500,7 @@ module STAND1
           vao_p = porta != :nenhuma && porta_pos[:trecho] == ti ? porta_pos[:vao] : nil
 
           if fechamento == :vidro
-            fs = Layout.folhas(c, meio: meio)[:folhas]
+            fs = Layout.folhas_do(t, meio: meio)[:folhas]
             todos_eixos = [0.0] + fs.map { |f| f[:x] + f[:largura] } # inclui canto/ponta de outro trecho
             vidro_parede = fs.each_index.map { |i| i != vao_p } # vao da porta: sem vidro ate 2,20
             vidro_testeira = fs.map { true }                     # testeira de vidro passa por cima da porta
@@ -510,14 +510,14 @@ module STAND1
           # pecas da parede e da testeira (nao contam sozinhas) dentro de um
           # componente do trecho, que e o que o Memorial conta
           nome_p = "#{fch[:nome]} #{Layout.metros(c)} x #{Layout.metros(altura)} m"
-          chave_p = ["parede", fechamento, c, altura, vao_p].join("|")
-          dp = definicao(model, nome_p, chave_p, c, altura, fechamento, :parede, mats, pecas, vao_p)
+          chave_p = ["parede", fechamento, c, altura, vao_p, t[:sobra_no_inicio]].join("|")
+          dp = definicao(model, nome_p, chave_p, c, altura, fechamento, :parede, mats, pecas, vao_p, t[:sobra_no_inicio])
           partes = [[dp, 0.0]]
           chave_t = nil
           if testeira
             nome_t = "#{fch[:testeira]} #{Layout.metros(c)} x #{Layout.metros(TESTEIRA_ALTURA)} m"
-            chave_t = ["testeira", fechamento, c].join("|")
-            partes << [definicao(model, nome_t, chave_t, c, TESTEIRA_ALTURA, fechamento, :testeira, mats, pecas), altura]
+            chave_t = ["testeira", fechamento, c, t[:sobra_no_inicio]].join("|")
+            partes << [definicao(model, nome_t, chave_t, c, TESTEIRA_ALTURA, fechamento, :testeira, mats, pecas, nil, t[:sobra_no_inicio]), altura]
           end
           dtr = trecho_memorial(model, Layout.nome_memorial("Parede", fechamento),
                                 ["v4", "trecho", chave_p, chave_t].join("|"), c, h_total, partes)
@@ -526,7 +526,7 @@ module STAND1
 
           next unless vao_p
 
-          f = Layout.folhas(c, meio: meio)[:folhas][vao_p]
+          f = Layout.folhas_do(t, meio: meio)[:folhas][vao_p]
           colocar_porta(grupo.entities, porta_def, f[:x] + f[:largura] / 2.0, tr, fechamento == :vidro, tag)
         end
 

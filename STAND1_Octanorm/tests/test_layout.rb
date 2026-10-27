@@ -309,6 +309,40 @@ class TestNomeMemorial < Minitest::Test
   end
 end
 
+class TestMeioModuloMesmoLado < Minitest::Test
+  def montantes_em_y(trechos, y)
+    L.eixos(trechos).select { |q| (q[1] - y).abs < 0.5 }.map { |q| q[0] }.sort
+  end
+
+  def test_sala_de_4_50_casa_montante_das_paredes_opostas
+    t = L.trechos([[0, 0], [450, 0], [450, 300], [0, 300]], true)
+    assert_equal [false, false, true, true], t.map { |x| x[:sobra_no_inicio] }
+    assert_equal montantes_em_y(t, 0), montantes_em_y(t, 300)
+    assert_equal [0.0, 100.0, 200.0, 300.0, 400.0, 450.0], montantes_em_y(t, 300)
+  end
+
+  def test_sala_desenhada_no_sentido_horario_tambem_casa
+    t = L.trechos([[0, 0], [450, 0], [450, -300], [0, -300]], true)
+    assert_equal montantes_em_y(t, 0), montantes_em_y(t, -300)
+  end
+
+  def test_teto_da_sala_de_4_50_cai_em_montante
+    t = L.trechos([[0, 0], [450, 0], [450, 300], [0, 300]], true)
+    assert_equal 0, L.pontas_sem_montante(450, 300, [true, true, true, true], L.eixos(t))
+  end
+
+  def test_parede_reta_continua_com_sobra_no_fim
+    t = L.trechos([[450, 0], [0, 0]])
+    refute t[0][:sobra_no_inicio]
+    assert L.folhas_do(t[0])[:folhas].last[:meio]
+  end
+
+  def test_folhas_com_sobra_no_inicio
+    f = L.folhas(250, inicio: true)[:folhas]
+    assert_equal [[0.0, 50.0], [50.0, 100.0], [150.0, 100.0]], f.map { |x| [x[:x], x[:largura]] }
+  end
+end
+
 class TestEditar < Minitest::Test
   def test_ler_lista
     assert_equal [300.0, 250.0], L.ler_lista("3; 2,5")

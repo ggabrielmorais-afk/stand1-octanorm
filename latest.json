@@ -1,6 +1,6 @@
 {
-    "versao": "1.4.0",
+    "versao": "1.4.1",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.4.0: Memorial mais limpo (nomes 'Parede/Testeira em perfil de aluminio com fechamento em...', sala fechada vira 1 item com o nome do ambiente e conta 2 x (X+Y) x altura, parede com testeira conta junto, porta nao aparece), teto com forro eucatex e atualizacao pelo GitHub do Gabriel.",
-    "sha256": "d55b1295eb27c24f30c06b5fb9b15badb6e84221ed08f6903fbbd420c5cb09c8"
+    "notas": "v1.4.1: meio modulo do mesmo lado nas paredes opostas (montantes casam e o teto cai em montante). v1.4.0: Memorial mais limpo (sala = 1 item com o nome do ambiente, parede com testeira junto, porta nao aparece), forro eucatex.",
+    "sha256": "f93c117b0020799c8a3b30af01aa3e517d96fe1d54491fd8a8a350c46752a139"
 }

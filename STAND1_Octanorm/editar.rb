@@ -144,7 +144,7 @@ module STAND1
         if porta != :nenhuma && a.call("porta_pos")
           atual = JSON.parse(a.call("porta_pos"), symbolize_names: true)
           t = trechos[atual[:trecho]]
-          f = t && Layout.folhas(t[:comprimento])[:folhas][atual[:vao]]
+          f = t && Layout.folhas_do(t)[:folhas][atual[:vao]]
           porta_pos = atual if f && Layout.inteiro?(f) # o vao ainda existe: a porta fica onde estava
         end
         testeira = a.call("testeira") ? true : false if testeira.nil?

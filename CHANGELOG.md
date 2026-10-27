@@ -1,5 +1,9 @@
 # Histórico STAND1 Octanorm
 
+## 1.4.1 — 27/10/2026
+- **Meio módulo do mesmo lado nas paredes opostas.** Antes ele ia sempre no fim de cada parede, e numa sala desenhada em volta a parede de cima ficava com a sobra no canto oposto ao da de baixo. Agora a sobra fica sempre do mesmo lado da sala, os montantes das paredes opostas casam e as vigas do teto caem em montante (sala de 4,50: de 4 pontas sem montante pra 0). Parede reta não muda.
+- Sala ou parede antiga que tinha porta numa parede que mudou de lado pode ter a porta deslocada meio módulo ao usar o Editar. Confira com o Mover porta.
+
 ## 1.4.0 — 27/10/2026
 - **Memorial mais limpo.** Os nomes seguem a sequência da Stand1: "Parede em perfil de alumínio com fechamento em TS", "Testeira em perfil de alumínio com fechamento em vidro". A medida sai do nome porque o Memorial já mostra.
   - **Sala fechada vira um item só.** Ao fechar, o plugin pergunta o tipo (Sala / Depósito / Copa / Cabine) e um complemento, e o Memorial mede como recinto: 2 × (X + Y) × altura. Ex.: "Depósito de apoio em perfil de alumínio com fechamento em TS (4,00 × 4,00 × 2,90) - 46,40 m²". O Editar troca o nome.
