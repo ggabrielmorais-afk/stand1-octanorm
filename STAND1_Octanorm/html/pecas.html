@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Lista de pecas Octanorm</title>
+<style>
+  :root { --rosa: #e6398a; --azul: #1A2DB8; --texto: #33343c; --cinza: #6b6d78; --borda: #e0e0e8; --bg: #f4f6f9; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: var(--texto); background: var(--bg); font-size: 13px;
+         display: flex; flex-direction: column; }
+  header { background: linear-gradient(120deg, var(--rosa), var(--azul)); color: #fff; padding: 12px 14px 10px; }
+  header h1 { margin: 0; font-size: 17px; font-weight: 600; }
+  header .sub { font-size: 12px; opacity: .9; margin-top: 3px; }
+  main { flex: 1; overflow-y: auto; padding: 10px 14px 14px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--borda); border-radius: 10px;
+          overflow: hidden; }
+  th { text-align: left; font-size: 11px; color: var(--cinza); font-weight: 600; padding: 7px 10px; background: var(--th);
+       border-bottom: 1px solid var(--borda); }
+  td { padding: 6px 10px; border-bottom: 1px solid var(--linha); }
+  td.qtd, th.qtd { text-align: right; font-variant-numeric: tabular-nums; }
+  td.qtd { font-weight: 600; }
+  tr.grupo td { background: var(--chip); color: var(--azul); font-weight: 600; font-size: 12px; }
+  .med { color: var(--cinza); }
+  .vazio { text-align: center; color: var(--cinza); padding: 40px 10px; line-height: 1.5; }
+  footer { display: flex; gap: 8px; justify-content: flex-end; padding: 8px 14px; border-top: 1px solid var(--borda);
+           background: var(--card); }
+  footer button { border: 1px solid var(--borda); background: var(--bg); border-radius: 6px; padding: 5px 11px;
+                  font-size: 12px; cursor: pointer; color: var(--texto); }
+  footer button.principal { background: var(--azul); border-color: var(--azul); color: #fff; }
+  :root { --card: #fff; --chip: #e8eafa; --th: #fafafc; --linha: #f0f0f4; }
+  body.escuro { --texto: #e4e5ee; --cinza: #9a9cad; --borda: #34364a; --bg: #181922; --card: #22232f; --chip: #2b2f5c;
+                --th: #26273a; --linha: #2c2d3d; }
+  body.escuro .card .img { background: #2e2e34; }
+  body.escuro input, body.escuro select { background: #2a2b3a; color: var(--texto); border-color: var(--borda); }
+  body.escuro .card.inserindo, body.escuro nav button.ativo { border-color: #6f7cff; }
+  body.escuro nav button.ativo { background: #3946d6; }
+  body.escuro tr.grupo td, body.escuro .card .secao { color: #b9c0ff; }
+  .tema { position: absolute; top: 10px; right: 12px; border: 0; background: rgba(255,255,255,.18); color: #fff;
+          border-radius: 8px; padding: 3px 8px; font-size: 14px; cursor: pointer; }
+  header { position: relative; }
+</style>
+</head>
+<body>
+<header>
+  <button class="tema" id="tema" onclick="trocarTema()">&#9790;</button>
+  <h1>Lista de pecas Octanorm</h1>
+  <div class="sub" id="sub">Contando...</div>
+</header>
+<main id="main"></main>
+<footer>
+  <button onclick="sketchup.recontar()">Contar de novo</button>
+  <button onclick="copiar()">Copiar</button>
+  <button class="principal" onclick="sketchup.salvar_csv()">Salvar planilha</button>
+</footer>
+<script>
+  var dados = null;
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function carregar(d) {
+    dados = d;
+    var total = d.itens.reduce(function (s, i) { return s + i.qtd; }, 0);
+    document.getElementById("sub").textContent = d.titulo + " · " + total + " pecas";
+    if (!d.itens.length) {
+      document.getElementById("main").innerHTML = '<div class="vazio">Nenhuma peca do STAND1 Octanorm aqui.<br>' +
+        'Selecione paredes, salas, ilhas ou tetos feitos pelo plugin (ou nada, pra contar o modelo inteiro) e clique em Contar de novo.</div>';
+      return;
+    }
+    var h = '<table><tr><th>Peca</th><th>Medida</th><th class="qtd">Qtd</th></tr>', g = null;
+    d.itens.forEach(function (i) {
+      if (i.grupo !== g) {
+        g = i.grupo;
+        var soma = d.itens.filter(function (x) { return x.grupo === g; }).reduce(function (s, x) { return s + x.qtd; }, 0);
+        h += '<tr class="grupo"><td colspan="2">' + esc(g) + '</td><td class="qtd">' + soma + "</td></tr>";
+      }
+      h += "<tr><td>" + esc(i.peca) + '</td><td class="med">' + esc(i.medida) + '</td><td class="qtd">' + i.qtd + "</td></tr>";
+    });
+    document.getElementById("main").innerHTML = h + "</table>";
+  }
+  function copiar() {
+    if (!dados) return;
+    var t = "Peca\tMedida\tQtd\n" + dados.itens.map(function (i) { return i.peca + "\t" + i.medida + "\t" + i.qtd; }).join("\n");
+    var a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select();
+    document.execCommand("copy"); document.body.removeChild(a);
+  }
+  // modo noturno: lembra a escolha; na primeira vez segue o tema do Windows
+  (function () {
+    var salvo = null;
+    try { salvo = localStorage.getItem("stand1_tema"); } catch (e) {}
+    var escuro = salvo ? salvo === "escuro" : (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+    function aplicar() {
+      document.body.classList.toggle("escuro", escuro);
+      var b = document.getElementById("tema"); if (b) { b.textContent = escuro ? "☀" : "☾"; b.title = escuro ? "Modo claro" : "Modo noturno"; }
+    }
+    window.trocarTema = function () { escuro = !escuro; try { localStorage.setItem("stand1_tema", escuro ? "escuro" : "claro"); } catch (e) {} aplicar(); };
+    aplicar();
+  })();
+  window.onload = function () { sketchup.pronto(); };
+</script>
+</body>
+</html>

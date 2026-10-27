@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Biblioteca Stand1</title>
+<style>
+  :root { --rosa: #e6398a; --azul: #1A2DB8; --texto: #33343c; --cinza: #6b6d78; --borda: #e0e0e8; --bg: #f4f6f9; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: var(--texto); background: var(--bg); font-size: 13px;
+         display: flex; flex-direction: column; }
+  header { background: linear-gradient(120deg, var(--rosa), var(--azul)); color: #fff; padding: 12px 14px 10px; }
+  header h1 { margin: 0 0 8px; font-size: 17px; font-weight: 600; letter-spacing: .2px; }
+  .busca { display: flex; gap: 8px; align-items: center; }
+  .busca input { flex: 1; border: 0; border-radius: 8px; padding: 8px 10px; font-size: 13px; outline: none; }
+  .busca .conta { font-size: 12px; opacity: .9; white-space: nowrap; }
+  nav { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 4px; }
+  nav button { border: 1px solid var(--borda); background: var(--card); color: var(--texto); border-radius: 14px;
+               padding: 4px 10px; font-size: 12px; cursor: pointer; }
+  nav button.ativo { background: var(--azul); border-color: var(--azul); color: #fff; }
+  nav button span { opacity: .6; margin-left: 3px; }
+  main { flex: 1; overflow-y: auto; padding: 8px 14px 14px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .card { background: var(--card); border: 1px solid var(--borda); border-radius: 10px; overflow: hidden; cursor: pointer;
+          transition: border-color .12s, transform .12s; user-select: none; }
+  .card:hover { border-color: var(--rosa); transform: translateY(-1px); }
+  .card.inserindo { border-color: var(--azul); box-shadow: 0 0 0 2px var(--azul) inset; }
+  .card .img { height: 120px; display: flex; align-items: center; justify-content: center; background: #3e3e3e; }
+  .card .img img { max-width: 100%; max-height: 120px; }
+  .card .img .vazio { color: #bbb; font-size: 11px; }
+  .card .info { padding: 7px 9px 9px; border-top: 1px solid var(--borda); }
+  .card .nome { font-weight: 600; font-size: 12px; line-height: 1.3; }
+  .card .med { color: var(--cinza); font-size: 11px; margin-top: 2px; }
+  .card .secao { display: inline-block; margin-top: 4px; font-size: 10px; color: var(--azul); background: var(--chip);
+                 border-radius: 4px; padding: 1px 5px; }
+  .aviso { background: var(--card); border-left: 4px solid var(--rosa); border-radius: 8px; padding: 10px 12px; margin: 6px 0 10px; }
+  .vazio-total { text-align: center; color: var(--cinza); padding: 40px 0; }
+  footer { display: flex; gap: 8px; align-items: center; padding: 8px 14px; border-top: 1px solid var(--borda);
+           background: var(--card); font-size: 11px; color: var(--cinza); }
+  footer .caminho { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  footer button { border: 1px solid var(--borda); background: var(--bg); border-radius: 6px; padding: 4px 9px;
+                  font-size: 11px; cursor: pointer; color: var(--texto); }
+  footer button:hover { border-color: var(--azul); }
+  .dica { font-size: 11px; color: var(--cinza); padding: 0 14px 4px; }
+  .card .meu { display: inline-block; margin: 4px 0 0 4px; font-size: 10px; color: #fff; background: var(--rosa);
+               border-radius: 4px; padding: 1px 5px; }
+  footer button.add { background: var(--azul); border-color: var(--azul); color: #fff; font-weight: 600; }
+  #form { position: fixed; inset: 0; background: rgba(20, 22, 40, .45); display: none; align-items: center;
+          justify-content: center; padding: 14px; }
+  #form .caixa { background: var(--card); border-radius: 12px; width: 100%; max-width: 420px; padding: 16px 18px;
+                 box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+  #form h2 { margin: 0 0 4px; font-size: 15px; }
+  #form .med { color: var(--cinza); font-size: 12px; margin-bottom: 10px; }
+  #form label { display: block; font-size: 11px; color: var(--cinza); margin: 9px 0 3px; }
+  #form input[type=text], #form select { width: 100%; border: 1px solid var(--borda); border-radius: 6px; padding: 6px 8px;
+                                         font-size: 13px; }
+  #form .linha { display: flex; gap: 6px; align-items: center; margin-top: 9px; font-size: 12px; }
+  #form .obs { font-size: 11px; color: var(--cinza); margin-top: 4px; }
+  #form .erro { color: #c0154f; font-size: 12px; margin-top: 8px; min-height: 16px; }
+  #form .botoes { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+  #form button { border: 1px solid var(--borda); background: var(--bg); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+  #form button.ok { background: var(--azul); border-color: var(--azul); color: #fff; }
+  :root { --card: #fff; --chip: #e8eafa; --th: #fafafc; --linha: #f0f0f4; }
+  body.escuro { --texto: #e4e5ee; --cinza: #9a9cad; --borda: #34364a; --bg: #181922; --card: #22232f; --chip: #2b2f5c;
+                --th: #26273a; --linha: #2c2d3d; }
+  body.escuro .card .img { background: #2e2e34; }
+  body.escuro input, body.escuro select { background: #2a2b3a; color: var(--texto); border-color: var(--borda); }
+  body.escuro .card.inserindo, body.escuro nav button.ativo { border-color: #6f7cff; }
+  body.escuro nav button.ativo { background: #3946d6; }
+  body.escuro tr.grupo td, body.escuro .card .secao { color: #b9c0ff; }
+  .tema { position: absolute; top: 10px; right: 12px; border: 0; background: rgba(255,255,255,.18); color: #fff;
+          border-radius: 8px; padding: 3px 8px; font-size: 14px; cursor: pointer; }
+  header { position: relative; }
+</style>
+</head>
+<body>
+<header>
+  <button class="tema" id="tema" onclick="trocarTema()">&#9790;</button>
+  <h1>Biblioteca Stand1</h1>
+  <div class="busca">
+    <input id="q" type="search" placeholder="Buscar bloco (ex.: balcão, tv, cachepot)" autofocus>
+    <span class="conta" id="conta"></span>
+  </div>
+</header>
+<nav id="cats"></nav>
+<div class="dica">Clique no bloco e posicione no modelo. Ele já entra com a tag do Memorial.</div>
+<main>
+  <div id="aviso"></div>
+  <div class="grade" id="grade"></div>
+</main>
+<footer>
+  <span class="caminho" id="caminho">Carregando...</span>
+  <button onclick="sketchup.escolher_pasta()">Trocar pasta</button>
+  <button onclick="sketchup.abrir_pasta()">Abrir pasta</button>
+  <button onclick="sketchup.pronto()">Atualizar</button>
+  <button class="add" onclick="sketchup.preparar_adicionar()">+ Adicionar bloco</button>
+</footer>
+
+<div id="form">
+  <div class="caixa">
+    <h2>Adicionar bloco ao catálogo</h2>
+    <div class="med" id="f_med"></div>
+    <label>Nome (Mobiliário leva a medida: "Balcão MDF 1,00 x 0,50 m")</label>
+    <input type="text" id="f_nome">
+    <label>Seção do Memorial (tag)</label>
+    <select id="f_secao"></select>
+    <label>Categoria na Biblioteca</label>
+    <select id="f_cat"></select>
+    <input type="text" id="f_cat_nova" placeholder="Nome da categoria nova" style="display:none; margin-top:6px">
+    <div class="linha"><input type="checkbox" id="f_girar"><label for="f_girar" style="margin:0">Girar 90° (comprimento no eixo vermelho)</label></div>
+    <div class="obs">O bloco fica nesta pasta, só nesta máquina. O modelo aberto não muda.</div>
+    <div class="erro" id="f_erro"></div>
+    <div class="botoes">
+      <button onclick="fecharForm()">Cancelar</button>
+      <button class="ok" id="f_ok" onclick="salvarForm()">Salvar no catálogo</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var blocos = [], categoria = "Todos";
+  var ORDEM = ["Stands prontos", "Octanorm", "Estruturas", "Revestimentos", "Balcões", "Mesas", "Bistrôs", "Cadeiras",
+               "Poltronas e puffs", "Sofás e bancos", "Expositores e apoio", "Paisagismo", "Equipamentos", "Elétrica", "Outros"];
+
+  function sem_acento(s) { return (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
+  function esc(s) { return String(s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function carregar(d) {
+    blocos = d.blocos || [];
+    document.getElementById("caminho").textContent = d.pasta || "";
+    var av = "";
+    if (d.erro) av = '<div class="aviso">' + esc(d.erro) + "</div>";
+    else if (d.sem_indice) av = '<div class="aviso">Esta pasta não tem <b>catalogo.json</b>: os blocos aparecem em "Outros", sem miniatura.</div>';
+    document.getElementById("aviso").innerHTML = av;
+    montarCategorias();
+    filtrar();
+  }
+
+  function montarCategorias() {
+    var cont = { "Todos": blocos.length };
+    blocos.forEach(function (b) { cont[b.categoria] = (cont[b.categoria] || 0) + 1; });
+    var cats = ["Todos"].concat(ORDEM.filter(function (c) { return cont[c]; }));
+    Object.keys(cont).forEach(function (c) { if (cats.indexOf(c) < 0) cats.push(c); });
+    if (cats.indexOf(categoria) < 0) categoria = "Todos";
+    document.getElementById("cats").innerHTML = cats.map(function (c) {
+      return '<button class="' + (c === categoria ? "ativo" : "") + '" data-c="' + esc(c) + '">' + esc(c) + "<span>" + cont[c] + "</span></button>";
+    }).join("");
+  }
+
+  function filtrar() {
+    var q = sem_acento(document.getElementById("q").value).trim().split(/\s+/).filter(Boolean);
+    var lista = blocos.filter(function (b) {
+      if (categoria !== "Todos" && b.categoria !== categoria) return false;
+      var alvo = sem_acento(b.nome + " " + b.categoria + " " + b.secao + " " + b.arquivo);
+      return q.every(function (p) { return alvo.indexOf(p) >= 0; });
+    });
+    document.getElementById("conta").textContent = lista.length + " de " + blocos.length;
+    document.getElementById("grade").innerHTML = lista.length ? lista.map(function (b) {
+      var img = b.img ? '<img src="' + b.img + '" alt="">' : '<span class="vazio">sem imagem</span>';
+      return '<div class="card" title="' + esc(b.arquivo) + '" data-a="' + esc(b.arquivo) + '">' +
+        '<div class="img">' + img + "</div><div class=\"info\"><div class=\"nome\">" + esc(b.nome) + "</div>" +
+        (b.medida ? '<div class="med">' + esc(b.medida) + "</div>" : "") +
+        (b.secao ? '<span class="secao">' + esc(b.secao) + "</span>" : "") +
+        (b.meu ? '<span class="meu" title="Adicionado nesta máquina">seu</span>' : "") + "</div></div>";
+    }).join("") : '<div class="vazio-total">Nenhum bloco encontrado.</div>';
+  }
+
+  document.getElementById("q").addEventListener("input", filtrar);
+  document.getElementById("cats").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    categoria = b.getAttribute("data-c"); montarCategorias(); filtrar();
+  });
+  document.getElementById("grade").addEventListener("click", function (e) {
+    var c = e.target.closest(".card"); if (!c) return;
+    document.querySelectorAll(".card.inserindo").forEach(function (x) { x.classList.remove("inserindo"); });
+    c.classList.add("inserindo");
+    sketchup.inserir(c.getAttribute("data-a"));
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { document.getElementById("q").value = ""; filtrar(); }
+  });
+  // ---- + Adicionar bloco ----
+  var form = null;
+  function fmtM(cm) { return (cm / 100).toFixed(2).replace(".", ","); }
+  function temMedida(n) { return /\d+(,\d+)?\s*x\s*\d+(,\d+)?\s*m\b/i.test(n); }
+  function dimsAtuais() {
+    var g = document.getElementById("f_girar").checked;
+    return g ? [form.y, form.x, form.z] : [form.x, form.y, form.z];
+  }
+  function sugerirNome() {
+    var n = document.getElementById("f_nome"), d = dimsAtuais();
+    document.getElementById("f_med").textContent = "Medida: " + d.map(function (v) { return String(v).replace(".", ","); }).join(" x ") + " cm (L x P x A)";
+    if (document.getElementById("f_secao").value === "MOBILIÁRIO") {
+      var base = n.value.replace(/\s*\d+(,\d+)?\s*x\s*\d+(,\d+)?\s*m\s*$/i, "").trim();
+      if (base) n.value = base + " " + fmtM(d[0]) + " x " + fmtM(d[1]) + " m";
+    }
+  }
+  function abrir_form(d) {
+    if (d.erro) { alert(d.erro); return; }
+    form = d;
+    document.getElementById("f_nome").value = d.nome || "";
+    document.getElementById("f_secao").innerHTML = d.secoes.map(function (s) { return "<option>" + esc(s) + "</option>"; }).join("");
+    var cats = ORDEM.filter(function (c) { return c !== "Outros" && c !== "Stands prontos"; });
+    blocos.forEach(function (b) { if (b.categoria && cats.indexOf(b.categoria) < 0 && b.categoria !== "Outros") cats.push(b.categoria); });
+    document.getElementById("f_cat").innerHTML = cats.map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("") +
+      '<option value="__nova">Nova categoria...</option>';
+    if (categoria !== "Todos" && cats.indexOf(categoria) >= 0) document.getElementById("f_cat").value = categoria;
+    document.getElementById("f_cat_nova").style.display = "none";
+    document.getElementById("f_girar").checked = !!d.girar;
+    document.getElementById("f_erro").textContent = "";
+    document.getElementById("f_ok").disabled = false;
+    sugerirNome();
+    document.getElementById("form").style.display = "flex";
+    document.getElementById("f_nome").focus();
+  }
+  function fecharForm() { document.getElementById("form").style.display = "none"; }
+  function salvarForm() {
+    var c = document.getElementById("f_cat").value;
+    if (c === "__nova") c = document.getElementById("f_cat_nova").value.trim();
+    document.getElementById("f_ok").disabled = true;
+    document.getElementById("f_erro").textContent = "Salvando...";
+    sketchup.adicionar(JSON.stringify({ nome: document.getElementById("f_nome").value, secao: document.getElementById("f_secao").value,
+                                        categoria: c, girar: document.getElementById("f_girar").checked }));
+  }
+  function adicionado(r) {
+    document.getElementById("f_ok").disabled = false;
+    if (!r.ok) { document.getElementById("f_erro").textContent = r.erro; return; }
+    fecharForm();
+    document.getElementById("q").value = r.nome;
+  }
+  document.getElementById("f_secao").addEventListener("change", sugerirNome);
+  document.getElementById("f_girar").addEventListener("change", sugerirNome);
+  document.getElementById("f_cat").addEventListener("change", function () {
+    document.getElementById("f_cat_nova").style.display = this.value === "__nova" ? "block" : "none";
+  });
+
+  // modo noturno: lembra a escolha; na primeira vez segue o tema do Windows
+  (function () {
+    var salvo = null;
+    try { salvo = localStorage.getItem("stand1_tema"); } catch (e) {}
+    var escuro = salvo ? salvo === "escuro" : (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+    function aplicar() {
+      document.body.classList.toggle("escuro", escuro);
+      var b = document.getElementById("tema"); if (b) { b.textContent = escuro ? "☀" : "☾"; b.title = escuro ? "Modo claro" : "Modo noturno"; }
+    }
+    window.trocarTema = function () { escuro = !escuro; try { localStorage.setItem("stand1_tema", escuro ? "escuro" : "claro"); } catch (e) {} aplicar(); };
+    aplicar();
+  })();
+  window.onload = function () { sketchup.pronto(); };
+</script>
+</body>
+</html>

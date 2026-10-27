@@ -1,0 +1,5 @@
+# pacotes antigos ficam so no PC (o auto-update baixa STAND1_Octanorm.rbz)
+versoes_anteriores/
+STAND1_Octanorm_v*.rbz
+__pycache__/
+*.skb

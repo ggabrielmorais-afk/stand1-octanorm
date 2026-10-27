@@ -1,0 +1,7830 @@
+{
+  "PLuguin/parede de vidro.skp": {
+    "caixa": {
+      "min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        200.63,
+        6.13,
+        290.95
+      ],
+      "tam": [
+        200.63,
+        6.13,
+        290.95
+      ]
+    },
+    "pecas": [
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#23",
+        "tag": "ESTRUTURAS",
+        "material": "aluminio",
+        "origem": [
+          95.16,
+          2.36,
+          9.06
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          -0.002
+        ],
+        "eixo_y": [
+          -0.002,
+          0.0,
+          -1.0
+        ],
+        "eixo_z": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "escala": [
+          0.999,
+          0.983,
+          0.942
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            95.18,
+            0.0,
+            1.72
+          ],
+          "max": [
+            105.54,
+            2.36,
+            9.04
+          ],
+          "tam": [
+            10.36,
+            2.36,
+            7.32
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.03,
+            0.03,
+            0.0
+          ],
+          "max": [
+            10.4,
+            7.45,
+            2.5
+          ],
+          "tam": [
+            10.36,
+            7.43,
+            2.5
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Componente#25",
+            "definicao": "Componente#25",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              98.35,
+              1.88,
+              5.66
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              -0.002
+            ],
+            "eixo_y": [
+              -0.002,
+              0.0,
+              -1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                98.34,
+                1.41,
+                1.72
+              ],
+              "max": [
+                102.34,
+                1.88,
+                5.66
+              ],
+              "tam": [
+                4.0,
+                0.47,
+                3.94
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                4.0,
+                4.0,
+                0.5
+              ],
+              "tam": [
+                4.0,
+                4.0,
+                0.5
+              ]
+            },
+            "faces_soltas": 296,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Componente#26",
+            "definicao": "Componente#26",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              103.04,
+              1.41,
+              6.57
+            ],
+            "eixo_x": [
+              0.002,
+              0.0,
+              1.0
+            ],
+            "eixo_y": [
+              1.0,
+              0.0,
+              -0.002
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.983,
+              0.999,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                101.29,
+                0.0,
+                4.72
+              ],
+              "max": [
+                105.54,
+                2.36,
+                9.03
+              ],
+              "tam": [
+                4.25,
+                2.36,
+                4.31
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -1.88,
+                -1.75,
+                -1.0
+              ],
+              "max": [
+                2.5,
+                2.5,
+                1.5
+              ],
+              "tam": [
+                4.38,
+                4.25,
+                2.5
+              ]
+            },
+            "faces_soltas": 84,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Componente#26",
+            "definicao": "Componente#26",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              97.68,
+              1.41,
+              6.58
+            ],
+            "eixo_x": [
+              0.002,
+              0.0,
+              1.0
+            ],
+            "eixo_y": [
+              -1.0,
+              0.0,
+              0.002
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.983,
+              0.999,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                95.19,
+                0.0,
+                4.73
+              ],
+              "max": [
+                99.44,
+                2.36,
+                9.04
+              ],
+              "tam": [
+                4.25,
+                2.36,
+                4.31
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -1.88,
+                -1.75,
+                -1.0
+              ],
+              "max": [
+                2.5,
+                2.5,
+                1.5
+              ],
+              "tam": [
+                4.38,
+                4.25,
+                2.5
+              ]
+            },
+            "faces_soltas": 84,
+            "filhos": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#17",
+        "tag": "ESTRUTURAS",
+        "material": null,
+        "origem": [
+          100.95,
+          0.57,
+          1.05
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          1.0,
+          1.298,
+          1.0
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            100.95,
+            0.57,
+            1.05
+          ],
+          "max": [
+            200.51,
+            1.79,
+            288.57
+          ],
+          "tam": [
+            99.56,
+            1.22,
+            287.52
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            287.52
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            287.52
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Vidro interno#2",
+            "definicao": "Vidro interno#2",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              200.51,
+              0.57,
+              108.43
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              1.0,
+              1.298,
+              1.0
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                100.95,
+                0.57,
+                108.43
+              ],
+              "max": [
+                200.51,
+                1.79,
+                218.19
+              ],
+              "tam": [
+                99.56,
+                1.22,
+                109.76
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                99.56,
+                0.94,
+                109.76
+              ],
+              "tam": [
+                99.56,
+                0.94,
+                109.76
+              ]
+            },
+            "faces_soltas": 6,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Vidro interno#3",
+            "definicao": "Vidro interno#3",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              200.51,
+              0.57,
+              218.82
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              1.0,
+              1.298,
+              0.636
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                100.95,
+                0.57,
+                218.82
+              ],
+              "max": [
+                200.51,
+                1.79,
+                288.57
+              ],
+              "tam": [
+                99.56,
+                1.22,
+                69.76
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                99.56,
+                0.94,
+                109.76
+              ],
+              "tam": [
+                99.56,
+                0.94,
+                109.76
+              ]
+            },
+            "faces_soltas": 6,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Vidro interno#1",
+            "definicao": "Vidro interno#1",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              200.51,
+              0.57,
+              1.05
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              1.0,
+              1.298,
+              0.973
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                100.95,
+                0.57,
+                1.05
+              ],
+              "max": [
+                200.51,
+                1.79,
+                107.8
+              ],
+              "tam": [
+                99.56,
+                1.22,
+                106.75
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                99.56,
+                0.94,
+                109.76
+              ],
+              "tam": [
+                99.56,
+                0.94,
+                109.76
+              ]
+            },
+            "faces_soltas": 6,
+            "filhos": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#3",
+        "tag": "ESTRUTURAS",
+        "material": null,
+        "origem": [
+          0.09,
+          0.57,
+          1.05
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          1.0,
+          1.298,
+          1.0
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            0.09,
+            0.57,
+            1.05
+          ],
+          "max": [
+            99.65,
+            1.79,
+            288.57
+          ],
+          "tam": [
+            99.56,
+            1.22,
+            287.52
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            287.52
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            287.52
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Vidro interno#2",
+            "definicao": "Vidro interno#2",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              99.65,
+              0.57,
+              108.43
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              1.0,
+              1.298,
+              1.0
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.09,
+                0.57,
+                108.43
+              ],
+              "max": [
+                99.65,
+                1.79,
+                218.19
+              ],
+              "tam": [
+                99.56,
+                1.22,
+                109.76
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                99.56,
+                0.94,
+                109.76
+              ],
+              "tam": [
+                99.56,
+                0.94,
+                109.76
+              ]
+            },
+            "faces_soltas": 6,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Vidro interno#3",
+            "definicao": "Vidro interno#3",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              99.65,
+              0.57,
+              218.82
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              1.0,
+              1.298,
+              0.636
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.09,
+                0.57,
+                218.82
+              ],
+              "max": [
+                99.65,
+                1.79,
+                288.57
+              ],
+              "tam": [
+                99.56,
+                1.22,
+                69.76
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                99.56,
+                0.94,
+                109.76
+              ],
+              "tam": [
+                99.56,
+                0.94,
+                109.76
+              ]
+            },
+            "faces_soltas": 6,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Vidro interno#1",
+            "definicao": "Vidro interno#1",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              99.65,
+              0.57,
+              1.05
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              1.0,
+              1.298,
+              0.973
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.09,
+                0.57,
+                1.05
+              ],
+              "max": [
+                99.65,
+                1.79,
+                107.8
+              ],
+              "tam": [
+                99.56,
+                1.22,
+                106.75
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                99.56,
+                0.94,
+                109.76
+              ],
+              "tam": [
+                99.56,
+                0.94,
+                109.76
+              ]
+            },
+            "faces_soltas": 6,
+            "filhos": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Componente#2",
+        "definicao": "Componente#2",
+        "tag": "ESTRUTURAS",
+        "material": "aluminio",
+        "origem": [
+          -259.33,
+          4.98,
+          273.55
+        ],
+        "eixo_x": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "eixo_y": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          0.998,
+          5.184,
+          3.43
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            0.0,
+            3.33,
+            273.55
+          ],
+          "max": [
+            98.37,
+            4.98,
+            290.7
+          ],
+          "tam": [
+            98.37,
+            1.65,
+            17.15
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            50.02,
+            0.0
+          ],
+          "max": [
+            1.66,
+            69.0,
+            5.0
+          ],
+          "tam": [
+            1.66,
+            18.98,
+            5.0
+          ]
+        },
+        "faces_soltas": 42,
+        "filhos": [
+
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Spider para vidro ",
+        "definicao": "Spider para vidro ",
+        "tag": "ESTRUTURAS",
+        "material": null,
+        "origem": [
+          94.92,
+          0.28,
+          213.18
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            94.92,
+            0.28,
+            213.18
+          ],
+          "max": [
+            105.77,
+            2.64,
+            223.71
+          ],
+          "tam": [
+            10.84,
+            2.36,
+            10.53
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            10.84,
+            2.36,
+            10.53
+          ],
+          "tam": [
+            10.84,
+            2.36,
+            10.53
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#71",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              105.54,
+              2.64,
+              213.24
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                94.92,
+                0.28,
+                216.64
+              ],
+              "max": [
+                102.34,
+                2.64,
+                223.71
+              ],
+              "tam": [
+                7.42,
+                2.36,
+                7.08
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                3.46,
+                0.0
+              ],
+              "max": [
+                10.63,
+                10.65,
+                2.5
+              ],
+              "tam": [
+                7.43,
+                7.2,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  102.34,
+                  2.17,
+                  216.64
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    216.64
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    220.57
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  97.42,
+                  1.69,
+                  221.26
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    94.92,
+                    0.28,
+                    219.54
+                  ],
+                  "max": [
+                    99.3,
+                    2.64,
+                    223.71
+                  ],
+                  "tam": [
+                    4.37,
+                    2.36,
+                    4.18
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#16",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              95.15,
+              2.64,
+              213.16
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                98.35,
+                0.28,
+                213.18
+              ],
+              "max": [
+                105.54,
+                2.64,
+                220.48
+              ],
+              "tam": [
+                7.19,
+                2.36,
+                7.3
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                0.03,
+                0.0
+              ],
+              "max": [
+                10.4,
+                7.45,
+                2.5
+              ],
+              "tam": [
+                7.2,
+                7.43,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  98.35,
+                  2.17,
+                  216.55
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    216.55
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    220.48
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  103.04,
+                  1.69,
+                  215.64
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.983,
+                  0.999,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    101.29,
+                    0.28,
+                    213.18
+                  ],
+                  "max": [
+                    105.54,
+                    2.64,
+                    217.49
+                  ],
+                  "tam": [
+                    4.24,
+                    2.36,
+                    4.31
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#71",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              95.15,
+              2.64,
+              213.19
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                98.35,
+                0.28,
+                216.59
+              ],
+              "max": [
+                105.77,
+                2.64,
+                223.66
+              ],
+              "tam": [
+                7.42,
+                2.36,
+                7.08
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                3.46,
+                0.0
+              ],
+              "max": [
+                10.63,
+                10.65,
+                2.5
+              ],
+              "tam": [
+                7.43,
+                7.2,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  98.35,
+                  2.17,
+                  216.59
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    216.59
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    220.52
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  103.27,
+                  1.69,
+                  221.21
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    101.39,
+                    0.28,
+                    219.49
+                  ],
+                  "max": [
+                    105.77,
+                    2.64,
+                    223.66
+                  ],
+                  "tam": [
+                    4.37,
+                    2.36,
+                    4.18
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#16",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              105.54,
+              2.64,
+              213.24
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                95.15,
+                0.28,
+                213.27
+              ],
+              "max": [
+                102.34,
+                2.64,
+                220.57
+              ],
+              "tam": [
+                7.19,
+                2.36,
+                7.3
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                0.03,
+                0.0
+              ],
+              "max": [
+                10.4,
+                7.45,
+                2.5
+              ],
+              "tam": [
+                7.2,
+                7.43,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  102.34,
+                  2.17,
+                  216.64
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    216.64
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    220.57
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  97.65,
+                  1.69,
+                  215.72
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.983,
+                  0.999,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    95.15,
+                    0.28,
+                    213.27
+                  ],
+                  "max": [
+                    99.4,
+                    2.64,
+                    217.57
+                  ],
+                  "tam": [
+                    4.24,
+                    2.36,
+                    4.31
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Componente#1",
+        "definicao": "Componente#1",
+        "tag": "ESTRUTURAS",
+        "material": "aluminio",
+        "origem": [
+          56.47,
+          5.01,
+          0.0
+        ],
+        "eixo_x": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "eixo_y": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          0.998,
+          2.088,
+          1.338
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            0.09,
+            3.36,
+            0.0
+          ],
+          "max": [
+            200.56,
+            5.01,
+            6.69
+          ],
+          "tam": [
+            200.48,
+            1.65,
+            6.69
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            -27.0,
+            0.0
+          ],
+          "max": [
+            1.66,
+            69.0,
+            5.0
+          ],
+          "tam": [
+            1.66,
+            96.0,
+            5.0
+          ]
+        },
+        "faces_soltas": 42,
+        "filhos": [
+
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Spider para vidro ",
+        "definicao": "Spider para vidro ",
+        "tag": "ESTRUTURAS",
+        "material": null,
+        "origem": [
+          94.92,
+          0.28,
+          102.49
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            94.92,
+            0.28,
+            102.49
+          ],
+          "max": [
+            105.77,
+            2.64,
+            113.03
+          ],
+          "tam": [
+            10.84,
+            2.36,
+            10.53
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            10.84,
+            2.36,
+            10.53
+          ],
+          "tam": [
+            10.84,
+            2.36,
+            10.53
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#71",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              105.54,
+              2.64,
+              102.55
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                94.92,
+                0.28,
+                105.95
+              ],
+              "max": [
+                102.34,
+                2.64,
+                113.03
+              ],
+              "tam": [
+                7.42,
+                2.36,
+                7.08
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                3.46,
+                0.0
+              ],
+              "max": [
+                10.63,
+                10.65,
+                2.5
+              ],
+              "tam": [
+                7.43,
+                7.2,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  102.34,
+                  2.17,
+                  105.95
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    105.95
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    109.88
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  97.42,
+                  1.69,
+                  110.57
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    94.92,
+                    0.28,
+                    108.85
+                  ],
+                  "max": [
+                    99.3,
+                    2.64,
+                    113.03
+                  ],
+                  "tam": [
+                    4.37,
+                    2.36,
+                    4.18
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#16",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              95.15,
+              2.64,
+              102.47
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                98.35,
+                0.28,
+                102.49
+              ],
+              "max": [
+                105.54,
+                2.64,
+                109.8
+              ],
+              "tam": [
+                7.19,
+                2.36,
+                7.3
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                0.03,
+                0.0
+              ],
+              "max": [
+                10.4,
+                7.45,
+                2.5
+              ],
+              "tam": [
+                7.2,
+                7.43,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  98.35,
+                  2.17,
+                  105.86
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    105.86
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    109.8
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  103.04,
+                  1.69,
+                  104.95
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.983,
+                  0.999,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    101.29,
+                    0.28,
+                    102.49
+                  ],
+                  "max": [
+                    105.54,
+                    2.64,
+                    106.8
+                  ],
+                  "tam": [
+                    4.24,
+                    2.36,
+                    4.31
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#71",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              95.15,
+              2.64,
+              102.5
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                98.35,
+                0.28,
+                105.9
+              ],
+              "max": [
+                105.77,
+                2.64,
+                112.97
+              ],
+              "tam": [
+                7.42,
+                2.36,
+                7.08
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                3.46,
+                0.0
+              ],
+              "max": [
+                10.63,
+                10.65,
+                2.5
+              ],
+              "tam": [
+                7.43,
+                7.2,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  98.35,
+                  2.17,
+                  105.9
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    105.9
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    109.83
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  103.27,
+                  1.69,
+                  110.52
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    101.39,
+                    0.28,
+                    108.8
+                  ],
+                  "max": [
+                    105.77,
+                    2.64,
+                    112.97
+                  ],
+                  "tam": [
+                    4.37,
+                    2.36,
+                    4.18
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#16",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              105.54,
+              2.64,
+              102.55
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                95.15,
+                0.28,
+                102.58
+              ],
+              "max": [
+                102.34,
+                2.64,
+                109.88
+              ],
+              "tam": [
+                7.19,
+                2.36,
+                7.3
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                3.2,
+                0.03,
+                0.0
+              ],
+              "max": [
+                10.4,
+                7.45,
+                2.5
+              ],
+              "tam": [
+                7.2,
+                7.43,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  102.34,
+                  2.17,
+                  105.95
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    105.95
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    109.88
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  97.65,
+                  1.69,
+                  105.03
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.983,
+                  0.999,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    95.15,
+                    0.28,
+                    102.58
+                  ],
+                  "max": [
+                    99.4,
+                    2.64,
+                    106.88
+                  ],
+                  "tam": [
+                    4.24,
+                    2.36,
+                    4.31
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Componente#7",
+        "definicao": "Componente#7",
+        "tag": "ESTRUTURAS",
+        "material": "aluminio",
+        "origem": [
+          98.37,
+          2.17,
+          0.7
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          0.971,
+          0.991,
+          1.318
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            98.37,
+            2.17,
+            0.7
+          ],
+          "max": [
+            102.26,
+            6.13,
+            290.7
+          ],
+          "tam": [
+            3.89,
+            3.97,
+            289.99
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            4.0,
+            4.0,
+            220.0
+          ],
+          "tam": [
+            4.0,
+            4.0,
+            220.0
+          ]
+        },
+        "faces_soltas": 231,
+        "filhos": [
+
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Spider para vidro #2",
+        "definicao": "Spider para vidro #2",
+        "tag": "ESTRUTURAS",
+        "material": null,
+        "origem": [
+          94.92,
+          0.28,
+          283.57
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            95.15,
+            0.28,
+            283.65
+          ],
+          "max": [
+            105.5,
+            2.64,
+            290.95
+          ],
+          "tam": [
+            10.35,
+            2.36,
+            7.3
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.23,
+            0.0,
+            0.08
+          ],
+          "max": [
+            10.58,
+            2.36,
+            7.39
+          ],
+          "tam": [
+            10.35,
+            2.36,
+            7.3
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#23",
+            "tag": "Layer0",
+            "material": "aluminio",
+            "origem": [
+              105.54,
+              2.64,
+              283.62
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                95.15,
+                0.28,
+                283.65
+              ],
+              "max": [
+                105.5,
+                2.64,
+                290.95
+              ],
+              "tam": [
+                10.35,
+                2.36,
+                7.3
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.03,
+                0.03,
+                0.0
+              ],
+              "max": [
+                10.4,
+                7.45,
+                2.5
+              ],
+              "tam": [
+                10.36,
+                7.43,
+                2.5
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Componente#25",
+                "definicao": "Componente#25",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  102.34,
+                  2.17,
+                  287.02
+                ],
+                "eixo_x": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.999,
+                  0.983,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    98.35,
+                    1.69,
+                    287.02
+                  ],
+                  "max": [
+                    102.34,
+                    2.17,
+                    290.95
+                  ],
+                  "tam": [
+                    3.99,
+                    0.47,
+                    3.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ],
+                  "tam": [
+                    4.0,
+                    4.0,
+                    0.5
+                  ]
+                },
+                "faces_soltas": 296,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  97.65,
+                  1.69,
+                  286.11
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.983,
+                  0.999,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    95.15,
+                    0.28,
+                    283.65
+                  ],
+                  "max": [
+                    99.4,
+                    2.64,
+                    287.96
+                  ],
+                  "tam": [
+                    4.24,
+                    2.36,
+                    4.31
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Componente#26",
+                "definicao": "Componente#26",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  103.01,
+                  1.69,
+                  286.11
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.983,
+                  0.999,
+                  0.942
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    101.26,
+                    0.28,
+                    283.65
+                  ],
+                  "max": [
+                    105.5,
+                    2.64,
+                    287.96
+                  ],
+                  "tam": [
+                    4.24,
+                    2.36,
+                    4.31
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -1.88,
+                    -1.75,
+                    -1.0
+                  ],
+                  "max": [
+                    2.5,
+                    2.5,
+                    1.5
+                  ],
+                  "tam": [
+                    4.38,
+                    4.25,
+                    2.5
+                  ]
+                },
+                "faces_soltas": 84,
+                "filhos": [
+
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "componente",
+        "nome": "Componente#2",
+        "definicao": "Componente#2",
+        "tag": "ESTRUTURAS",
+        "material": "aluminio",
+        "origem": [
+          -157.07,
+          4.98,
+          273.55
+        ],
+        "eixo_x": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "eixo_y": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          0.998,
+          5.184,
+          3.43
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            102.26,
+            3.33,
+            273.55
+          ],
+          "max": [
+            200.63,
+            4.98,
+            290.7
+          ],
+          "tam": [
+            98.37,
+            1.65,
+            17.15
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            50.02,
+            0.0
+          ],
+          "max": [
+            1.66,
+            69.0,
+            5.0
+          ],
+          "tam": [
+            1.66,
+            18.98,
+            5.0
+          ]
+        },
+        "faces_soltas": 42,
+        "filhos": [
+
+        ]
+      }
+    ],
+    "pecas_salvas": [
+      {
+        "nome": "Agrupar#23",
+        "definicao": "Agrupar#23",
+        "arquivo": "Agrupar-23 - Agrupar-23.skp",
+        "caixa": {
+          "min": [
+            0.03,
+            0.03,
+            0.0
+          ],
+          "max": [
+            10.4,
+            7.45,
+            2.5
+          ],
+          "tam": [
+            10.36,
+            7.43,
+            2.5
+          ]
+        }
+      },
+      {
+        "nome": "Componente#25",
+        "definicao": "Componente#25",
+        "arquivo": "Componente-25 - Componente-25.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            4.0,
+            4.0,
+            0.5
+          ],
+          "tam": [
+            4.0,
+            4.0,
+            0.5
+          ]
+        }
+      },
+      {
+        "nome": "Componente#26",
+        "definicao": "Componente#26",
+        "arquivo": "Componente-26 - Componente-26.skp",
+        "caixa": {
+          "min": [
+            -1.88,
+            -1.75,
+            -1.0
+          ],
+          "max": [
+            2.5,
+            2.5,
+            1.5
+          ],
+          "tam": [
+            4.38,
+            4.25,
+            2.5
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#17",
+        "definicao": "Agrupar#17",
+        "arquivo": "Agrupar-17 - Agrupar-17.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            287.52
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            287.52
+          ]
+        }
+      },
+      {
+        "nome": "Vidro interno#2",
+        "definicao": "Vidro interno#2",
+        "arquivo": "Vidro interno-2 - Vidro interno-2.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            109.76
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            109.76
+          ]
+        }
+      },
+      {
+        "nome": "Vidro interno#3",
+        "definicao": "Vidro interno#3",
+        "arquivo": "Vidro interno-3 - Vidro interno-3.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            109.76
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            109.76
+          ]
+        }
+      },
+      {
+        "nome": "Vidro interno#1",
+        "definicao": "Vidro interno#1",
+        "arquivo": "Vidro interno-1 - Vidro interno-1.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            109.76
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            109.76
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#3",
+        "definicao": "Agrupar#3",
+        "arquivo": "Agrupar-3 - Agrupar-3.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            99.56,
+            0.94,
+            287.52
+          ],
+          "tam": [
+            99.56,
+            0.94,
+            287.52
+          ]
+        }
+      },
+      {
+        "nome": "Componente#2",
+        "definicao": "Componente#2",
+        "arquivo": "Componente-2 - Componente-2.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            50.02,
+            0.0
+          ],
+          "max": [
+            1.66,
+            69.0,
+            5.0
+          ],
+          "tam": [
+            1.66,
+            18.98,
+            5.0
+          ]
+        }
+      },
+      {
+        "nome": "Spider para vidro ",
+        "definicao": "Spider para vidro ",
+        "arquivo": "Spider para vidro - Spider para vidro.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            10.84,
+            2.36,
+            10.53
+          ],
+          "tam": [
+            10.84,
+            2.36,
+            10.53
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#71",
+        "definicao": "Agrupar#71",
+        "arquivo": "Agrupar-71 - Agrupar-71.skp",
+        "caixa": {
+          "min": [
+            3.2,
+            3.46,
+            0.0
+          ],
+          "max": [
+            10.63,
+            10.65,
+            2.5
+          ],
+          "tam": [
+            7.43,
+            7.2,
+            2.5
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#16",
+        "definicao": "Agrupar#16",
+        "arquivo": "Agrupar-16 - Agrupar-16.skp",
+        "caixa": {
+          "min": [
+            3.2,
+            0.03,
+            0.0
+          ],
+          "max": [
+            10.4,
+            7.45,
+            2.5
+          ],
+          "tam": [
+            7.2,
+            7.43,
+            2.5
+          ]
+        }
+      },
+      {
+        "nome": "Componente#1",
+        "definicao": "Componente#1",
+        "arquivo": "Componente-1 - Componente-1.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            -27.0,
+            0.0
+          ],
+          "max": [
+            1.66,
+            69.0,
+            5.0
+          ],
+          "tam": [
+            1.66,
+            96.0,
+            5.0
+          ]
+        }
+      },
+      {
+        "nome": "Componente#7",
+        "definicao": "Componente#7",
+        "arquivo": "Componente-7 - Componente-7.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            4.0,
+            4.0,
+            220.0
+          ],
+          "tam": [
+            4.0,
+            4.0,
+            220.0
+          ]
+        }
+      },
+      {
+        "nome": "Spider para vidro #2",
+        "definicao": "Spider para vidro #2",
+        "arquivo": "Spider para vidro -2 - Spider para vidro -2.skp",
+        "caixa": {
+          "min": [
+            0.23,
+            0.0,
+            0.08
+          ],
+          "max": [
+            10.58,
+            2.36,
+            7.39
+          ],
+          "tam": [
+            10.35,
+            2.36,
+            7.3
+          ]
+        }
+      }
+    ]
+  },
+  "PLuguin/Spider para vidro .skp": {
+    "caixa": {
+      "min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        10.84,
+        2.36,
+        10.53
+      ],
+      "tam": [
+        10.84,
+        2.36,
+        10.53
+      ]
+    },
+    "pecas": [
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#71",
+        "tag": "Layer0",
+        "material": "aluminio",
+        "origem": [
+          10.61,
+          2.36,
+          0.06
+        ],
+        "eixo_x": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "eixo_z": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "escala": [
+          0.999,
+          0.983,
+          0.942
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            0.0,
+            0.0,
+            3.45
+          ],
+          "max": [
+            7.42,
+            2.36,
+            10.53
+          ],
+          "tam": [
+            7.42,
+            2.36,
+            7.08
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            3.2,
+            3.46,
+            0.0
+          ],
+          "max": [
+            10.63,
+            10.65,
+            2.5
+          ],
+          "tam": [
+            7.43,
+            7.2,
+            2.5
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Componente#25",
+            "definicao": "Componente#25",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              7.42,
+              1.88,
+              3.45
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                3.42,
+                1.41,
+                3.45
+              ],
+              "max": [
+                7.42,
+                1.88,
+                7.39
+              ],
+              "tam": [
+                3.99,
+                0.47,
+                3.93
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                4.0,
+                4.0,
+                0.5
+              ],
+              "tam": [
+                4.0,
+                4.0,
+                0.5
+              ]
+            },
+            "faces_soltas": 296,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Componente#26",
+            "definicao": "Componente#26",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              2.5,
+              1.41,
+              8.07
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.0,
+                0.0,
+                6.35
+              ],
+              "max": [
+                4.37,
+                2.36,
+                10.53
+              ],
+              "tam": [
+                4.37,
+                2.36,
+                4.18
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -1.88,
+                -1.75,
+                -1.0
+              ],
+              "max": [
+                2.5,
+                2.5,
+                1.5
+              ],
+              "tam": [
+                4.38,
+                4.25,
+                2.5
+              ]
+            },
+            "faces_soltas": 84,
+            "filhos": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#23",
+        "tag": "Layer0",
+        "material": "aluminio",
+        "origem": [
+          0.23,
+          2.36,
+          -0.03
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "eixo_z": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "escala": [
+          0.999,
+          0.983,
+          0.942
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            3.42,
+            0.0,
+            0.0
+          ],
+          "max": [
+            10.61,
+            2.36,
+            7.3
+          ],
+          "tam": [
+            7.19,
+            2.36,
+            7.3
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            3.2,
+            0.03,
+            0.0
+          ],
+          "max": [
+            10.4,
+            7.45,
+            2.5
+          ],
+          "tam": [
+            7.2,
+            7.43,
+            2.5
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Componente#25",
+            "definicao": "Componente#25",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              3.42,
+              1.88,
+              3.37
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                3.42,
+                1.41,
+                3.37
+              ],
+              "max": [
+                7.42,
+                1.88,
+                7.3
+              ],
+              "tam": [
+                3.99,
+                0.47,
+                3.93
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                4.0,
+                4.0,
+                0.5
+              ],
+              "tam": [
+                4.0,
+                4.0,
+                0.5
+              ]
+            },
+            "faces_soltas": 296,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Componente#26",
+            "definicao": "Componente#26",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              8.12,
+              1.41,
+              2.46
+            ],
+            "eixo_x": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "eixo_y": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.983,
+              0.999,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                6.37,
+                0.0,
+                0.0
+              ],
+              "max": [
+                10.61,
+                2.36,
+                4.31
+              ],
+              "tam": [
+                4.24,
+                2.36,
+                4.31
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -1.88,
+                -1.75,
+                -1.0
+              ],
+              "max": [
+                2.5,
+                2.5,
+                1.5
+              ],
+              "tam": [
+                4.38,
+                4.25,
+                2.5
+              ]
+            },
+            "faces_soltas": 84,
+            "filhos": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#71",
+        "tag": "Layer0",
+        "material": "aluminio",
+        "origem": [
+          0.23,
+          2.36,
+          0.01
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "eixo_z": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "escala": [
+          0.999,
+          0.983,
+          0.942
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            3.42,
+            0.0,
+            3.4
+          ],
+          "max": [
+            10.84,
+            2.36,
+            10.48
+          ],
+          "tam": [
+            7.42,
+            2.36,
+            7.08
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            3.2,
+            3.46,
+            0.0
+          ],
+          "max": [
+            10.63,
+            10.65,
+            2.5
+          ],
+          "tam": [
+            7.43,
+            7.2,
+            2.5
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Componente#25",
+            "definicao": "Componente#25",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              3.42,
+              1.88,
+              3.4
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                3.42,
+                1.41,
+                3.4
+              ],
+              "max": [
+                7.42,
+                1.88,
+                7.33
+              ],
+              "tam": [
+                3.99,
+                0.47,
+                3.93
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                4.0,
+                4.0,
+                0.5
+              ],
+              "tam": [
+                4.0,
+                4.0,
+                0.5
+              ]
+            },
+            "faces_soltas": 296,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Componente#26",
+            "definicao": "Componente#26",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              8.35,
+              1.41,
+              8.02
+            ],
+            "eixo_x": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                6.47,
+                0.0,
+                6.3
+              ],
+              "max": [
+                10.84,
+                2.36,
+                10.48
+              ],
+              "tam": [
+                4.37,
+                2.36,
+                4.18
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -1.88,
+                -1.75,
+                -1.0
+              ],
+              "max": [
+                2.5,
+                2.5,
+                1.5
+              ],
+              "tam": [
+                4.38,
+                4.25,
+                2.5
+              ]
+            },
+            "faces_soltas": 84,
+            "filhos": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#23",
+        "tag": "Layer0",
+        "material": "aluminio",
+        "origem": [
+          10.61,
+          2.36,
+          0.06
+        ],
+        "eixo_x": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "eixo_z": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "escala": [
+          0.999,
+          0.983,
+          0.942
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            0.23,
+            0.0,
+            0.08
+          ],
+          "max": [
+            7.42,
+            2.36,
+            7.39
+          ],
+          "tam": [
+            7.19,
+            2.36,
+            7.3
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            3.2,
+            0.03,
+            0.0
+          ],
+          "max": [
+            10.4,
+            7.45,
+            2.5
+          ],
+          "tam": [
+            7.2,
+            7.43,
+            2.5
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "componente",
+            "nome": "Componente#25",
+            "definicao": "Componente#25",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              7.42,
+              1.88,
+              3.45
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.999,
+              0.983,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                3.42,
+                1.41,
+                3.45
+              ],
+              "max": [
+                7.42,
+                1.88,
+                7.39
+              ],
+              "tam": [
+                3.99,
+                0.47,
+                3.93
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                4.0,
+                4.0,
+                0.5
+              ],
+              "tam": [
+                4.0,
+                4.0,
+                0.5
+              ]
+            },
+            "faces_soltas": 296,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "Componente#26",
+            "definicao": "Componente#26",
+            "tag": "Layer0",
+            "material": null,
+            "origem": [
+              2.72,
+              1.41,
+              2.54
+            ],
+            "eixo_x": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "eixo_y": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.983,
+              0.999,
+              0.942
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.23,
+                0.0,
+                0.08
+              ],
+              "max": [
+                4.47,
+                2.36,
+                4.39
+              ],
+              "tam": [
+                4.24,
+                2.36,
+                4.31
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -1.88,
+                -1.75,
+                -1.0
+              ],
+              "max": [
+                2.5,
+                2.5,
+                1.5
+              ],
+              "tam": [
+                4.38,
+                4.25,
+                2.5
+              ]
+            },
+            "faces_soltas": 84,
+            "filhos": [
+
+            ]
+          }
+        ]
+      }
+    ],
+    "pecas_salvas": [
+      {
+        "nome": "Agrupar#71",
+        "definicao": "Agrupar#71",
+        "arquivo": "Agrupar-71 - Agrupar-71.skp",
+        "caixa": {
+          "min": [
+            3.2,
+            3.46,
+            0.0
+          ],
+          "max": [
+            10.63,
+            10.65,
+            2.5
+          ],
+          "tam": [
+            7.43,
+            7.2,
+            2.5
+          ]
+        }
+      },
+      {
+        "nome": "Componente#25",
+        "definicao": "Componente#25",
+        "arquivo": "Componente-25 - Componente-25.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            4.0,
+            4.0,
+            0.5
+          ],
+          "tam": [
+            4.0,
+            4.0,
+            0.5
+          ]
+        }
+      },
+      {
+        "nome": "Componente#26",
+        "definicao": "Componente#26",
+        "arquivo": "Componente-26 - Componente-26.skp",
+        "caixa": {
+          "min": [
+            -1.88,
+            -1.75,
+            -1.0
+          ],
+          "max": [
+            2.5,
+            2.5,
+            1.5
+          ],
+          "tam": [
+            4.38,
+            4.25,
+            2.5
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#23",
+        "definicao": "Agrupar#23",
+        "arquivo": "Agrupar-23 - Agrupar-23.skp",
+        "caixa": {
+          "min": [
+            3.2,
+            0.03,
+            0.0
+          ],
+          "max": [
+            10.4,
+            7.45,
+            2.5
+          ],
+          "tam": [
+            7.2,
+            7.43,
+            2.5
+          ]
+        }
+      }
+    ]
+  },
+  "PLuguin/Porta de vidro .skp": {
+    "caixa": {
+      "min": [
+        0.0,
+        -0.41,
+        -0.27
+      ],
+      "max": [
+        94.81,
+        7.26,
+        216.27
+      ],
+      "tam": [
+        94.81,
+        7.66,
+        216.55
+      ]
+    },
+    "pecas": [
+      {
+        "tipo": "grupo",
+        "nome": "",
+        "definicao": "Agrupar#53",
+        "tag": "Layer0",
+        "material": "[Translucent Glass Gray]1",
+        "origem": [
+          0.0,
+          0.14,
+          0.0
+        ],
+        "eixo_x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "eixo_y": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "eixo_z": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "escala": [
+          0.925,
+          0.995,
+          1.026
+        ],
+        "caixa_no_bloco": {
+          "min": [
+            0.0,
+            -0.41,
+            -0.27
+          ],
+          "max": [
+            94.81,
+            7.26,
+            216.27
+          ],
+          "tam": [
+            94.81,
+            7.66,
+            216.55
+          ]
+        },
+        "caixa_propria": {
+          "min": [
+            0.0,
+            -0.55,
+            -0.27
+          ],
+          "max": [
+            102.49,
+            7.15,
+            210.72
+          ],
+          "tam": [
+            102.49,
+            7.7,
+            210.99
+          ]
+        },
+        "faces_soltas": 0,
+        "filhos": [
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Group#148",
+            "tag": "Layer0",
+            "material": "PORTA DE VIDRO - VERDE ESCURO",
+            "origem": [
+              11.7,
+              -2.55,
+              48.84
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              0.925,
+              0.995,
+              1.026
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.0,
+                1.93,
+                0.0
+              ],
+              "max": [
+                9.71,
+                4.92,
+                215.22
+              ],
+              "tam": [
+                9.71,
+                2.99,
+                215.22
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                2.15,
+                4.5,
+                -47.59
+              ],
+              "max": [
+                12.65,
+                7.5,
+                162.11
+              ],
+              "tam": [
+                10.5,
+                3.0,
+                209.7
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "componente",
+                "nome": "Dobradicas#1",
+                "definicao": "Dobradicas#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  0.0,
+                  2.83,
+                  4.93
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  1.026,
+                  0.925,
+                  0.995
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    0.0,
+                    1.93,
+                    0.0
+                  ],
+                  "max": [
+                    9.71,
+                    2.83,
+                    4.93
+                  ],
+                  "tam": [
+                    9.71,
+                    0.9,
+                    4.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ],
+                  "tam": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ]
+                },
+                "faces_soltas": 67,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Dobradicas#1",
+                "definicao": "Dobradicas#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  0.0,
+                  4.02,
+                  4.93
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "eixo_y": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "escala": [
+                  1.026,
+                  0.925,
+                  0.995
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    0.0,
+                    4.02,
+                    0.0
+                  ],
+                  "max": [
+                    9.71,
+                    4.92,
+                    4.93
+                  ],
+                  "tam": [
+                    9.71,
+                    0.9,
+                    4.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ],
+                  "tam": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ]
+                },
+                "faces_soltas": 67,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Dobradicas#1",
+                "definicao": "Dobradicas#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  9.71,
+                  2.83,
+                  210.3
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  1.026,
+                  0.925,
+                  0.995
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    0.0,
+                    1.93,
+                    210.3
+                  ],
+                  "max": [
+                    9.71,
+                    2.83,
+                    215.22
+                  ],
+                  "tam": [
+                    9.71,
+                    0.9,
+                    4.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ],
+                  "tam": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ]
+                },
+                "faces_soltas": 67,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Dobradicas#1",
+                "definicao": "Dobradicas#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  9.71,
+                  4.02,
+                  210.3
+                ],
+                "eixo_x": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "escala": [
+                  1.026,
+                  0.925,
+                  0.995
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    0.0,
+                    4.02,
+                    210.3
+                  ],
+                  "max": [
+                    9.71,
+                    4.92,
+                    215.22
+                  ],
+                  "tam": [
+                    9.71,
+                    0.9,
+                    4.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ],
+                  "tam": [
+                    4.8,
+                    10.5,
+                    0.9
+                  ]
+                },
+                "faces_soltas": 67,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#150",
+            "tag": "Layer0",
+            "material": "PORTA DE VIDRO - VERDE ESCURO",
+            "origem": [
+              92.82,
+              4.02,
+              99.29
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "escala": [
+              0.373,
+              0.382,
+              0.253
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                88.34,
+                4.02,
+                99.29
+              ],
+              "max": [
+                92.82,
+                6.79,
+                107.32
+              ],
+              "tam": [
+                4.48,
+                2.77,
+                8.03
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                12.0,
+                21.0,
+                10.93
+              ],
+              "tam": [
+                12.0,
+                21.0,
+                10.93
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Agrupar#142",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  90.33,
+                  4.6,
+                  105.56
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.373,
+                  0.382,
+                  0.253
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.33,
+                    4.6,
+                    105.56
+                  ],
+                  "max": [
+                    91.44,
+                    4.85,
+                    106.7
+                  ],
+                  "tam": [
+                    1.11,
+                    0.25,
+                    1.14
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ],
+                  "tam": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ]
+                },
+                "faces_soltas": 768,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Agrupar#143",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  90.22,
+                  4.6,
+                  99.86
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.373,
+                  0.382,
+                  0.253
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.22,
+                    4.6,
+                    99.86
+                  ],
+                  "max": [
+                    91.33,
+                    4.85,
+                    101.0
+                  ],
+                  "tam": [
+                    1.11,
+                    0.25,
+                    1.14
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ],
+                  "tam": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ]
+                },
+                "faces_soltas": 768,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Agrupar#149",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  88.34,
+                  4.02,
+                  99.29
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.373,
+                  0.382,
+                  0.253
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    88.34,
+                    4.02,
+                    99.29
+                  ],
+                  "max": [
+                    92.82,
+                    5.28,
+                    107.32
+                  ],
+                  "tam": [
+                    4.48,
+                    1.26,
+                    8.03
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    12.0,
+                    21.0,
+                    4.97
+                  ],
+                  "tam": [
+                    12.0,
+                    21.0,
+                    4.97
+                  ]
+                },
+                "faces_soltas": 103,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "chave+para+móvel#1",
+                "definicao": "chave+para+móvel#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  91.46,
+                  5.79,
+                  104.27
+                ],
+                "eixo_x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "escala": [
+                  0.347,
+                  0.512,
+                  0.524
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.77,
+                    4.89,
+                    99.84
+                  ],
+                  "max": [
+                    91.88,
+                    6.79,
+                    104.27
+                  ],
+                  "tam": [
+                    1.11,
+                    1.9,
+                    4.43
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -2.6,
+                    -0.84,
+                    -8.46
+                  ],
+                  "max": [
+                    2.87,
+                    1.33,
+                    0.0
+                  ],
+                  "tam": [
+                    5.47,
+                    2.17,
+                    8.46
+                  ]
+                },
+                "faces_soltas": 0,
+                "filhos": [
+                  {
+                    "tipo": "grupo",
+                    "nome": "Group#137",
+                    "definicao": "Group#362",
+                    "tag": "Layer0",
+                    "material": "PORTA DE VIDRO - PRETO",
+                    "origem": [
+                      37.93,
+                      182.44,
+                      59.86
+                    ],
+                    "eixo_x": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "escala": [
+                      0.011,
+                      0.017,
+                      0.017
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        91.2,
+                        4.89,
+                        103.13
+                      ],
+                      "max": [
+                        91.46,
+                        6.58,
+                        104.27
+                      ],
+                      "tam": [
+                        0.26,
+                        1.69,
+                        1.14
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        15457.88,
+                        3173.77,
+                        2518.39
+                      ],
+                      "max": [
+                        15606.31,
+                        3189.01,
+                        2584.84
+                      ],
+                      "tam": [
+                        148.43,
+                        15.24,
+                        66.45
+                      ]
+                    },
+                    "faces_soltas": 205,
+                    "filhos": [
+
+                    ]
+                  },
+                  {
+                    "tipo": "grupo",
+                    "nome": "Group#139",
+                    "definicao": "Group#360",
+                    "tag": "Layer0",
+                    "material": null,
+                    "origem": [
+                      37.93,
+                      182.44,
+                      59.86
+                    ],
+                    "eixo_x": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "escala": [
+                      0.011,
+                      0.017,
+                      0.017
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        90.77,
+                        6.39,
+                        102.23
+                      ],
+                      "max": [
+                        91.88,
+                        6.43,
+                        103.36
+                      ],
+                      "tam": [
+                        1.11,
+                        0.03,
+                        1.14
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        15471.32,
+                        3148.35,
+                        2466.04
+                      ],
+                      "max": [
+                        15474.24,
+                        3214.52,
+                        2532.2
+                      ],
+                      "tam": [
+                        2.92,
+                        66.17,
+                        66.16
+                      ]
+                    },
+                    "faces_soltas": 1156,
+                    "filhos": [
+
+                    ]
+                  },
+                  {
+                    "tipo": "grupo",
+                    "nome": "Group#140",
+                    "definicao": "Group#361",
+                    "tag": "Layer0",
+                    "material": null,
+                    "origem": [
+                      37.93,
+                      182.44,
+                      59.86
+                    ],
+                    "eixo_x": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "escala": [
+                      0.011,
+                      0.017,
+                      0.017
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        91.2,
+                        6.03,
+                        99.84
+                      ],
+                      "max": [
+                        91.46,
+                        6.79,
+                        102.39
+                      ],
+                      "tam": [
+                        0.26,
+                        0.76,
+                        2.55
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        15439.6,
+                        3173.77,
+                        2327.03
+                      ],
+                      "max": [
+                        15506.05,
+                        3189.01,
+                        2475.46
+                      ],
+                      "tam": [
+                        66.45,
+                        15.24,
+                        148.43
+                      ]
+                    },
+                    "faces_soltas": 205,
+                    "filhos": [
+
+                    ]
+                  }
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Untitled#1",
+                "definicao": "Untitled#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  90.58,
+                  5.6,
+                  104.42
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "escala": [
+                  0.085,
+                  0.058,
+                  0.087
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.58,
+                    4.27,
+                    102.49
+                  ],
+                  "max": [
+                    92.1,
+                    5.6,
+                    104.42
+                  ],
+                  "tam": [
+                    1.53,
+                    1.33,
+                    1.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    18.0,
+                    23.2,
+                    22.2
+                  ],
+                  "tam": [
+                    18.0,
+                    23.2,
+                    22.2
+                  ]
+                },
+                "faces_soltas": 0,
+                "filhos": [
+                  {
+                    "tipo": "componente",
+                    "nome": "Hafele locking systems 209.18.003#1",
+                    "definicao": "Hafele locking systems 209.18.003#1",
+                    "tag": "Layer0",
+                    "material": "Material6",
+                    "origem": [
+                      89.87,
+                      5.25,
+                      104.42
+                    ],
+                    "eixo_x": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "escala": [
+                      0.085,
+                      0.058,
+                      0.087
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        90.58,
+                        4.27,
+                        102.49
+                      ],
+                      "max": [
+                        92.1,
+                        5.6,
+                        104.42
+                      ],
+                      "tam": [
+                        1.53,
+                        1.33,
+                        1.93
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        8.31,
+                        -6.19,
+                        0.0
+                      ],
+                      "max": [
+                        26.31,
+                        17.01,
+                        22.2
+                      ],
+                      "tam": [
+                        18.0,
+                        23.2,
+                        22.2
+                      ]
+                    },
+                    "faces_soltas": 0,
+                    "filhos": [
+                      {
+                        "tipo": "componente",
+                        "nome": "ccLab_2015622205638964_0#1",
+                        "definicao": "ccLab_2015622205638964_0#1",
+                        "tag": "Layer0",
+                        "material": null,
+                        "origem": [
+                          91.34,
+                          4.64,
+                          103.28
+                        ],
+                        "eixo_x": [
+                          1.0,
+                          0.0,
+                          0.0
+                        ],
+                        "eixo_y": [
+                          0.0,
+                          -1.0,
+                          0.0
+                        ],
+                        "eixo_z": [
+                          0.0,
+                          0.0,
+                          -1.0
+                        ],
+                        "escala": [
+                          0.085,
+                          0.058,
+                          0.087
+                        ],
+                        "caixa_no_bloco": {
+                          "min": [
+                            90.95,
+                            4.27,
+                            103.09
+                          ],
+                          "max": [
+                            91.73,
+                            4.55,
+                            104.42
+                          ],
+                          "tam": [
+                            0.78,
+                            0.28,
+                            1.33
+                          ]
+                        },
+                        "caixa_propria": {
+                          "min": [
+                            -4.6,
+                            1.5,
+                            -13.2
+                          ],
+                          "max": [
+                            4.6,
+                            6.4,
+                            2.09
+                          ],
+                          "tam": [
+                            9.2,
+                            4.9,
+                            15.29
+                          ]
+                        },
+                        "faces_soltas": 0,
+                        "filhos": [
+                          {
+                            "tipo": "grupo",
+                            "nome": "Group#1",
+                            "definicao": "Group#359",
+                            "tag": "Layer0",
+                            "material": null,
+                            "origem": [
+                              91.34,
+                              4.64,
+                              103.28
+                            ],
+                            "eixo_x": [
+                              1.0,
+                              0.0,
+                              0.0
+                            ],
+                            "eixo_y": [
+                              0.0,
+                              -1.0,
+                              0.0
+                            ],
+                            "eixo_z": [
+                              0.0,
+                              0.0,
+                              -1.0
+                            ],
+                            "escala": [
+                              0.085,
+                              0.058,
+                              0.087
+                            ],
+                            "caixa_no_bloco": {
+                              "min": [
+                                90.95,
+                                4.27,
+                                103.09
+                              ],
+                              "max": [
+                                91.73,
+                                4.55,
+                                104.42
+                              ],
+                              "tam": [
+                                0.78,
+                                0.28,
+                                1.33
+                              ]
+                            },
+                            "caixa_propria": {
+                              "min": [
+                                -4.6,
+                                1.5,
+                                -13.2
+                              ],
+                              "max": [
+                                4.6,
+                                6.4,
+                                2.09
+                              ],
+                              "tam": [
+                                9.2,
+                                4.9,
+                                15.29
+                              ]
+                            },
+                            "faces_soltas": 379
+                          }
+                        ]
+                      },
+                      {
+                        "tipo": "componente",
+                        "nome": "ccLab_2015622205638980_1#1",
+                        "definicao": "ccLab_2015622205638980_1#1",
+                        "tag": "Layer0",
+                        "material": null,
+                        "origem": [
+                          91.34,
+                          4.64,
+                          103.28
+                        ],
+                        "eixo_x": [
+                          1.0,
+                          0.0,
+                          0.0
+                        ],
+                        "eixo_y": [
+                          0.0,
+                          -1.0,
+                          0.0
+                        ],
+                        "eixo_z": [
+                          0.0,
+                          0.0,
+                          -1.0
+                        ],
+                        "escala": [
+                          0.085,
+                          0.058,
+                          0.087
+                        ],
+                        "caixa_no_bloco": {
+                          "min": [
+                            90.58,
+                            4.35,
+                            102.49
+                          ],
+                          "max": [
+                            92.1,
+                            5.6,
+                            104.06
+                          ],
+                          "tam": [
+                            1.53,
+                            1.25,
+                            1.56
+                          ]
+                        },
+                        "caixa_propria": {
+                          "min": [
+                            -9.0,
+                            -16.8,
+                            -9.0
+                          ],
+                          "max": [
+                            9.0,
+                            5.0,
+                            9.0
+                          ],
+                          "tam": [
+                            18.0,
+                            21.8,
+                            18.0
+                          ]
+                        },
+                        "faces_soltas": 0,
+                        "filhos": [
+                          {
+                            "tipo": "grupo",
+                            "nome": "Group#2",
+                            "definicao": "Group#358",
+                            "tag": "Layer0",
+                            "material": null,
+                            "origem": [
+                              91.34,
+                              4.64,
+                              103.28
+                            ],
+                            "eixo_x": [
+                              1.0,
+                              0.0,
+                              0.0
+                            ],
+                            "eixo_y": [
+                              0.0,
+                              -1.0,
+                              0.0
+                            ],
+                            "eixo_z": [
+                              0.0,
+                              0.0,
+                              -1.0
+                            ],
+                            "escala": [
+                              0.085,
+                              0.058,
+                              0.087
+                            ],
+                            "caixa_no_bloco": {
+                              "min": [
+                                90.58,
+                                4.35,
+                                102.49
+                              ],
+                              "max": [
+                                92.1,
+                                5.6,
+                                104.06
+                              ],
+                              "tam": [
+                                1.53,
+                                1.25,
+                                1.56
+                              ]
+                            },
+                            "caixa_propria": {
+                              "min": [
+                                -9.0,
+                                -16.8,
+                                -9.0
+                              ],
+                              "max": [
+                                9.0,
+                                5.0,
+                                9.0
+                              ],
+                              "tam": [
+                                18.0,
+                                21.8,
+                                18.0
+                              ]
+                            },
+                            "faces_soltas": 699
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#151",
+            "tag": "Layer0",
+            "material": "PORTA DE VIDRO - VERDE ESCURO",
+            "origem": [
+              92.82,
+              2.83,
+              99.29
+            ],
+            "eixo_x": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "eixo_z": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "escala": [
+              0.373,
+              0.382,
+              0.253
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                88.34,
+                0.06,
+                99.29
+              ],
+              "max": [
+                92.82,
+                2.83,
+                107.32
+              ],
+              "tam": [
+                4.48,
+                2.77,
+                8.03
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "max": [
+                12.0,
+                21.0,
+                10.93
+              ],
+              "tam": [
+                12.0,
+                21.0,
+                10.93
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Agrupar#139",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  90.33,
+                  2.25,
+                  105.56
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.373,
+                  0.382,
+                  0.253
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.33,
+                    2.0,
+                    105.56
+                  ],
+                  "max": [
+                    91.44,
+                    2.25,
+                    106.7
+                  ],
+                  "tam": [
+                    1.11,
+                    0.25,
+                    1.14
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ],
+                  "tam": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ]
+                },
+                "faces_soltas": 768,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Agrupar#140",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  90.22,
+                  2.25,
+                  99.86
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.373,
+                  0.382,
+                  0.253
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.22,
+                    2.0,
+                    99.86
+                  ],
+                  "max": [
+                    91.33,
+                    2.25,
+                    101.0
+                  ],
+                  "tam": [
+                    1.11,
+                    0.25,
+                    1.14
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ],
+                  "tam": [
+                    2.97,
+                    2.97,
+                    1.0
+                  ]
+                },
+                "faces_soltas": 768,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Agrupar#144",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  88.34,
+                  2.83,
+                  99.29
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "escala": [
+                  0.373,
+                  0.382,
+                  0.253
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    88.34,
+                    1.57,
+                    99.29
+                  ],
+                  "max": [
+                    92.82,
+                    2.83,
+                    107.32
+                  ],
+                  "tam": [
+                    4.48,
+                    1.26,
+                    8.03
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    12.0,
+                    21.0,
+                    4.97
+                  ],
+                  "tam": [
+                    12.0,
+                    21.0,
+                    4.97
+                  ]
+                },
+                "faces_soltas": 103,
+                "filhos": [
+
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "chave+para+móvel#1",
+                "definicao": "chave+para+móvel#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  91.46,
+                  1.05,
+                  104.27
+                ],
+                "eixo_x": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "escala": [
+                  0.347,
+                  0.512,
+                  0.524
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.77,
+                    0.06,
+                    99.84
+                  ],
+                  "max": [
+                    91.88,
+                    1.96,
+                    104.27
+                  ],
+                  "tam": [
+                    1.11,
+                    1.9,
+                    4.43
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    -2.6,
+                    -0.84,
+                    -8.46
+                  ],
+                  "max": [
+                    2.87,
+                    1.33,
+                    0.0
+                  ],
+                  "tam": [
+                    5.47,
+                    2.17,
+                    8.46
+                  ]
+                },
+                "faces_soltas": 0,
+                "filhos": [
+                  {
+                    "tipo": "grupo",
+                    "nome": "Group#137",
+                    "definicao": "Group#362",
+                    "tag": "Layer0",
+                    "material": "PORTA DE VIDRO - PRETO",
+                    "origem": [
+                      37.93,
+                      -175.59,
+                      59.86
+                    ],
+                    "eixo_x": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "escala": [
+                      0.011,
+                      0.017,
+                      0.017
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        91.2,
+                        0.27,
+                        103.13
+                      ],
+                      "max": [
+                        91.46,
+                        1.96,
+                        104.27
+                      ],
+                      "tam": [
+                        0.26,
+                        1.69,
+                        1.14
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        15457.88,
+                        3173.77,
+                        2518.39
+                      ],
+                      "max": [
+                        15606.31,
+                        3189.01,
+                        2584.84
+                      ],
+                      "tam": [
+                        148.43,
+                        15.24,
+                        66.45
+                      ]
+                    },
+                    "faces_soltas": 205,
+                    "filhos": [
+
+                    ]
+                  },
+                  {
+                    "tipo": "grupo",
+                    "nome": "Group#139",
+                    "definicao": "Group#360",
+                    "tag": "Layer0",
+                    "material": null,
+                    "origem": [
+                      37.93,
+                      -175.59,
+                      59.86
+                    ],
+                    "eixo_x": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "escala": [
+                      0.011,
+                      0.017,
+                      0.017
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        90.77,
+                        0.42,
+                        102.23
+                      ],
+                      "max": [
+                        91.88,
+                        0.45,
+                        103.36
+                      ],
+                      "tam": [
+                        1.11,
+                        0.03,
+                        1.14
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        15471.32,
+                        3148.35,
+                        2466.04
+                      ],
+                      "max": [
+                        15474.24,
+                        3214.52,
+                        2532.2
+                      ],
+                      "tam": [
+                        2.92,
+                        66.17,
+                        66.16
+                      ]
+                    },
+                    "faces_soltas": 1156,
+                    "filhos": [
+
+                    ]
+                  },
+                  {
+                    "tipo": "grupo",
+                    "nome": "Group#140",
+                    "definicao": "Group#361",
+                    "tag": "Layer0",
+                    "material": null,
+                    "origem": [
+                      37.93,
+                      -175.59,
+                      59.86
+                    ],
+                    "eixo_x": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "escala": [
+                      0.011,
+                      0.017,
+                      0.017
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        91.2,
+                        0.06,
+                        99.84
+                      ],
+                      "max": [
+                        91.46,
+                        0.82,
+                        102.39
+                      ],
+                      "tam": [
+                        0.26,
+                        0.76,
+                        2.55
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        15439.6,
+                        3173.77,
+                        2327.03
+                      ],
+                      "max": [
+                        15506.05,
+                        3189.01,
+                        2475.46
+                      ],
+                      "tam": [
+                        66.45,
+                        15.24,
+                        148.43
+                      ]
+                    },
+                    "faces_soltas": 205,
+                    "filhos": [
+
+                    ]
+                  }
+                ]
+              },
+              {
+                "tipo": "componente",
+                "nome": "Untitled#1",
+                "definicao": "Untitled#1",
+                "tag": "Layer0",
+                "material": null,
+                "origem": [
+                  90.58,
+                  1.25,
+                  104.42
+                ],
+                "eixo_x": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "escala": [
+                  0.085,
+                  0.058,
+                  0.087
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    90.58,
+                    1.25,
+                    102.49
+                  ],
+                  "max": [
+                    92.1,
+                    2.58,
+                    104.42
+                  ],
+                  "tam": [
+                    1.53,
+                    1.33,
+                    1.93
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "max": [
+                    18.0,
+                    23.2,
+                    22.2
+                  ],
+                  "tam": [
+                    18.0,
+                    23.2,
+                    22.2
+                  ]
+                },
+                "faces_soltas": 0,
+                "filhos": [
+                  {
+                    "tipo": "componente",
+                    "nome": "Hafele locking systems 209.18.003#1",
+                    "definicao": "Hafele locking systems 209.18.003#1",
+                    "tag": "Layer0",
+                    "material": "Material6",
+                    "origem": [
+                      89.87,
+                      1.6,
+                      104.42
+                    ],
+                    "eixo_x": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "eixo_y": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "eixo_z": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "escala": [
+                      0.085,
+                      0.058,
+                      0.087
+                    ],
+                    "caixa_no_bloco": {
+                      "min": [
+                        90.58,
+                        1.25,
+                        102.49
+                      ],
+                      "max": [
+                        92.1,
+                        2.58,
+                        104.42
+                      ],
+                      "tam": [
+                        1.53,
+                        1.33,
+                        1.93
+                      ]
+                    },
+                    "caixa_propria": {
+                      "min": [
+                        8.31,
+                        -6.19,
+                        0.0
+                      ],
+                      "max": [
+                        26.31,
+                        17.01,
+                        22.2
+                      ],
+                      "tam": [
+                        18.0,
+                        23.2,
+                        22.2
+                      ]
+                    },
+                    "faces_soltas": 0,
+                    "filhos": [
+                      {
+                        "tipo": "componente",
+                        "nome": "ccLab_2015622205638964_0#1",
+                        "definicao": "ccLab_2015622205638964_0#1",
+                        "tag": "Layer0",
+                        "material": null,
+                        "origem": [
+                          91.34,
+                          2.21,
+                          103.28
+                        ],
+                        "eixo_x": [
+                          1.0,
+                          0.0,
+                          0.0
+                        ],
+                        "eixo_y": [
+                          0.0,
+                          1.0,
+                          0.0
+                        ],
+                        "eixo_z": [
+                          0.0,
+                          0.0,
+                          -1.0
+                        ],
+                        "escala": [
+                          0.085,
+                          0.058,
+                          0.087
+                        ],
+                        "caixa_no_bloco": {
+                          "min": [
+                            90.95,
+                            2.3,
+                            103.09
+                          ],
+                          "max": [
+                            91.73,
+                            2.58,
+                            104.42
+                          ],
+                          "tam": [
+                            0.78,
+                            0.28,
+                            1.33
+                          ]
+                        },
+                        "caixa_propria": {
+                          "min": [
+                            -4.6,
+                            1.5,
+                            -13.2
+                          ],
+                          "max": [
+                            4.6,
+                            6.4,
+                            2.09
+                          ],
+                          "tam": [
+                            9.2,
+                            4.9,
+                            15.29
+                          ]
+                        },
+                        "faces_soltas": 0,
+                        "filhos": [
+                          {
+                            "tipo": "grupo",
+                            "nome": "Group#1",
+                            "definicao": "Group#359",
+                            "tag": "Layer0",
+                            "material": null,
+                            "origem": [
+                              91.34,
+                              2.21,
+                              103.28
+                            ],
+                            "eixo_x": [
+                              1.0,
+                              0.0,
+                              0.0
+                            ],
+                            "eixo_y": [
+                              0.0,
+                              1.0,
+                              0.0
+                            ],
+                            "eixo_z": [
+                              0.0,
+                              0.0,
+                              -1.0
+                            ],
+                            "escala": [
+                              0.085,
+                              0.058,
+                              0.087
+                            ],
+                            "caixa_no_bloco": {
+                              "min": [
+                                90.95,
+                                2.3,
+                                103.09
+                              ],
+                              "max": [
+                                91.73,
+                                2.58,
+                                104.42
+                              ],
+                              "tam": [
+                                0.78,
+                                0.28,
+                                1.33
+                              ]
+                            },
+                            "caixa_propria": {
+                              "min": [
+                                -4.6,
+                                1.5,
+                                -13.2
+                              ],
+                              "max": [
+                                4.6,
+                                6.4,
+                                2.09
+                              ],
+                              "tam": [
+                                9.2,
+                                4.9,
+                                15.29
+                              ]
+                            },
+                            "faces_soltas": 379
+                          }
+                        ]
+                      },
+                      {
+                        "tipo": "componente",
+                        "nome": "ccLab_2015622205638980_1#1",
+                        "definicao": "ccLab_2015622205638980_1#1",
+                        "tag": "Layer0",
+                        "material": null,
+                        "origem": [
+                          91.34,
+                          2.21,
+                          103.28
+                        ],
+                        "eixo_x": [
+                          1.0,
+                          0.0,
+                          0.0
+                        ],
+                        "eixo_y": [
+                          0.0,
+                          1.0,
+                          0.0
+                        ],
+                        "eixo_z": [
+                          0.0,
+                          0.0,
+                          -1.0
+                        ],
+                        "escala": [
+                          0.085,
+                          0.058,
+                          0.087
+                        ],
+                        "caixa_no_bloco": {
+                          "min": [
+                            90.58,
+                            1.25,
+                            102.49
+                          ],
+                          "max": [
+                            92.1,
+                            2.5,
+                            104.06
+                          ],
+                          "tam": [
+                            1.53,
+                            1.25,
+                            1.56
+                          ]
+                        },
+                        "caixa_propria": {
+                          "min": [
+                            -9.0,
+                            -16.8,
+                            -9.0
+                          ],
+                          "max": [
+                            9.0,
+                            5.0,
+                            9.0
+                          ],
+                          "tam": [
+                            18.0,
+                            21.8,
+                            18.0
+                          ]
+                        },
+                        "faces_soltas": 0,
+                        "filhos": [
+                          {
+                            "tipo": "grupo",
+                            "nome": "Group#2",
+                            "definicao": "Group#358",
+                            "tag": "Layer0",
+                            "material": null,
+                            "origem": [
+                              91.34,
+                              2.21,
+                              103.28
+                            ],
+                            "eixo_x": [
+                              1.0,
+                              0.0,
+                              0.0
+                            ],
+                            "eixo_y": [
+                              0.0,
+                              1.0,
+                              0.0
+                            ],
+                            "eixo_z": [
+                              0.0,
+                              0.0,
+                              -1.0
+                            ],
+                            "escala": [
+                              0.085,
+                              0.058,
+                              0.087
+                            ],
+                            "caixa_no_bloco": {
+                              "min": [
+                                90.58,
+                                1.25,
+                                102.49
+                              ],
+                              "max": [
+                                92.1,
+                                2.5,
+                                104.06
+                              ],
+                              "tam": [
+                                1.53,
+                                1.25,
+                                1.56
+                              ]
+                            },
+                            "caixa_propria": {
+                              "min": [
+                                -9.0,
+                                -16.8,
+                                -9.0
+                              ],
+                              "max": [
+                                9.0,
+                                5.0,
+                                9.0
+                              ],
+                              "tam": [
+                                18.0,
+                                21.8,
+                                18.0
+                              ]
+                            },
+                            "faces_soltas": 699
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "grupo",
+            "nome": "",
+            "definicao": "Agrupar#51",
+            "tag": "Layer0",
+            "material": "[Translucent Glass Gray]1",
+            "origem": [
+              14.64,
+              1.18,
+              -0.27
+            ],
+            "eixo_x": [
+              1.0,
+              0.013,
+              0.0
+            ],
+            "eixo_y": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              0.99,
+              0.989,
+              0.989
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                0.48,
+                1.18,
+                -0.27
+              ],
+              "max": [
+                94.81,
+                5.27,
+                216.27
+              ],
+              "tam": [
+                94.33,
+                4.08,
+                216.55
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                -14.31,
+                0.19,
+                0.0
+              ],
+              "max": [
+                81.01,
+                3.1,
+                218.86
+              ],
+              "tam": [
+                95.32,
+                2.91,
+                218.86
+              ]
+            },
+            "faces_soltas": 10,
+            "filhos": [
+
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "PUXADOR INOX",
+            "definicao": "PUXADOR INOX",
+            "tag": "Layer0",
+            "material": "PORTA DE VIDRO - VERDE ESCURO",
+            "origem": [
+              168.83,
+              115.0,
+              164.09
+            ],
+            "eixo_x": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "eixo_y": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              0.498,
+              0.463,
+              0.513
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                84.51,
+                3.97,
+                79.08
+              ],
+              "max": [
+                86.55,
+                7.26,
+                130.4
+              ],
+              "tam": [
+                2.04,
+                3.28,
+                51.32
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                216.51,
+                -182.29,
+                -165.67
+              ],
+              "max": [
+                223.11,
+                -177.89,
+                -65.67
+              ],
+              "tam": [
+                6.6,
+                4.4,
+                100.0
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Group#127",
+                "tag": "Layer0",
+                "material": "PORTA DE VIDRO - INOX",
+                "origem": [
+                  84.51,
+                  7.26,
+                  90.83
+                ],
+                "eixo_x": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "escala": [
+                  0.055,
+                  0.051,
+                  0.056
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    84.51,
+                    3.97,
+                    79.08
+                  ],
+                  "max": [
+                    86.55,
+                    7.26,
+                    130.4
+                  ],
+                  "tam": [
+                    2.04,
+                    3.28,
+                    51.32
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    -208.09
+                  ],
+                  "max": [
+                    60.0,
+                    40.0,
+                    701.0
+                  ],
+                  "tam": [
+                    60.0,
+                    40.0,
+                    909.09
+                  ]
+                },
+                "faces_soltas": 124,
+                "filhos": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "tipo": "componente",
+            "nome": "PUXADOR INOX",
+            "definicao": "PUXADOR INOX",
+            "tag": "Layer0",
+            "material": "PORTA DE VIDRO - VERDE ESCURO",
+            "origem": [
+              2.23,
+              -108.15,
+              164.09
+            ],
+            "eixo_x": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "eixo_y": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "eixo_z": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "escala": [
+              0.498,
+              0.463,
+              0.513
+            ],
+            "caixa_no_bloco": {
+              "min": [
+                84.51,
+                -0.41,
+                79.08
+              ],
+              "max": [
+                86.55,
+                2.88,
+                130.4
+              ],
+              "tam": [
+                2.04,
+                3.28,
+                51.32
+              ]
+            },
+            "caixa_propria": {
+              "min": [
+                216.51,
+                -182.29,
+                -165.67
+              ],
+              "max": [
+                223.11,
+                -177.89,
+                -65.67
+              ],
+              "tam": [
+                6.6,
+                4.4,
+                100.0
+              ]
+            },
+            "faces_soltas": 0,
+            "filhos": [
+              {
+                "tipo": "grupo",
+                "nome": "",
+                "definicao": "Group#127",
+                "tag": "Layer0",
+                "material": "PORTA DE VIDRO - INOX",
+                "origem": [
+                  86.55,
+                  -0.41,
+                  90.83
+                ],
+                "eixo_x": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "eixo_y": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "eixo_z": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "escala": [
+                  0.055,
+                  0.051,
+                  0.056
+                ],
+                "caixa_no_bloco": {
+                  "min": [
+                    84.51,
+                    -0.41,
+                    79.08
+                  ],
+                  "max": [
+                    86.55,
+                    2.88,
+                    130.4
+                  ],
+                  "tam": [
+                    2.04,
+                    3.28,
+                    51.32
+                  ]
+                },
+                "caixa_propria": {
+                  "min": [
+                    0.0,
+                    0.0,
+                    -208.09
+                  ],
+                  "max": [
+                    60.0,
+                    40.0,
+                    701.0
+                  ],
+                  "tam": [
+                    60.0,
+                    40.0,
+                    909.09
+                  ]
+                },
+                "faces_soltas": 124,
+                "filhos": [
+
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "pecas_salvas": [
+      {
+        "nome": "Agrupar#53",
+        "definicao": "Agrupar#53",
+        "arquivo": "Agrupar-53 - Agrupar-53.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            -0.55,
+            -0.27
+          ],
+          "max": [
+            102.49,
+            7.15,
+            210.72
+          ],
+          "tam": [
+            102.49,
+            7.7,
+            210.99
+          ]
+        }
+      },
+      {
+        "nome": "Group#148",
+        "definicao": "Group#148",
+        "arquivo": "Group-148 - Group-148.skp",
+        "caixa": {
+          "min": [
+            2.15,
+            4.5,
+            -47.59
+          ],
+          "max": [
+            12.65,
+            7.5,
+            162.11
+          ],
+          "tam": [
+            10.5,
+            3.0,
+            209.7
+          ]
+        }
+      },
+      {
+        "nome": "Dobradicas#1",
+        "definicao": "Dobradicas#1",
+        "arquivo": "Dobradicas-1 - Dobradicas-1.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            4.8,
+            10.5,
+            0.9
+          ],
+          "tam": [
+            4.8,
+            10.5,
+            0.9
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#150",
+        "definicao": "Agrupar#150",
+        "arquivo": "Agrupar-150 - Agrupar-150.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            12.0,
+            21.0,
+            10.93
+          ],
+          "tam": [
+            12.0,
+            21.0,
+            10.93
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#142",
+        "definicao": "Agrupar#142",
+        "arquivo": "Agrupar-142 - Agrupar-142.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            2.97,
+            2.97,
+            1.0
+          ],
+          "tam": [
+            2.97,
+            2.97,
+            1.0
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#143",
+        "definicao": "Agrupar#143",
+        "arquivo": "Agrupar-143 - Agrupar-143.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            2.97,
+            2.97,
+            1.0
+          ],
+          "tam": [
+            2.97,
+            2.97,
+            1.0
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#149",
+        "definicao": "Agrupar#149",
+        "arquivo": "Agrupar-149 - Agrupar-149.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            12.0,
+            21.0,
+            4.97
+          ],
+          "tam": [
+            12.0,
+            21.0,
+            4.97
+          ]
+        }
+      },
+      {
+        "nome": "chave+para+móvel#1",
+        "definicao": "chave+para+móvel#1",
+        "arquivo": "chave+para+móvel-1 - chave+para+móvel-1.skp",
+        "caixa": {
+          "min": [
+            -2.6,
+            -0.84,
+            -8.46
+          ],
+          "max": [
+            2.87,
+            1.33,
+            0.0
+          ],
+          "tam": [
+            5.47,
+            2.17,
+            8.46
+          ]
+        }
+      },
+      {
+        "nome": "Group#137",
+        "definicao": "Group#362",
+        "arquivo": "Group-137 - Group-362.skp",
+        "caixa": {
+          "min": [
+            15457.88,
+            3173.77,
+            2518.39
+          ],
+          "max": [
+            15606.31,
+            3189.01,
+            2584.84
+          ],
+          "tam": [
+            148.43,
+            15.24,
+            66.45
+          ]
+        }
+      },
+      {
+        "nome": "Group#139",
+        "definicao": "Group#360",
+        "arquivo": "Group-139 - Group-360.skp",
+        "caixa": {
+          "min": [
+            15471.32,
+            3148.35,
+            2466.04
+          ],
+          "max": [
+            15474.24,
+            3214.52,
+            2532.2
+          ],
+          "tam": [
+            2.92,
+            66.17,
+            66.16
+          ]
+        }
+      },
+      {
+        "nome": "Group#140",
+        "definicao": "Group#361",
+        "arquivo": "Group-140 - Group-361.skp",
+        "caixa": {
+          "min": [
+            15439.6,
+            3173.77,
+            2327.03
+          ],
+          "max": [
+            15506.05,
+            3189.01,
+            2475.46
+          ],
+          "tam": [
+            66.45,
+            15.24,
+            148.43
+          ]
+        }
+      },
+      {
+        "nome": "Untitled#1",
+        "definicao": "Untitled#1",
+        "arquivo": "Untitled-1 - Untitled-1.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            18.0,
+            23.2,
+            22.2
+          ],
+          "tam": [
+            18.0,
+            23.2,
+            22.2
+          ]
+        }
+      },
+      {
+        "nome": "Hafele locking systems 209.18.003#1",
+        "definicao": "Hafele locking systems 209.18.003#1",
+        "arquivo": "Hafele locking systems 209.18.003-1 - Hafele locking systems 209.18.003-1.skp",
+        "caixa": {
+          "min": [
+            8.31,
+            -6.19,
+            0.0
+          ],
+          "max": [
+            26.31,
+            17.01,
+            22.2
+          ],
+          "tam": [
+            18.0,
+            23.2,
+            22.2
+          ]
+        }
+      },
+      {
+        "nome": "ccLab_2015622205638964_0#1",
+        "definicao": "ccLab_2015622205638964_0#1",
+        "arquivo": "ccLab_2015622205638964_0-1 - ccLab_2015622205638964_0-1.skp",
+        "caixa": {
+          "min": [
+            -4.6,
+            1.5,
+            -13.2
+          ],
+          "max": [
+            4.6,
+            6.4,
+            2.09
+          ],
+          "tam": [
+            9.2,
+            4.9,
+            15.29
+          ]
+        }
+      },
+      {
+        "nome": "Group#1",
+        "definicao": "Group#359",
+        "arquivo": "Group-1 - Group-359.skp",
+        "caixa": {
+          "min": [
+            -4.6,
+            1.5,
+            -13.2
+          ],
+          "max": [
+            4.6,
+            6.4,
+            2.09
+          ],
+          "tam": [
+            9.2,
+            4.9,
+            15.29
+          ]
+        }
+      },
+      {
+        "nome": "ccLab_2015622205638980_1#1",
+        "definicao": "ccLab_2015622205638980_1#1",
+        "arquivo": "ccLab_2015622205638980_1-1 - ccLab_2015622205638980_1-1.skp",
+        "caixa": {
+          "min": [
+            -9.0,
+            -16.8,
+            -9.0
+          ],
+          "max": [
+            9.0,
+            5.0,
+            9.0
+          ],
+          "tam": [
+            18.0,
+            21.8,
+            18.0
+          ]
+        }
+      },
+      {
+        "nome": "Group#2",
+        "definicao": "Group#358",
+        "arquivo": "Group-2 - Group-358.skp",
+        "caixa": {
+          "min": [
+            -9.0,
+            -16.8,
+            -9.0
+          ],
+          "max": [
+            9.0,
+            5.0,
+            9.0
+          ],
+          "tam": [
+            18.0,
+            21.8,
+            18.0
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#151",
+        "definicao": "Agrupar#151",
+        "arquivo": "Agrupar-151 - Agrupar-151.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            12.0,
+            21.0,
+            10.93
+          ],
+          "tam": [
+            12.0,
+            21.0,
+            10.93
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#139",
+        "definicao": "Agrupar#139",
+        "arquivo": "Agrupar-139 - Agrupar-139.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            2.97,
+            2.97,
+            1.0
+          ],
+          "tam": [
+            2.97,
+            2.97,
+            1.0
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#140",
+        "definicao": "Agrupar#140",
+        "arquivo": "Agrupar-140 - Agrupar-140.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            2.97,
+            2.97,
+            1.0
+          ],
+          "tam": [
+            2.97,
+            2.97,
+            1.0
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#144",
+        "definicao": "Agrupar#144",
+        "arquivo": "Agrupar-144 - Agrupar-144.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            12.0,
+            21.0,
+            4.97
+          ],
+          "tam": [
+            12.0,
+            21.0,
+            4.97
+          ]
+        }
+      },
+      {
+        "nome": "Agrupar#51",
+        "definicao": "Agrupar#51",
+        "arquivo": "Agrupar-51 - Agrupar-51.skp",
+        "caixa": {
+          "min": [
+            -14.31,
+            0.19,
+            0.0
+          ],
+          "max": [
+            81.01,
+            3.1,
+            218.86
+          ],
+          "tam": [
+            95.32,
+            2.91,
+            218.86
+          ]
+        }
+      },
+      {
+        "nome": "PUXADOR INOX",
+        "definicao": "PUXADOR INOX",
+        "arquivo": "PUXADOR INOX - PUXADOR INOX.skp",
+        "caixa": {
+          "min": [
+            216.51,
+            -182.29,
+            -165.67
+          ],
+          "max": [
+            223.11,
+            -177.89,
+            -65.67
+          ],
+          "tam": [
+            6.6,
+            4.4,
+            100.0
+          ]
+        }
+      },
+      {
+        "nome": "Group#127",
+        "definicao": "Group#127",
+        "arquivo": "Group-127 - Group-127.skp",
+        "caixa": {
+          "min": [
+            0.0,
+            0.0,
+            -208.09
+          ],
+          "max": [
+            60.0,
+            40.0,
+            701.0
+          ],
+          "tam": [
+            60.0,
+            40.0,
+            909.09
+          ]
+        }
+      }
+    ]
+  }
+}
