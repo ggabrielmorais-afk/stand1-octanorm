@@ -215,8 +215,10 @@ module STAND1
       menu.add_separator
       menu.add_item("Mostrar barra de botoes") { barra.show }
       menu.add_item("Verificar atualizacao") { AutoUpdate.check(true) }
-      # checa o GitHub do Tarcisio sozinho, alguns segundos depois de abrir o SketchUp
+      # checa o repo do Gabriel sozinho, alguns segundos depois de abrir o SketchUp
       UI.start_timer(5.0, false) { AutoUpdate.check(false) } rescue nil
+      # avisa o que a equipe adicionou na Biblioteca desde a ultima vez (pasta compartilhada)
+      UI.start_timer(7.0, false) { Biblioteca.verificar_novidades } rescue nil
       puts "STAND1 Octanorm #{VERSAO} carregado"
       file_loaded(__FILE__)
     end

@@ -27,7 +27,7 @@ def versao():
 
 
 def testes():
-    for nome in ('test_layout.rb', 'test_autoupdate.rb'):
+    for nome in ('test_layout.rb', 'test_autoupdate.rb', 'test_biblioteca.rb'):
         r = subprocess.run(['ruby', os.path.join('tests', nome)], cwd=FONTE, capture_output=True, text=True)
         if r.returncode != 0 or ' 0 failures, 0 errors' not in r.stdout:
             print(r.stdout[-2000:]); print(r.stderr[-1000:])

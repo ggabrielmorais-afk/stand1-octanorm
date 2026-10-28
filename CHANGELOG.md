@@ -1,5 +1,9 @@
 # Histórico STAND1 Octanorm
 
+## 1.5.0 — 28/10/2026
+- **Biblioteca em pasta compartilhada (Drive).** "+ Adicionar bloco" agora pergunta o nome de quem está adicionando (lembra pra próxima vez) e mostra "por Fulano" no cartão de quem não é você. Cada pessoa grava num arquivo próprio (`meus_blocos_<nome>.json`): duas pessoas adicionando bloco ao mesmo tempo numa pasta do Drive não disputam a mesma gravação.
+- **Aviso de bloco novo.** Alguns segundos depois de abrir o SketchUp, se um colega adicionou bloco à Biblioteca desde a última vez que esta máquina checou, aparece um aviso com quem adicionou, o nome do bloco e a categoria.
+
 ## 1.4.1 — 27/10/2026
 - **Meio módulo do mesmo lado nas paredes opostas.** Antes ele ia sempre no fim de cada parede, e numa sala desenhada em volta a parede de cima ficava com a sobra no canto oposto ao da de baixo. Agora a sobra fica sempre do mesmo lado da sala, os montantes das paredes opostas casam e as vigas do teto caem em montante (sala de 4,50: de 4 pontas sem montante pra 0). Parede reta não muda.
 - Sala ou parede antiga que tinha porta numa parede que mudou de lado pode ter a porta deslocada meio módulo ao usar o Editar. Confira com o Mover porta.

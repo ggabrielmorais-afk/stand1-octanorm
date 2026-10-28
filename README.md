@@ -21,7 +21,7 @@ do Memorial.
 | **Mover porta** | Clica num vão de 1,00 m e a porta vai pra lá. Clicar no vão da porta tira a porta |
 | **Editar** | Seleciona parede, sala, ilha ou teto pronto e troca medida, testeira, fechamento ou porta. Também no botão direito |
 | **Lista de peças** | Conta montante, travessa, Z500, folha TS, vidro, placa MDF, spider e porta da seleção (ou do modelo inteiro) e salva planilha |
-| **Biblioteca Stand1** | Janela com os blocos do catálogo (categoria, busca, miniatura). Um clique põe o bloco no modelo. **+ Adicionar bloco** salva o que estiver selecionado como bloco novo (só nesta máquina, índice em `meus_blocos.json`) |
+| **Biblioteca Stand1** | Janela com os blocos do catálogo (categoria, busca, miniatura). Um clique põe o bloco no modelo. **+ Adicionar bloco** salva o que estiver selecionado como bloco novo, com o nome de quem adicionou |
 
 Durante o desenho:
 - **clique** adiciona ponto;
@@ -100,10 +100,16 @@ Na parede de vidro a porta abre o vão até 2,20, e a placa de 0,70 da testeira 
 
 ## Biblioteca Stand1
 
-- Lê a pasta do catálogo (padrão `Documents\GABRIEL EMPRESA\Gabriel Stand 1\CATALOGO STAND1`). Cada máquina escolhe a sua em **Trocar pasta**, e a escolha fica salva.
-- Usa `catalogo.json` e `_previas/mini/*.jpg` da própria pasta. Esses arquivos são gerados por `gerar_indice.py`, que fica com o Gabriel e roda de novo sempre que entra ou sai bloco.
+- Lê a pasta do catálogo (padrão `Documents\GABRIEL EMPRESA\Gabriel Stand 1\CATALOGO STAND1`, mas pode ser uma pasta do Google Drive compartilhada com a equipe). Cada máquina escolhe a sua em **Trocar pasta**, e a escolha fica salva.
+- Usa `catalogo.json` e `_previas/mini/*.jpg` da própria pasta. Esses arquivos são gerados por `gerar_indice.py`, que fica com o Gabriel e roda de novo sempre que entra ou sai bloco oficial.
 - Bloco na pasta que está fora do índice aparece em "Outros", sem miniatura.
 - Inserir = `definitions.load` + `place_component`. O componente de dentro do bloco já vem na tag do Memorial.
+
+**+ Adicionar bloco (desde a 1.5.0):**
+- Na primeira vez, pergunta o nome da pessoa (fica salvo nesta máquina e é reaproveitado depois). O nome aparece no cartão dos outros ("por Fulano"); no seu próprio, aparece "seu".
+- Cada pessoa grava num arquivo próprio, `meus_blocos_<nome>.json` (o antigo `meus_blocos.json` continua sendo lido, por compatibilidade). Isso evita que duas pessoas adicionando bloco ao mesmo tempo numa pasta do Drive disputem a mesma gravação — o Drive sincroniza arquivos diferentes sem conflito.
+- Alguns segundos depois de abrir o SketchUp, `Biblioteca.verificar_novidades` confere o que a equipe adicionou desde a última vez que **esta máquina** checou (guardado em `ultima_visita_blocos`) e avisa num popup (nome de quem adicionou + bloco + categoria). Não avisa sobre o que a própria pessoa adicionou. Primeira vez nunca avisa nada — só estabelece a base.
+- Timestamp com milissegundo (`Biblioteca.agora`): segundo sozinho colide fácil quando duas gravações acontecem perto uma da outra.
 
 ## Estrutura
 

@@ -1,6 +1,6 @@
 {
-    "versao": "1.4.1",
+    "versao": "1.5.0",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.4.1: meio modulo do mesmo lado nas paredes opostas (montantes casam e o teto cai em montante). v1.4.0: Memorial mais limpo (sala = 1 item com o nome do ambiente, parede com testeira junto, porta nao aparece), forro eucatex.",
-    "sha256": "f93c117b0020799c8a3b30af01aa3e517d96fe1d54491fd8a8a350c46752a139"
+    "notas": "v1.5.0: Biblioteca pronta pra pasta compartilhada (Drive). Adicionar bloco pergunta o nome de quem adicionou (mostra pros colegas) e grava num arquivo por pessoa, sem conflito de gravacao simultanea. Aviso ao abrir o SketchUp do que a equipe adicionou desde a ultima vez.",
+    "sha256": "871bd817bc0d13448266ada69f27dfbe436a0852370d5dee214651b929bb8279"
 }
