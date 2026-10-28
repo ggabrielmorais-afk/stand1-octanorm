@@ -111,6 +111,8 @@ Na parede de vidro a porta abre o vão até 2,20, e a placa de 0,70 da testeira 
 - Alguns segundos depois de abrir o SketchUp, `Biblioteca.verificar_novidades` confere o que a equipe adicionou desde a última vez que **esta máquina** checou (guardado em `ultima_visita_blocos`) e avisa num popup (nome de quem adicionou + bloco + categoria). Não avisa sobre o que a própria pessoa adicionou. Primeira vez nunca avisa nada — só estabelece a base.
 - Timestamp com milissegundo (`Biblioteca.agora`): segundo sozinho colide fácil quando duas gravações acontecem perto uma da outra.
 
+**Versão (desde a 1.5.1):** o rodapé mostra a versão instalada ("v1.5.1") e tem um botão **Verificar atualização** (chama `AutoUpdate.check(true)`, mesma checagem do menu Extensões). Foi pra cá porque a confusão de versão (alguém testando uma versão velha sem saber) costuma aparecer justamente nesta janela.
+
 ## Estrutura
 
 ```

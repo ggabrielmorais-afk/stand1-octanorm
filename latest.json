@@ -1,6 +1,6 @@
 {
-    "versao": "1.5.0",
+    "versao": "1.5.1",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.5.0: Biblioteca pronta pra pasta compartilhada (Drive). Adicionar bloco pergunta o nome de quem adicionou (mostra pros colegas) e grava num arquivo por pessoa, sem conflito de gravacao simultanea. Aviso ao abrir o SketchUp do que a equipe adicionou desde a ultima vez.",
-    "sha256": "871bd817bc0d13448266ada69f27dfbe436a0852370d5dee214651b929bb8279"
+    "notas": "v1.5.1: botao Verificar atualizacao dentro da Biblioteca Stand1, e o rodape da janela mostra a versao instalada. v1.5.0: Biblioteca pronta pra pasta compartilhada (Drive), adicionar bloco pergunta o nome de quem adicionou.",
+    "sha256": "be79eeee8626e3e4494c603857a929b477e291b1af43f7936d8b350ca90b846f"
 }

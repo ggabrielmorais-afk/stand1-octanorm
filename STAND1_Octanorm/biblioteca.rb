@@ -21,6 +21,7 @@
 require 'json'
 require 'base64'
 require 'fileutils'
+require_relative 'autoupdate'
 
 module STAND1
   module Octanorm
@@ -48,6 +49,7 @@ module STAND1
         @dlg.add_action_callback("escolher_pasta") { |_c| escolher_pasta }
         @dlg.add_action_callback("abrir_pasta") { |_c| UI.openURL("file:///#{pasta}") unless pasta.empty? }
         @dlg.add_action_callback("preparar_adicionar") { |_c| responder("abrir_form", preparar_adicionar) }
+        @dlg.add_action_callback("verificar_atualizacao") { |_c| AutoUpdate.check(true) }
         @dlg.add_action_callback("adicionar") do |_c, json|
           r = adicionar(JSON.parse(json.to_s))
           responder("adicionado", r)
@@ -240,7 +242,7 @@ module STAND1
 
       def self.dados
         dir = pasta
-        return { erro: "Pasta do catalogo nao encontrada. Clique em Trocar pasta.", pasta: dir, blocos: [] } \
+        return { erro: "Pasta do catalogo nao encontrada. Clique em Trocar pasta.", pasta: dir, blocos: [], versao: VERSAO } \
           if dir.empty? || !File.directory?(dir)
 
         indice = {}
@@ -260,9 +262,9 @@ module STAND1
           mini = b["mini"] ? File.join(dir, b["mini"]) : nil
           b.merge("img" => data_url(mini))
         end
-        { pasta: dir, blocos: blocos, sem_indice: !File.exist?(arq_indice) }
+        { pasta: dir, blocos: blocos, sem_indice: !File.exist?(arq_indice), versao: VERSAO }
       rescue StandardError => e
-        { erro: "Erro ao ler o catalogo: #{e.message}", pasta: pasta, blocos: [] }
+        { erro: "Erro ao ler o catalogo: #{e.message}", pasta: pasta, blocos: [], versao: VERSAO }
       end
 
       def self.enviar

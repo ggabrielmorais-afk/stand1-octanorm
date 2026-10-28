@@ -1,5 +1,8 @@
 # Histórico STAND1 Octanorm
 
+## 1.5.1 — 28/10/2026
+- **Botão "Verificar atualização" dentro da Biblioteca Stand1** (antes só existia em Extensões → STAND1 Octanorm). O rodapé da janela também mostra a versão instalada ("v1.5.1"), pra não ter mais dúvida de qual versão cada máquina está rodando.
+
 ## 1.5.0 — 28/10/2026
 - **Biblioteca em pasta compartilhada (Drive).** "+ Adicionar bloco" agora pergunta o nome de quem está adicionando (lembra pra próxima vez) e mostra "por Fulano" no cartão de quem não é você. Cada pessoa grava num arquivo próprio (`meus_blocos_<nome>.json`): duas pessoas adicionando bloco ao mesmo tempo numa pasta do Drive não disputam a mesma gravação.
 - **Aviso de bloco novo.** Alguns segundos depois de abrir o SketchUp, se um colega adicionou bloco à Biblioteca desde a última vez que esta máquina checou, aparece um aviso com quem adicionou, o nome do bloco e a categoria.

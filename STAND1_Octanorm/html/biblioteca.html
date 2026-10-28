@@ -35,9 +35,10 @@
                  border-radius: 4px; padding: 1px 5px; }
   .aviso { background: var(--card); border-left: 4px solid var(--rosa); border-radius: 8px; padding: 10px 12px; margin: 6px 0 10px; }
   .vazio-total { text-align: center; color: var(--cinza); padding: 40px 0; }
-  footer { display: flex; gap: 8px; align-items: center; padding: 8px 14px; border-top: 1px solid var(--borda);
+  footer { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 14px; border-top: 1px solid var(--borda);
            background: var(--card); font-size: 11px; color: var(--cinza); }
-  footer .caminho { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  footer .versao { white-space: nowrap; }
+  footer .caminho { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 60px; }
   footer button { border: 1px solid var(--borda); background: var(--bg); border-radius: 6px; padding: 4px 9px;
                   font-size: 11px; cursor: pointer; color: var(--texto); }
   footer button:hover { border-color: var(--azul); }
@@ -90,10 +91,12 @@
   <div class="grade" id="grade"></div>
 </main>
 <footer>
+  <span class="versao" id="versao" title="Versão do plugin instalada nesta máquina"></span>
   <span class="caminho" id="caminho">Carregando...</span>
   <button onclick="sketchup.escolher_pasta()">Trocar pasta</button>
   <button onclick="sketchup.abrir_pasta()">Abrir pasta</button>
   <button onclick="sketchup.pronto()">Atualizar</button>
+  <button onclick="sketchup.verificar_atualizacao()" title="Checa se tem versão nova do plugin pra baixar">Verificar atualização</button>
   <button class="add" onclick="sketchup.preparar_adicionar()">+ Adicionar bloco</button>
 </footer>
 
@@ -131,6 +134,7 @@
   function carregar(d) {
     blocos = d.blocos || [];
     document.getElementById("caminho").textContent = d.pasta || "";
+    document.getElementById("versao").textContent = d.versao ? "v" + d.versao : "";
     var av = "";
     if (d.erro) av = '<div class="aviso">' + esc(d.erro) + "</div>";
     else if (d.sem_indice) av = '<div class="aviso">Esta pasta não tem <b>catalogo.json</b>: os blocos aparecem em "Outros", sem miniatura.</div>';
