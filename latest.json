@@ -1,6 +1,6 @@
 {
-    "versao": "1.5.1",
+    "versao": "1.6.0",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.5.1: botao Verificar atualizacao dentro da Biblioteca Stand1, e o rodape da janela mostra a versao instalada. v1.5.0: Biblioteca pronta pra pasta compartilhada (Drive), adicionar bloco pergunta o nome de quem adicionou.",
-    "sha256": "be79eeee8626e3e4494c603857a929b477e291b1af43f7936d8b350ca90b846f"
+    "notas": "v1.6.0: botao novo Criar mobiliario. Balcao em TS, vidro, MDF ou expositor, clicando o caminho no piso, dividido em modulos de 1,00 com altura padrao 1,00. Cada modulo conta como um balcao no Memorial. Encostado em parede Octanorm ele usa os montantes dela: pra ficar de costas, clique os montantes da parede da esquerda pra direita, olhando de onde o balcao vai ficar. Prateleira de aluminio pelo mesmo botao.",
+    "sha256": "798221f4ba81b9568e2c1c4c6de836a78a2d182c78fbe30f74a20e23bb215daa"
 }

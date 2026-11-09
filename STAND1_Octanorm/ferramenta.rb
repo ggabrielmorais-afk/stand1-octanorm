@@ -87,17 +87,27 @@ module STAND1
           t = tr * e.transformation
           pts = e.get_attribute(Geometria::ATRIB, "pontos")
           if pts
+            next unless parede_serve?(e)
+
             comp = e.get_attribute(Geometria::ATRIB, "compartilhados")
             trechos = Layout.trechos(JSON.parse(pts), e.get_attribute(Geometria::ATRIB, "fechado") ? true : false,
                                      comp ? JSON.parse(comp) : [])
             mundo = ->(xy) { Geom::Point3d.new(xy[0].cm, xy[1].cm, 0).transform(t) }
             Layout.eixos(trechos).each { |xy| @imas << mundo.call(xy) }
-            trechos.each { |tc| @trilhos << Layout.eixos([tc]).map { |xy| mundo.call(xy) } }
+            trechos.each { |tc| registrar_trilho(Layout.eixos([tc]).map { |xy| mundo.call(xy) }, e) }
           elsif nivel < 4
             filhos = e.is_a?(Sketchup::Group) ? e.entities : e.definition.entities
             procurar_paredes(filhos, t, nivel + 1)
           end
         end
+      end
+
+      def parede_serve?(_grupo)
+        true
+      end
+
+      def registrar_trilho(montantes, _grupo)
+        @trilhos << montantes
       end
 
       def dist_tela_segmento(view, tela, a, b)

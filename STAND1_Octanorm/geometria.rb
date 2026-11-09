@@ -140,9 +140,11 @@ module STAND1
       end
 
       # Encaixa uma peca esticando so o eixo longo.
-      #   longo: :x (travessa) -> ocupa x0..x1, centrada em y, base em z0
+      #   longo: :x (travessa) -> ocupa x0..x1, centrada em y (y_centro), base em z0
+      #   longo: :y (travessa no sentido da profundidade, mobiliario) -> centrada em
+      #            x0, ocupa y0..y1, base em z0
       #   longo: :z (montante) -> centrada em x0, centrada em y, ocupa z0..z1
-      def self.encaixar(ents, defn, longo:, x0:, x1: nil, z0:, z1: nil)
+      def self.encaixar(ents, defn, longo:, x0:, x1: nil, y0: nil, y1: nil, y_centro: 0.0, z0:, z1: nil)
         b = defn.bounds
         dims = { x: b.width, y: b.height, z: b.depth }
         maior = dims.max_by { |_k, v| v }[0]
@@ -151,20 +153,30 @@ module STAND1
           rot = Geom::Transformation.rotation(ORIGIN, Z_AXIS, 90.degrees)
         elsif longo == :x && maior == :z
           rot = Geom::Transformation.rotation(ORIGIN, Y_AXIS, 90.degrees)
+        elsif longo == :y && maior == :x
+          rot = Geom::Transformation.rotation(ORIGIN, Z_AXIS, 90.degrees)
+        elsif longo == :y && maior == :z
+          rot = Geom::Transformation.rotation(ORIGIN, X_AXIS, -90.degrees)
         elsif longo == :z && maior == :x
           rot = Geom::Transformation.rotation(ORIGIN, Y_AXIS, -90.degrees)
         elsif longo == :z && maior == :y
           rot = Geom::Transformation.rotation(ORIGIN, X_AXIS, 90.degrees)
         end
         bb = caixa_girada(defn, rot)
-        if longo == :x
+        case longo
+        when :x
           ref = Geom::Point3d.new(bb.min.x, bb.center.y, bb.min.z)
           esc = Geom::Transformation.scaling(ORIGIN, (x1 - x0).cm / bb.width, 1, 1)
+          alvo = Geom::Point3d.new(x0.cm, y_centro.cm, z0.cm)
+        when :y
+          ref = Geom::Point3d.new(bb.center.x, bb.min.y, bb.min.z)
+          esc = Geom::Transformation.scaling(ORIGIN, 1, (y1 - y0).cm / bb.height, 1)
+          alvo = Geom::Point3d.new(x0.cm, y0.cm, z0.cm)
         else
           ref = Geom::Point3d.new(bb.center.x, bb.center.y, bb.min.z)
           esc = Geom::Transformation.scaling(ORIGIN, 1, 1, (z1 - z0).cm / bb.depth)
+          alvo = Geom::Point3d.new(x0.cm, y_centro.cm, z0.cm)
         end
-        alvo = Geom::Point3d.new(x0.cm, 0, z0.cm)
         tr = Geom::Transformation.translation(alvo - ORIGIN) * esc *
              Geom::Transformation.translation(ORIGIN - ref) * rot
         ents.add_instance(defn, tr)

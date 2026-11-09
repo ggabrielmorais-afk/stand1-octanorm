@@ -113,6 +113,43 @@ module STAND1
         lista
       end
 
+      # Balcao encostado em parede. paredes: [{ eixos: [[x, y], ...], vidro: bool }],
+      # um item por trecho reto, com os montantes em ordem.
+      TOLERANCIA_PAREDE = 1.0
+
+      # A parede cuja linha contem o trecho a..b (nil se nenhuma).
+      def self.parede_sob(a, b, paredes)
+        paredes.find do |p|
+          e = p[:eixos]
+          e.size >= 2 && dist_segmento(a, e.first, e.last) < TOLERANCIA_PAREDE &&
+            dist_segmento(b, e.first, e.last) < TOLERANCIA_PAREDE
+        end
+      end
+
+      def self.algum_trecho_em_parede?(pontos, fechado, paredes)
+        pares = pontos.each_cons(2).to_a
+        pares << [pontos.last, pontos.first] if fechado && pontos.size >= 3
+        pares.any? { |a, b| parede_sob(a, b, paredes) }
+      end
+
+      # Modulos de a ate b caindo nos montantes que a parede ja tem, no sentido
+      # do clique: a parede pode ter meio modulo em qualquer ponta.
+      def self.folhas_na_parede(a, b, eixos)
+        c = dist(a, b)
+        u = unitario(a, b)
+        meio = eixos.map { |q| (q[0] - a[0]) * u[0] + (q[1] - a[1]) * u[1] }
+                    .select { |t| t > MINIMO && t < c - MINIMO }.sort
+        ([0.0] + meio + [c]).each_cons(2).map do |x0, x1|
+          { x: x0.round(2), largura: (x1 - x0).round(2) }
+        end
+      end
+
+      # Mesmos pontos, afastados d cm pra direita do sentido do clique.
+      def self.a_direita(pontos, d)
+        u = unitario(pontos[0], pontos[1])
+        pontos.map { |p| [p[0] + u[1] * d, p[1] - u[0] * d] }
+      end
+
       # Resumo pra o relatorio: total de folhas normais, especiais, m2.
       def self.resumo(trechos, altura, meio: true)
         normais = especiais = meios = 0

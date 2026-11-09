@@ -13,6 +13,7 @@ require_relative 'editar'
 require_relative 'contagem'
 require_relative 'autoupdate'
 require_relative 'biblioteca'
+require_relative 'mobiliario'
 
 module STAND1
   module Octanorm
@@ -58,6 +59,86 @@ module STAND1
       opcoes = { altura: ALTURA_PAREDE, testeira: true, fechamento: ILHA_OPCOES[r[0]], porta: :nenhuma,
                  so_testeira: true }
       Sketchup.active_model.select_tool(Ferramenta.new(opcoes))
+    end
+
+    def self.ler_metro(txt, rotulo)
+      v = txt.to_s.tr(",", ".").to_f
+      raise "#{rotulo} precisa ser maior que zero (ex.: 1,00)." if v <= 0
+
+      v * 100.0
+    end
+
+    PECA_MOBILIARIO_OPCOES = ["Balcão (clica o caminho no piso)", "Prateleira (medida digitada)"].freeze
+    @ultima_peca_mobiliario = [PECA_MOBILIARIO_OPCOES.first]
+
+    # Escolhe entre balcao (desenhado clicando, igual parede/testeira) e
+    # prateleira (caixa digitada, nao corre ao longo de parede).
+    def self.criar_mobiliario
+      r = UI.inputbox(["Peça"], @ultima_peca_mobiliario, [PECA_MOBILIARIO_OPCOES.join("|")],
+                      "STAND1 Octanorm: criar mobiliário")
+      return unless r
+
+      @ultima_peca_mobiliario = r
+      r[0].start_with?("Balcão") ? criar_balcao : criar_prateleira
+    end
+
+    @ultimo_balcao = ["Vidro", "0,50", "1,00"]
+
+    def self.criar_balcao
+      r = UI.inputbox(["Fechamento", "Profundidade (m)", "Altura (m)"], @ultimo_balcao,
+                      [Mobiliario::FECHAMENTO_OPCOES.keys.join("|"), "", ""], "STAND1 Octanorm: balcão")
+      return unless r
+
+      @ultimo_balcao = r
+      fechamento = Mobiliario::FECHAMENTO_OPCOES[r[0]]
+      begin
+        profundidade = ler_metro(r[1], "Profundidade")
+        altura = ler_metro(r[2], "Altura")
+      rescue StandardError => e
+        UI.messagebox(e.message)
+        return
+      end
+
+      minima = fechamento == :expositor ? Mobiliario::ALTURA_MINIMA_EXPOSITOR : Mobiliario::ALTURA_MINIMA
+      if altura < minima
+        UI.messagebox("Altura mínima pra esse balcão: #{Layout.metros(minima)} m.")
+        return
+      end
+
+      Sketchup.active_model.select_tool(Mobiliario::FerramentaBalcao.new(fechamento, profundidade, altura))
+    end
+
+    @ultima_prateleira = ["1,00", "0,50", "2,20"]
+
+    def self.criar_prateleira
+      r = UI.inputbox(["Comprimento (m)", "Profundidade (m)", "Altura (m)"], @ultima_prateleira,
+                      ["", "", ""], "STAND1 Octanorm: prateleira")
+      return unless r
+
+      @ultima_prateleira = r
+      begin
+        comprimento = ler_metro(r[0], "Comprimento")
+        profundidade = ler_metro(r[1], "Profundidade")
+        altura = ler_metro(r[2], "Altura")
+      rescue StandardError => e
+        UI.messagebox(e.message)
+        return
+      end
+
+      model = Sketchup.active_model
+      model.start_operation("STAND1 Octanorm: prateleira", true)
+      begin
+        inst = Mobiliario.construir_prateleira(model, comprimento: comprimento, profundidade: profundidade, altura: altura)
+        model.commit_operation
+      rescue StandardError => e
+        model.abort_operation
+        UI.messagebox("Não deu pra montar:\n#{e.message}")
+        return
+      end
+      model.selection.clear
+      model.selection.add(inst)
+      UI.messagebox("#{inst.definition.name} montada. Use Mover (M) pra posicionar; a peça já sai na tag " \
+                    "#{Mobiliario::TAG}, pronta pro Memorial.")
     end
 
     def self.mover_porta_ferramenta
@@ -152,6 +233,12 @@ module STAND1
       cmd_p.tooltip = "STAND1 Octanorm: mover / por / tirar porta"
       cmd_p.status_bar_text = "Clique no vao da parede onde a porta deve ficar."
 
+      cmd_m = UI::Command.new("Criar mobiliário") { criar_mobiliario }
+      cmd_m.small_icon = File.join(icones, "mobiliario_16.png")
+      cmd_m.large_icon = File.join(icones, "mobiliario_32.png")
+      cmd_m.tooltip = "STAND1 Octanorm: criar balcão / prateleira (comprimento e profundidade)"
+      cmd_m.status_bar_text = "Escolhe a peça e as medidas; a altura e os níveis são do padrão Stand1."
+
       cmd_b = UI::Command.new("Biblioteca Stand1") { Biblioteca.abrir }
       cmd_b.small_icon = File.join(icones, "biblioteca_16.png")
       cmd_b.large_icon = File.join(icones, "biblioteca_32.png")
@@ -186,6 +273,7 @@ module STAND1
       menu.add_item(cmd)
       menu.add_item(cmd_i)
       menu.add_item(cmd_t)
+      menu.add_item(cmd_m)
       menu.add_item(cmd_p)
       menu.add_item(cmd_e)
       menu.add_item(cmd_l)
@@ -195,6 +283,7 @@ module STAND1
       barra.add_item(cmd)
       barra.add_item(cmd_i)
       barra.add_item(cmd_t)
+      barra.add_item(cmd_m)
       barra.add_item(cmd_p)
       barra.add_item(cmd_e)
       barra.add_item(cmd_l)

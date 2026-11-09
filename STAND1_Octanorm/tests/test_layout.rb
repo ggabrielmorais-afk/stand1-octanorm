@@ -5,6 +5,44 @@ require_relative '../layout'
 
 L = STAND1::Octanorm::Layout
 
+class TestBalcaoNaParede < Minitest::Test
+  PAREDE = { eixos: [[0.0, 0.0], [100.0, 0.0], [200.0, 0.0], [250.0, 0.0]], vidro: false }.freeze
+
+  def test_acha_a_parede_sob_o_trecho
+    assert_equal PAREDE, L.parede_sob([100, 0], [250, 0], [PAREDE])
+  end
+
+  def test_trecho_fora_da_linha_nao_e_parede
+    assert_nil L.parede_sob([100, 50], [200, 50], [PAREDE])
+    assert_nil L.parede_sob([100, 0], [100, -50], [PAREDE])
+  end
+
+  def test_trecho_que_passa_da_ponta_nao_e_parede
+    assert_nil L.parede_sob([200, 0], [300, 0], [PAREDE])
+  end
+
+  def test_folhas_caem_nos_montantes_no_sentido_do_clique
+    assert_equal [100.0, 100.0, 50.0], L.folhas_na_parede([0, 0], [250, 0], PAREDE[:eixos]).map { |f| f[:largura] }
+    assert_equal [50.0, 100.0, 100.0], L.folhas_na_parede([250, 0], [0, 0], PAREDE[:eixos]).map { |f| f[:largura] }
+  end
+
+  def test_folhas_de_um_pedaco_da_parede
+    f = L.folhas_na_parede([100, 0], [250, 0], PAREDE[:eixos])
+    assert_equal [0.0, 100.0], f.map { |x| x[:x] }
+    assert_equal [100.0, 50.0], f.map { |x| x[:largura] }
+  end
+
+  def test_a_direita_do_clique
+    assert_equal [[0.0, -50.0], [100.0, -50.0]], L.a_direita([[0.0, 0.0], [100.0, 0.0]], 50.0)
+    assert_equal [[0.0, 50.0], [-100.0, 50.0]], L.a_direita([[0.0, 0.0], [-100.0, 0.0]], 50.0)
+  end
+
+  def test_caminho_em_l_com_trecho_na_parede
+    assert L.algum_trecho_em_parede?([[0, 0], [100, 0], [100, -80]], false, [PAREDE])
+    refute L.algum_trecho_em_parede?([[100, 0], [100, -80], [200, -80]], false, [PAREDE])
+  end
+end
+
 class TestFolhas < Minitest::Test
   def test_parede_exata_de_3m
     r = L.folhas(300)
