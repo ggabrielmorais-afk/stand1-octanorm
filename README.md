@@ -19,6 +19,7 @@ do Memorial.
 | **Testeira (ilha)** | Só a faixa de 2,20 a 2,90, em TS, vidro ou MDF. Montante de canto e de ponta desce até o chão |
 | **Teto grid Z500 (pergolado)** | Grade de 1,00 × 1,00 m em Z500. Com sala, ilha ou parede em L selecionada, monta em cima dela. Sem seleção, marca 2 cantos ou digita a medida (ex.: 4x3) |
 | **Mover porta** | Clica num vão de 1,00 m e a porta vai pra lá. Clicar no vão da porta tira a porta |
+| **Janela de vidro** | Na parede TS, clica nos módulos (1,00 ou 0,50) que ganham vidro de 1,00 a 2,20, com TS embaixo e testeira TS em cima. Clicar de novo tira. Não entra no vão da porta nem em folha especial. No Memorial: "Paredes construída em alumínio, fechamento em vidro" (L × 1,20) e o TS separado em embaixo (L × 1,00) e testeira (L × 0,70). Editar e Mover porta mantêm as janelas; trocar o fechamento pra vidro/MDF tira |
 | **Editar** | Seleciona parede, sala, ilha ou teto pronto e troca medida, testeira, fechamento ou porta. Também no botão direito |
 | **Lista de peças** | Conta montante, travessa, Z500, folha TS, vidro, placa MDF, spider e porta da seleção (ou do modelo inteiro) e salva planilha |
 | **Biblioteca Stand1** | Janela com os blocos do catálogo (categoria, busca, miniatura). Um clique põe o bloco no modelo. **+ Adicionar bloco** salva o que estiver selecionado como bloco novo, com o nome de quem adicionou |

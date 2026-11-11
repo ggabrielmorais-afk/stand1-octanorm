@@ -46,6 +46,14 @@ module STAND1
       VIDRO_TESTEIRA = [0.0, 70.0].freeze                     # 0,70 (sobre a parede; Gabriel: 0,69 -> 0,70)
       SPIDER_Y_MIN = -3.87     # face da frente do spider
 
+      # Janela de vidro na parede TS: TS ate 1,00, vidro de 1,00 ate o topo da
+      # parede (2,20), testeira TS em cima. Nome do Memorial pedido pelo Gabriel
+      # (11/11/2026), escrito exatamente assim.
+      JANELA_NOME_MEMORIAL = "Paredes construída em alumínio, fechamento em vidro".freeze
+      # TS dos trechos com janela, no mesmo padrao (nome proprio: nao colide com o
+      # nome do trecho e nao ganha "#1"/"#2" no Memorial). Decidido em 11/11.
+      JANELA_TS_NOME_MEMORIAL = "Paredes construída em alumínio, fechamento em TS".freeze
+
       PASTA_PECAS = File.join(File.dirname(__FILE__), "pecas")
       PECAS = { montante: "Octanorm.skp", travessa: "Travesa.skp", z500: "Z500.skp",
                 spider: "Spider.skp",
@@ -224,7 +232,8 @@ module STAND1
 
       # Componente de um trecho (parede ou testeira). vao_porta: indice do vao com
       # porta (nil = sem porta).
-      def self.definicao(model, nome, chave, comprimento, altura, fechamento, tipo, mats, pecas, vao_porta = nil, inicio = false)
+      def self.definicao(model, nome, chave, comprimento, altura, fechamento, tipo, mats, pecas, vao_porta = nil, inicio = false,
+                         janelas: [])
         existente = model.definitions.find { |d| d.get_attribute(ATRIB, "chave") == chave }
         return existente if existente
 
@@ -243,6 +252,8 @@ module STAND1
             vao_ilha(ents, f, xa, xb, altura, fechamento, mats, pecas, ht)
           elsif fechamento == :vidro
             vao_vidro(ents, f, xa, xb, altura, tipo, i == vao_porta, mats, pecas, ht)
+          elsif tipo == :parede && fechamento == :ts && janelas.include?(i) && i != vao_porta
+            vao_janela(ents, f, xa, xb, altura, mats, pecas, ht)
           else
             vao_ts(ents, xa, xb, altura, tipo, fechamento, i == vao_porta, mats, pecas, ht)
           end
@@ -287,6 +298,58 @@ module STAND1
         VIDRO_PAREDE.each do |z0, z1|
           placa(ents, vx0, vx1, z0, z1, mats[:vidro], VIDRO_Y, VIDRO_ESPESSURA)
         end
+      end
+
+      # Modulo TS com janela: travessa no pe, folha TS ate 1,00, travessa em 1,00,
+      # travessa no topo (2,20) e a placa de vidro NA FRENTE do montante de 1,00
+      # ate o topo, presa por spider (como na parede de vidro).
+      def self.vao_janela(ents, f, xa, xb, altura, mats, pecas, ht)
+        base = Layout::JANELA_BASE
+        tv = pecas[:travessa]
+        encaixar(ents, tv, longo: :x, x0: xa, x1: xb, z0: 0.0)
+        placa(ents, xa, xb, ht, base, mats[:ts])
+        encaixar(ents, tv, longo: :x, x0: xa, x1: xb, z0: base)
+        encaixar(ents, tv, longo: :x, x0: xa, x1: xb, z0: altura - ht)
+        meio = f[:x] + f[:largura] / 2.0
+        lv = f[:largura] - (100.0 - VIDRO_LARGURA)
+        placa(ents, meio - lv / 2.0, meio + lv / 2.0, base, altura, mats[:vidro], VIDRO_Y, VIDRO_ESPESSURA)
+      end
+
+      # Spiders das janelas de um trecho: em cada eixo, os bracos do lado que tem
+      # vidro, embaixo (sobe) e em cima (desce) da placa.
+      def self.spiders_janela(ents, spider, eixos, tem, altura)
+        eixos.each_with_index do |x, k|
+          lados = []
+          lados << :esq if k > 0 && tem[k - 1]
+          lados << :dir if k < tem.size && tem[k]
+          colocar_bracos(ents, spider, x, Layout::JANELA_BASE + SPIDER_PE, lados, [:sobe])
+          colocar_bracos(ents, spider, x, altura - SPIDER_PE, lados, [:desce])
+        end
+      end
+
+      # Marcador de contagem pro Memorial: UMA definicao por nome numa caixa de 1
+      # polegada (dois pontos-guia), e cada peca e uma instancia escalada na medida.
+      # O Memorial le a escala, mede certo e nao cria "#1" por tamanho.
+      def self.marcador_unitario(model, nome)
+        d = model.definitions.find { |x| x.get_attribute(ATRIB, "marcador_unitario") == nome }
+        return d if d
+
+        d = model.definitions.add(nome)
+        d.set_attribute(ATRIB, "marcador_unitario", nome)
+        d.entities.add_cpoint(Geom::Point3d.new(0, 0, 0))
+        d.entities.add_cpoint(Geom::Point3d.new(1, 1, 1))
+        d
+      end
+
+      # x0..x1 ao longo do trecho, z0..z1 na altura (cm), no sistema do trecho.
+      def self.marcar(ents, model, nome, tr, x0, x1, z0, z1, tag)
+        return if x1 - x0 <= 0.01 || z1 - z0 <= 0.01
+
+        esc = Geom::Transformation.scaling(ORIGIN, (x1 - x0).cm.to_f, 1.cm.to_f, (z1 - z0).cm.to_f)
+        mov = Geom::Transformation.translation(Geom::Vector3d.new(x0.cm, 0, z0.cm))
+        inst = ents.add_instance(marcador_unitario(model, nome), tr * mov * esc)
+        inst.layer = tag
+        inst
       end
 
       # Fechamento que vai NA FRENTE do montante, preso por spider (vidro e MDF).
@@ -427,8 +490,14 @@ module STAND1
       #   grupo:     grupo existente pra refazer no lugar (nil = cria novo)
       def self.construir(model, pontos:, fechado:, altura:, fechamento:, testeira:,
                          porta: :nenhuma, porta_pos: nil, grupo: nil, compartilhados: [], so_testeira: false,
-                         ambiente: nil)
+                         ambiente: nil, janelas: nil)
         trechos = Layout.trechos(pontos, fechado, compartilhados)
+        # janelas de vidro: sem lista nova, mantem as que a parede ja tinha
+        # (Editar e Mover porta refazem sem perder)
+        if janelas.nil?
+          salvo = grupo&.get_attribute(ATRIB, "janelas")
+          janelas = salvo ? JSON.parse(salvo, symbolize_names: true) : []
+        end
         sala = fechado && !so_testeira && pontos.size >= 3
         ambiente ||= grupo&.get_attribute(ATRIB, "ambiente") if sala # Mover porta / Editar mantem o nome
         ambiente = "Sala" if sala && ambiente.to_s.strip.empty?
@@ -439,6 +508,18 @@ module STAND1
         meio = true # TS (0,50) e vidro (0,49) tem meio modulo
         porta_pos ||= Layout.porta_padrao(trechos, meio: meio) if porta != :nenhuma
         porta = :nenhuma if porta_pos.nil?
+        # janela de vidro so existe na parede TS. Trocou pra vidro/MDF: a parede
+        # guarda a lista e as janelas voltam se trocar de novo pra TS.
+        janelas_salvas = Array(janelas)
+        if fechamento == :ts && !so_testeira
+          janelas = Layout.janelas_validas(janelas, trechos, porta == :nenhuma ? nil : porta_pos, meio: meio)
+          janelas_salvas = janelas
+        else
+          janelas = []
+        end
+        # sala com janela: conta parede por parede (TS e vidro separados) no lugar
+        # do recinto inteiro, senao o vidro entra duas vezes
+        por_pedaco_sala = sala && janelas.any?
 
         mats = materiais(model)
         pecas = { montante: peca(model, :montante), travessa: peca(model, :travessa) }
@@ -446,6 +527,7 @@ module STAND1
           pecas[:z500] = peca(model, :z500)
           pecas[:spider] = peca(model, :spider)
         end
+        pecas[:spider] ||= peca(model, :spider) if janelas.any?
         porta_def = case porta
                     when :octanorm then peca(model, :porta_octanorm)
                     when :vidro then peca(model, :porta_vidro)
@@ -465,6 +547,7 @@ module STAND1
           "fechamento" => fechamento.to_s, "testeira" => testeira, "porta" => porta.to_s,
           "porta_pos" => (porta_pos ? JSON.generate(porta_pos) : nil),
           "compartilhados" => JSON.generate(compartilhados), "so_testeira" => so_testeira,
+          "janelas" => JSON.generate(janelas_salvas),
           "ambiente" => (sala ? ambiente : nil) }.each { |k, v| grupo.set_attribute(ATRIB, k, v) }
         grupo.name = "#{ambiente} (Octanorm #{fch[:rotulo]} #{Layout.metros(h_total)} m)" if sala
         tag_trecho = sala ? nil : tag # sala: quem conta e o marcador da sala, nao os trechos
@@ -481,7 +564,7 @@ module STAND1
           eixos.unshift(0.0) if t[:montante_inicio]
           eixos.pop unless t[:montante_fim] # encostou num montante de outra parede
           g_m = grupo.entities.add_group
-          g_m.name = placa_frontal?(fechamento) ? "Montantes e spiders" : "Montantes"
+          g_m.name = placa_frontal?(fechamento) || Layout.janelas_do_trecho(janelas, ti).any? ? "Montantes e spiders" : "Montantes"
           eixos.each do |x|
             # ilha: so canto e ponta descem ate o chao (sustentam); os do meio ficam na faixa
             apoio = (x.abs < 0.01 && t[:montante_inicio]) || ((x - c).abs < 0.01 && t[:montante_fim])
@@ -519,11 +602,19 @@ module STAND1
             spiders_trecho(g_m.entities, pecas[:spider], todos_eixos, vidro_parede, vidro_testeira, testeira, h_total)
           end
 
+          fs_t = Layout.folhas_do(t, meio: meio)[:folhas]
+          jan_t = Layout.janelas_do_trecho(janelas, ti) - [vao_p]
+          if jan_t.any?
+            spiders_janela(g_m.entities, pecas[:spider], [0.0] + fs_t.map { |f| f[:x] + f[:largura] },
+                           fs_t.each_index.map { |i| jan_t.include?(i) }, altura)
+          end
+
           # pecas da parede e da testeira (nao contam sozinhas) dentro de um
           # componente do trecho, que e o que o Memorial conta
           nome_p = "#{fch[:nome]} #{Layout.metros(c)} x #{Layout.metros(altura)} m"
-          chave_p = ["parede", fechamento, c, altura, vao_p, t[:sobra_no_inicio]].join("|")
-          dp = definicao(model, nome_p, chave_p, c, altura, fechamento, :parede, mats, pecas, vao_p, t[:sobra_no_inicio])
+          chave_p = ["parede", fechamento, c, altura, vao_p, t[:sobra_no_inicio], jan_t.join(",")].join("|")
+          dp = definicao(model, nome_p, chave_p, c, altura, fechamento, :parede, mats, pecas, vao_p, t[:sobra_no_inicio],
+                         janelas: jan_t)
           partes = [[dp, 0.0]]
           chave_t = nil
           if testeira
@@ -534,7 +625,23 @@ module STAND1
           dtr = trecho_memorial(model, Layout.nome_memorial("Parede", fechamento),
                                 ["v4", "trecho", chave_p, chave_t].join("|"), c, h_total, partes)
           inst = grupo.entities.add_instance(dtr, tr)
-          inst.layer = tag_trecho if tag_trecho
+          if jan_t.any? || por_pedaco_sala
+            # trecho com janela (ou qualquer parede de sala com janela): quem
+            # conta sao os marcadores, por pedaco seguido: TS cheio, ou TS
+            # embaixo + vidro + TS em cima.
+            base = Layout::JANELA_BASE
+            Layout.faixas_janela(fs_t, jan_t).each do |fx|
+              if fx[:vidro]
+                marcar(grupo.entities, model, JANELA_NOME_MEMORIAL, tr, fx[:x0], fx[:x1], base, altura, tag)
+                marcar(grupo.entities, model, JANELA_TS_NOME_MEMORIAL, tr, fx[:x0], fx[:x1], 0.0, base, tag)
+                marcar(grupo.entities, model, JANELA_TS_NOME_MEMORIAL, tr, fx[:x0], fx[:x1], altura, h_total, tag)
+              else
+                marcar(grupo.entities, model, JANELA_TS_NOME_MEMORIAL, tr, fx[:x0], fx[:x1], 0.0, h_total, tag)
+              end
+            end
+          elsif tag_trecho
+            inst.layer = tag_trecho
+          end
 
           next unless vao_p
 
@@ -542,7 +649,7 @@ module STAND1
           colocar_porta(grupo.entities, porta_def, f[:x] + f[:largura] / 2.0, tr, fechamento == :vidro, tag)
         end
 
-        if sala
+        if sala && !por_pedaco_sala
           r = Layout.retangulo_da_sala(pontos)
           marc = marcador_sala(model, Layout.nome_memorial(ambiente, fechamento), r[:l], r[:p], h_total)
           tr_s = Geom::Transformation.translation(Geom::Vector3d.new(r[:origem][0].cm, r[:origem][1].cm, 0)) *

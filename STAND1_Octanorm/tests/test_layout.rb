@@ -451,3 +451,57 @@ class TestResumo < Minitest::Test
     assert_equal "4,00", L.metros(400)
   end
 end
+
+class TestJanelaDeVidro < Minitest::Test
+  # parede de 3,50: modulos 1,00 1,00 1,00 e meio modulo de 0,50 no fim
+  def trechos
+    L.trechos([[0, 0], [350, 0]])
+  end
+
+  def test_clique_acha_o_modulo_inclusive_meio_modulo
+    assert_equal({ trecho: 0, vao: 1 }, L.vao_janela_no_ponto(trechos, 150, 3))
+    assert_equal({ trecho: 0, vao: 3 }, L.vao_janela_no_ponto(trechos, 330, 3))
+    assert_nil L.vao_no_ponto(trechos, 330, 3) # a porta continua so em vao de 1,00
+  end
+
+  def test_folha_especial_nao_recebe_janela
+    t = L.trechos([[0, 0], [320, 0]]) # sobra de 0,20 vira folha especial
+    assert_nil L.vao_janela_no_ponto(t, 310, 0)
+  end
+
+  def test_clicar_de_novo_tira_a_janela
+    j = L.alternar_janela([], { trecho: 0, vao: 2 })
+    j = L.alternar_janela(j, { trecho: 0, vao: 0 })
+    assert_equal [{ trecho: 0, vao: 0 }, { trecho: 0, vao: 2 }], j
+    assert_equal [{ trecho: 0, vao: 0 }], L.alternar_janela(j, { trecho: 0, vao: 2 })
+  end
+
+  def test_janela_some_no_vao_da_porta_e_no_vao_que_nao_existe_mais
+    j = [{ trecho: 0, vao: 0 }, { trecho: 0, vao: 1 }, { trecho: 0, vao: 9 }, { trecho: 3, vao: 0 }]
+    assert_equal [{ trecho: 0, vao: 0 }], L.janelas_validas(j, trechos, { trecho: 0, vao: 1 })
+  end
+
+  def test_janelas_lidas_do_json_com_chave_texto
+    j = [{ "trecho" => 0, "vao" => 2 }].map { |h| h.transform_keys(&:to_sym) }
+    assert_equal [{ trecho: 0, vao: 2 }], L.janelas_validas(j, trechos)
+  end
+
+  def test_faixas_juntam_modulos_seguidos
+    fs = L.folhas_do(trechos[0])[:folhas]
+    f = L.faixas_janela(fs, [1, 2])
+    assert_equal [{ x0: 0.0, x1: 100.0, vidro: false }, { x0: 100.0, x1: 300.0, vidro: true },
+                  { x0: 300.0, x1: 350.0, vidro: false }], f
+  end
+
+  def test_cozinha_show_dois_trechos_de_vidro_e_entrada_no_meio
+    # frente de 13 m: vidro nos modulos 1 a 4 e 10 a 13, sem vidro no meio
+    fs = L.folhas(1300.0)[:folhas]
+    f = L.faixas_janela(fs, [0, 1, 2, 3, 9, 10, 11, 12])
+    assert_equal [[0.0, 400.0, true], [400.0, 900.0, false], [900.0, 1300.0, true]],
+                 f.map { |x| [x[:x0], x[:x1], x[:vidro]] }
+  end
+
+  def test_janelas_do_trecho
+    assert_equal [0, 2], L.janelas_do_trecho([{ trecho: 1, vao: 2 }, { trecho: 0, vao: 4 }, { trecho: 1, vao: 0 }], 1)
+  end
+end

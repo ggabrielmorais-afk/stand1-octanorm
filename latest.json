@@ -1,6 +1,6 @@
 {
-    "versao": "1.6.0",
+    "versao": "1.7.0",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.6.0: botao novo Criar mobiliario. Balcao em TS, vidro, MDF ou expositor, clicando o caminho no piso, dividido em modulos de 1,00 com altura padrao 1,00. Cada modulo conta como um balcao no Memorial. Encostado em parede Octanorm ele usa os montantes dela: pra ficar de costas, clique os montantes da parede da esquerda pra direita, olhando de onde o balcao vai ficar. Prateleira de aluminio pelo mesmo botao.",
-    "sha256": "798221f4ba81b9568e2c1c4c6de836a78a2d182c78fbe30f74a20e23bb215daa"
+    "notas": "v1.7.0: botao novo Janela de vidro. Na parede TS, clique nos modulos que ganham vidro de 1,00 a 2,20, com TS embaixo e testeira TS em cima (clique de novo tira). No Memorial o vidro sai como 'Paredes construida em aluminio, fechamento em vidro' e o TS desse trecho separado por altura. Sala com janela e contada parede por parede, pra o vidro nao entrar duas vezes. Paredes sem janela nao mudam.",
+    "sha256": "65cde23cda8a300cbf36bb3fbcc9aaf290f46ab97e4773d63ec387848623f2c7"
 }

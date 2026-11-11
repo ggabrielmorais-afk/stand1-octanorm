@@ -182,7 +182,7 @@ module STAND1
 
       # Vao de 1,00 m mais perto de um ponto (cm, mesmo sistema dos trechos).
       # Usado pra "mover porta": clica perto do vao e a porta vai pra la.
-      def self.vao_no_ponto(trechos, x, y, meio: true)
+      def self.vao_no_ponto(trechos, x, y, meio: true, aceita: method(:inteiro?))
         melhor = nil
         trechos.each_with_index do |t, ti|
           ax, ay = t[:inicio]
@@ -197,11 +197,62 @@ module STAND1
           ao_longo = u * t[:comprimento]
           fs = folhas_do(t, meio: meio)[:folhas]
           vi = fs.index { |f| ao_longo >= f[:x] && ao_longo <= f[:x] + f[:largura] } || fs.size - 1
-          next unless inteiro?(fs[vi])
+          next unless aceita.call(fs[vi])
 
           melhor = { trecho: ti, vao: vi, distancia: d } if melhor.nil? || d < melhor[:distancia]
         end
         melhor && { trecho: melhor[:trecho], vao: melhor[:vao] }
+      end
+
+      # ---- Janela de vidro (parede TS) ---------------------------------------
+      # Faixa de vidro de 1,00 a 2,20 em modulos escolhidos da parede TS, com TS
+      # embaixo e a testeira TS em cima (medido na Cozinha Show do Salon du
+      # Chocolat, projeto do Tatas, 11/11/2026). Vale em modulo de 1,00 e de 0,50,
+      # nunca em folha especial nem no vao da porta.
+      JANELA_BASE = 100.0
+
+      def self.janela_cabe?(f)
+        !f[:especial]
+      end
+
+      def self.vao_janela_no_ponto(trechos, x, y, meio: true)
+        vao_no_ponto(trechos, x, y, meio: meio, aceita: method(:janela_cabe?))
+      end
+
+      # Liga ou desliga a janela no vao. janelas: [{ trecho:, vao: }, ...]
+      def self.alternar_janela(janelas, vao)
+        lista = janelas.map { |j| { trecho: j[:trecho].to_i, vao: j[:vao].to_i } }
+        alvo = { trecho: vao[:trecho].to_i, vao: vao[:vao].to_i }
+        lista.include?(alvo) ? lista.delete(alvo) : lista << alvo
+        lista.uniq.sort_by { |j| [j[:trecho], j[:vao]] }
+      end
+
+      # Tira janela que nao cabe mais (vao sumiu, virou folha especial ou tem porta).
+      def self.janelas_validas(janelas, trechos, porta_pos = nil, meio: true)
+        Array(janelas).map { |j| { trecho: j[:trecho].to_i, vao: j[:vao].to_i } }.uniq.select do |j|
+          t = trechos[j[:trecho]]
+          f = t && folhas_do(t, meio: meio)[:folhas][j[:vao]]
+          f && janela_cabe?(f) && j != porta_pos
+        end.sort_by { |j| [j[:trecho], j[:vao]] }
+      end
+
+      # Indices dos vaos com janela num trecho.
+      def self.janelas_do_trecho(janelas, ti)
+        Array(janelas).select { |j| j[:trecho].to_i == ti }.map { |j| j[:vao].to_i }.sort
+      end
+
+      # Junta vaos seguidos com o mesmo estado (com ou sem vidro) num pedaco so,
+      # pra o Memorial contar por trecho reto: [{ x0:, x1:, vidro: }, ...] (cm).
+      def self.faixas_janela(folhas, indices)
+        folhas.each_with_index.each_with_object([]) do |(f, i), acc|
+          vidro = indices.include?(i)
+          x1 = (f[:x] + f[:largura]).round(2)
+          if acc.any? && acc.last[:vidro] == vidro
+            acc.last[:x1] = x1
+          else
+            acc << { x0: f[:x].round(2), x1: x1, vidro: vidro }
+          end
+        end
       end
 
       # Medida digitada na caixa de medida -> cm. Numero sozinho = METROS

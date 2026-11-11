@@ -8,6 +8,7 @@ require_relative 'layout'
 require_relative 'geometria'
 require_relative 'ferramenta'
 require_relative 'porta'
+require_relative 'janela'
 require_relative 'teto'
 require_relative 'editar'
 require_relative 'contagem'
@@ -145,6 +146,10 @@ module STAND1
       Sketchup.active_model.select_tool(FerramentaPorta.new)
     end
 
+    def self.janela_ferramenta
+      Sketchup.active_model.select_tool(FerramentaJanela.new)
+    end
+
     @ultima_teto = [Teto::ALTURAS.keys.first, Teto::FORROS.keys.first]
 
     # Teto grid Z500. Com sala, ilha ou parede em L selecionada: monta em cima
@@ -233,6 +238,12 @@ module STAND1
       cmd_p.tooltip = "STAND1 Octanorm: mover / por / tirar porta"
       cmd_p.status_bar_text = "Clique no vao da parede onde a porta deve ficar."
 
+      cmd_j = UI::Command.new("Janela de vidro") { janela_ferramenta }
+      cmd_j.small_icon = File.join(icones, "janela_16.png")
+      cmd_j.large_icon = File.join(icones, "janela_32.png")
+      cmd_j.tooltip = "STAND1 Octanorm: janela de vidro de 1,00 a 2,20 nos modulos da parede TS"
+      cmd_j.status_bar_text = "Clique nos modulos da parede TS que ganham vidro. Clique de novo tira."
+
       cmd_m = UI::Command.new("Criar mobiliário") { criar_mobiliario }
       cmd_m.small_icon = File.join(icones, "mobiliario_16.png")
       cmd_m.large_icon = File.join(icones, "mobiliario_32.png")
@@ -275,6 +286,7 @@ module STAND1
       menu.add_item(cmd_t)
       menu.add_item(cmd_m)
       menu.add_item(cmd_p)
+      menu.add_item(cmd_j)
       menu.add_item(cmd_e)
       menu.add_item(cmd_l)
       menu.add_item(cmd_b)
@@ -285,6 +297,7 @@ module STAND1
       barra.add_item(cmd_t)
       barra.add_item(cmd_m)
       barra.add_item(cmd_p)
+      barra.add_item(cmd_j)
       barra.add_item(cmd_e)
       barra.add_item(cmd_l)
       barra.add_item(cmd_b)
