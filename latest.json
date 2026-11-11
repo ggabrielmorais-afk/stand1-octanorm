@@ -1,6 +1,6 @@
 {
-    "versao": "1.7.0",
+    "versao": "1.7.1",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.7.0: botao novo Janela de vidro. Na parede TS, clique nos modulos que ganham vidro de 1,00 a 2,20, com TS embaixo e testeira TS em cima (clique de novo tira). No Memorial o vidro sai como 'Paredes construida em aluminio, fechamento em vidro' e o TS desse trecho separado por altura. Sala com janela e contada parede por parede, pra o vidro nao entrar duas vezes. Paredes sem janela nao mudam.",
-    "sha256": "65cde23cda8a300cbf36bb3fbcc9aaf290f46ab97e4773d63ec387848623f2c7"
+    "notas": "v1.7.1: a Biblioteca se atualiza sozinha a cada 10 minutos com o SketchUp aberto: bloco novo de colega aparece no aviso e na lista sem fechar nada. Da 1.7.0: botao novo Janela de vidro. Na parede TS, clique nos modulos que ganham vidro de 1,00 a 2,20, com TS embaixo e testeira TS em cima (clique de novo tira). No Memorial o vidro sai como 'Paredes construida em aluminio, fechamento em vidro' e o TS desse trecho separado por altura. Sala com janela e contada parede por parede, pra o vidro nao entrar duas vezes. Paredes sem janela nao mudam.",
+    "sha256": "598fe0592cbe4515578081f7e5453d073a0446106bda065523499fe225724c88"
 }

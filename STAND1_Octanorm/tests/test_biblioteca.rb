@@ -17,6 +17,29 @@ class TestSlug < Minitest::Test
   end
 end
 
+require 'tmpdir'
+
+class TestAssinaturaDaPasta < Minitest::Test
+  def test_muda_quando_entra_bloco_ou_lista_e_ignora_o_resto
+    Dir.mktmpdir do |d|
+      File.write(File.join(d, "Balcao 1,00.skp"), "x")
+      a = B.assinatura(d)
+      File.write(File.join(d, "anotacao.txt"), "x") # arquivo que nao e bloco: nao conta
+      assert_equal a, B.assinatura(d)
+      File.write(File.join(d, "Totem.skp"), "x")
+      b = B.assinatura(d)
+      refute_equal a, b
+      File.write(File.join(d, "meus_blocos_fagner.json"), "{}")
+      refute_equal b, B.assinatura(d)
+    end
+  end
+
+  def test_pasta_que_nao_existe_nao_quebra
+    assert_equal "", B.assinatura("Z:/nao/existe")
+    assert_equal "", B.assinatura(nil)
+  end
+end
+
 class TestNovidades < Minitest::Test
   def entrada(nome, autor, quando)
     { "nome" => nome, "categoria" => "Balcões", "adicionado_por" => autor, "adicionado_em" => quando }

@@ -321,6 +321,8 @@ module STAND1
       UI.start_timer(5.0, false) { AutoUpdate.check(false) } rescue nil
       # avisa o que a equipe adicionou na Biblioteca desde a ultima vez (pasta compartilhada)
       UI.start_timer(7.0, false) { Biblioteca.verificar_novidades } rescue nil
+      # e depois confere a pasta a cada 10 min, com o SketchUp aberto (1.7.1)
+      UI.start_timer(8.0, false) { Biblioteca.vigiar } rescue nil
       puts "STAND1 Octanorm #{VERSAO} carregado"
       file_loaded(__FILE__)
     end

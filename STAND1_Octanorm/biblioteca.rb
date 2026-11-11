@@ -221,6 +221,44 @@ module STAND1
         nil # nunca atrapalha a abertura do SketchUp por isso
       end
 
+      # ---- Atualizacao sozinha (1.7.1) ----------------------------------------
+      # A cada 10 min (pedido do Gabriel, pra nao sobrecarregar): avisa bloco novo
+      # mesmo com o SketchUp ja aberto e, se a Biblioteca estiver aberta e a
+      # pasta mudou, recarrega a lista. So le nome e data dos arquivos da raiz da
+      # pasta (barato): nao abre .skp nem miniatura sem ter mudado nada.
+      INTERVALO_VIGIA = 600.0
+
+      # Muda quando entra, sai ou e regravado um .skp, o catalogo.json ou um
+      # meus_blocos*.json da raiz. Pura o suficiente pra testar com pasta comum.
+      def self.assinatura(dir)
+        return "" unless dir && File.directory?(dir)
+
+        Dir.children(dir).select { |f| f =~ /\.skp\z/i || f == "catalogo.json" || File.fnmatch(MEUS_GLOB, f) }.sort.map do |f|
+          "#{f}|#{File.mtime(File.join(dir, f)).to_f.round(3)}"
+        end.join("\n")
+      rescue StandardError
+        ""
+      end
+
+      def self.vigiar
+        return if @vigia
+
+        @ultima_assinatura = assinatura(pasta)
+        @vigia = UI.start_timer(INTERVALO_VIGIA, true) { checar_mudanca }
+      end
+
+      def self.checar_mudanca
+        dir = pasta
+        nova = assinatura(dir)
+        return if nova == @ultima_assinatura
+
+        @ultima_assinatura = nova
+        verificar_novidades
+        enviar if @dlg && @dlg.visible?
+      rescue StandardError
+        nil # nunca atrapalha o trabalho por isso
+      end
+
       def self.escolher_pasta
         p = UI.select_directory(title: "Pasta do catalogo Stand1", directory: pasta)
         return unless p

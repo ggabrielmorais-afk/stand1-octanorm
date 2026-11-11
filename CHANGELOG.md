@@ -1,5 +1,8 @@
 # Histórico STAND1 Octanorm
 
+## 1.7.1 — 11/11/2026
+- **Biblioteca se atualiza sozinha.** Com o SketchUp aberto, a cada 10 minutos o plugin confere a pasta do catálogo. Se um colega adicionou bloco, aparece o aviso "Fulano adicionou..." e, se a Biblioteca estiver aberta, a lista recarrega sem precisar fechar nada. Sem mudança na pasta, não faz nada (só lê nome e data dos arquivos). O bloco só chega depois que o Google Drive sincroniza o arquivo.
+
 ## 1.7.0 — 11/11/2026
 - **Botão novo "Janela de vidro".** Na parede ou sala TS, clica nos módulos (1,00 ou 0,50) que ganham vidro de 1,00 a 2,20: TS embaixo, placa de vidro na frente do montante presa por spider, testeira TS em cima. Clicar de novo tira. Medidas tiradas da Cozinha Show do Salon du Chocolat.
 - **Memorial:** o vidro sai como "Paredes construída em alumínio, fechamento em vidro" (L × 1,20) e o TS desse trecho como "Paredes construída em alumínio, fechamento em TS", separado em embaixo (L × 1,00), testeira (L × 0,70) e módulos sem vidro (L × 2,90). Sala com janela é contada parede por parede, sem o item de recinto, pra o vidro não entrar duas vezes. Parede e sala sem janela não mudam.
