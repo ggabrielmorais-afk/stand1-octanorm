@@ -1,5 +1,11 @@
 # Histórico STAND1 Octanorm
 
+## 1.8.0 — 19/11/2026
+- **Aba "Texturas" na Biblioteca Stand1, só com as napas do Hugo (Arqloads).** São as 19 napas da pasta `NAPAS` da biblioteca de materiais dele, com miniatura, busca por cor ou código e um clique pra aplicar. Todo mundo escolhe da mesma lista e a napa entra carregada do `.skm` original, com os mapas certos. O nome do material continua "NAPA 37324 BRANCO", que o Memorial já reconhece como revestimento.
+- **Como aplica:** com face ou grupo selecionado, pinta na hora; sem seleção, a napa vira o material do balde de tinta. Para pintar só um lado de uma parede, selecione a face. Repetir a mesma napa não cria material duplicado, e o Ctrl+Z desfaz.
+- **Pasta:** usa `C:\ARQLOADS - MATERIAIS PBR PARA SKETCHUP\NAPAS`. Quem tem a biblioteca em outro lugar clica em "Trocar pasta" dentro da aba. Só entra arquivo que começa com "NAPA ", o resto da biblioteca (MDF, tapete etc.) não aparece.
+- Testado dentro do SketchUp: lista, miniaturas, aplicar em face, grupo e sem seleção, napa repetida, arquivo que não é napa, desfazer e a janela com a troca de abas.
+
 ## 1.7.2 — 19/11/2026
 - **Bloco adicionado pela Biblioteca não cai mais no Memorial como "STAND1 bloco temporario".** O "+ Adicionar bloco" salvava o arquivo com um nome interno temporário, e o Memorial conta o bloco por esse nome quando ele é inserido com a tag de seção ativa. Agora o bloco é salvo com o próprio nome.
 - **Blocos que já tinham sido adicionados também se corrigem**, sem precisar refazer nem mexer na pasta do Drive: ao inserir, o plugin troca o nome temporário pelo nome do arquivo. Bloco que já vem com o nome certo não é tocado.

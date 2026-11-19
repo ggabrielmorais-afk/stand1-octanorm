@@ -73,24 +73,47 @@
   .tema { position: absolute; top: 10px; right: 12px; border: 0; background: rgba(255,255,255,.18); color: #fff;
           border-radius: 8px; padding: 3px 8px; font-size: 14px; cursor: pointer; }
   header { position: relative; }
+  .abas { display: flex; gap: 4px; margin: 0 0 8px; }
+  .abas button { border: 0; background: rgba(255,255,255,.18); color: #fff; border-radius: 8px 8px 0 0; padding: 5px 14px;
+                 font-size: 12px; font-weight: 600; cursor: pointer; }
+  .abas button.ativa { background: var(--bg); color: var(--azul); }
+  body.escuro .abas button.ativa { color: #b9c0ff; }
+  .card.napa .img { height: 96px; }
+  .card.napa .img img { width: 100%; height: 100%; object-fit: cover; max-height: none; }
+  .card.napa .cod { color: var(--cinza); font-size: 11px; margin-top: 2px; }
 </style>
 </head>
 <body>
 <header>
   <button class="tema" id="tema" onclick="trocarTema()">&#9790;</button>
   <h1>Biblioteca Stand1</h1>
+  <div class="abas">
+    <button id="aba-blocos" class="ativa" onclick="abrirAba('blocos')">Blocos</button>
+    <button id="aba-texturas" onclick="abrirAba('texturas')">Texturas</button>
+  </div>
   <div class="busca">
     <input id="q" type="search" placeholder="Buscar bloco (ex.: balcão, tv, cachepot)" autofocus>
     <span class="conta" id="conta"></span>
   </div>
 </header>
 <nav id="cats"></nav>
-<div class="dica">Clique no bloco e posicione no modelo. Ele já entra com a tag do Memorial.</div>
-<main>
+<div class="dica" id="dica-blocos">Clique no bloco e posicione no modelo. Ele já entra com a tag do Memorial.</div>
+<main id="main-blocos">
   <div id="aviso"></div>
   <div class="grade" id="grade"></div>
 </main>
-<footer>
+<div class="dica" id="dica-tex" style="display:none">Napas do Hugo (Arqloads). Selecione a face ou o grupo no modelo e clique na napa; sem seleção ela vai pro balde de tinta. Para pintar só um lado de uma parede, selecione a face.</div>
+<main id="main-tex" style="display:none">
+  <div id="aviso-tex"></div>
+  <div class="grade" id="grade-tex"></div>
+</main>
+<footer id="foot-tex" style="display:none">
+  <span class="versao" id="versao-tex" title="Versão do plugin instalada nesta máquina"></span>
+  <span class="caminho" id="caminho-tex">Carregando...</span>
+  <button onclick="sketchup.escolher_pasta_napas()">Trocar pasta</button>
+  <button onclick="sketchup.texturas_pronto()">Atualizar</button>
+</footer>
+<footer id="foot-blocos">
   <span class="versao" id="versao" title="Versão do plugin instalada nesta máquina"></span>
   <span class="caminho" id="caminho">Carregando...</span>
   <button onclick="sketchup.escolher_pasta()">Trocar pasta</button>
@@ -124,7 +147,7 @@
 </div>
 
 <script>
-  var blocos = [], categoria = "Todos";
+  var blocos = [], categoria = "Todos", aba = "blocos";
   var ORDEM = ["Stands prontos", "Octanorm", "Estruturas", "Revestimentos", "Balcões", "Mesas", "Bistrôs", "Cadeiras",
                "Poltronas e puffs", "Sofás e bancos", "Expositores e apoio", "Paisagismo", "Equipamentos", "Elétrica", "Outros"];
 
@@ -155,6 +178,7 @@
   }
 
   function filtrar() {
+    if (aba === "texturas") return; // a busca e o contador sao da aba Texturas enquanto ela esta aberta
     var q = sem_acento(document.getElementById("q").value).trim().split(/\s+/).filter(Boolean);
     var lista = blocos.filter(function (b) {
       if (categoria !== "Todos" && b.categoria !== categoria) return false;
@@ -242,6 +266,79 @@
   document.getElementById("f_girar").addEventListener("change", sugerirNome);
   document.getElementById("f_cat").addEventListener("change", function () {
     document.getElementById("f_cat_nova").style.display = this.value === "__nova" ? "block" : "none";
+  });
+
+  // ---- aba Texturas: so as napas do Hugo (texturas.rb) ----
+  var napas = [], napasPedidas = {}, napaMini = {}, napasCarregou = false;
+
+  function abrirAba(a) {
+    aba = a;
+    var tex = a === "texturas";
+    document.getElementById("aba-blocos").classList.toggle("ativa", !tex);
+    document.getElementById("aba-texturas").classList.toggle("ativa", tex);
+    ["cats", "dica-blocos", "main-blocos", "foot-blocos"].forEach(function (id) { document.getElementById(id).style.display = tex ? "none" : ""; });
+    ["dica-tex", "main-tex", "foot-tex"].forEach(function (id) { document.getElementById(id).style.display = tex ? "" : "none"; });
+    var q = document.getElementById("q");
+    q.value = "";
+    q.placeholder = tex ? "Buscar napa (ex.: azul, branco, 37324)" : "Buscar bloco (ex.: balcão, tv, cachepot)";
+    if (tex) { if (!napasCarregou) sketchup.texturas_pronto(); filtrarNapas(); } else { filtrar(); }
+  }
+
+  function carregarNapas(d) {
+    napasCarregou = true;
+    napas = d.napas || [];
+    document.getElementById("caminho-tex").textContent = d.pasta || "";
+    document.getElementById("versao-tex").textContent = document.getElementById("versao").textContent;
+    document.getElementById("aviso-tex").innerHTML = d.erro ? '<div class="aviso">' + esc(d.erro) + "</div>" : "";
+    filtrarNapas();
+  }
+
+  function filtrarNapas() {
+    if (aba !== "texturas") return;
+    var q = sem_acento(document.getElementById("q").value).trim().split(/\s+/).filter(Boolean);
+    var lista = napas.filter(function (n) {
+      var alvo = sem_acento(n.nome + " " + n.cor + " " + n.codigo);
+      return q.every(function (p) { return alvo.indexOf(p) >= 0; });
+    });
+    document.getElementById("conta").textContent = lista.length + " de " + napas.length;
+    document.getElementById("grade-tex").innerHTML = lista.length ? lista.map(function (n) {
+      var src = napaMini[n.arquivo];
+      var img = src ? '<img src="' + src + '" alt="">' : '<span class="vazio">...</span>';
+      return '<div class="card napa" title="' + esc(n.nome) + '" data-a="' + esc(n.arquivo) + '"><div class="img">' + img + '</div>' +
+        '<div class="info"><div class="nome">' + esc(n.cor) + "</div>" +
+        (n.codigo ? '<div class="cod">Napa · cód. ' + esc(n.codigo) + "</div>" : "") + "</div></div>";
+    }).join("") : (napas.length ? '<div class="vazio-total">Nenhuma napa encontrada.</div>' : "");
+    pedirNapaMiniaturas(lista.map(function (n) { return n.arquivo; }));
+  }
+
+  function pedirNapaMiniaturas(arqs) {
+    var falta = arqs.filter(function (a) { return !napaMini[a] && !napasPedidas[a]; });
+    for (var i = 0; i < falta.length; i += 6) {
+      (function (lote, atraso) {
+        lote.forEach(function (a) { napasPedidas[a] = true; });
+        setTimeout(function () { sketchup.texturas_miniaturas(JSON.stringify(lote)); }, atraso);
+      })(falta.slice(i, i + 6), (i / 6) * 120);
+    }
+  }
+
+  function napaMiniatura(d) {
+    if (!d.src) return;
+    napaMini[d.arquivo] = d.src;
+    document.querySelectorAll("#grade-tex .card").forEach(function (c) {
+      if (c.getAttribute("data-a") === d.arquivo) c.querySelector(".img").innerHTML = '<img src="' + d.src + '" alt="">';
+    });
+  }
+
+  function napaAplicada(r) {
+    document.getElementById("aviso-tex").innerHTML = '<div class="aviso"' + (r.ok ? "" : ' style="border-left-color:#c0154f"') + ">" + esc(r.msg) + "</div>";
+  }
+
+  document.getElementById("q").addEventListener("input", filtrarNapas);
+  document.getElementById("grade-tex").addEventListener("click", function (e) {
+    var c = e.target.closest(".card"); if (!c) return;
+    document.querySelectorAll("#grade-tex .card.inserindo").forEach(function (x) { x.classList.remove("inserindo"); });
+    c.classList.add("inserindo");
+    sketchup.aplicar_napa(c.getAttribute("data-a"));
   });
 
   // modo noturno: lembra a escolha; na primeira vez segue o tema do Windows

@@ -1,6 +1,6 @@
 {
-    "versao": "1.7.2",
+    "versao": "1.8.0",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.7.2: bloco que voce adiciona na Biblioteca nao cai mais no Memorial como 'STAND1 bloco temporario': agora ele entra com o proprio nome. Os blocos que ja tinham sido adicionados tambem se corrigem sozinhos na hora de inserir, sem mexer na pasta do Drive. Da 1.7.1: a Biblioteca se atualiza sozinha a cada 10 minutos com o SketchUp aberto.",
-    "sha256": "354f3de4ea01ef1ffc2f29ead342b84e999a701b5e308dfcce1e56586bddcd1d"
+    "notas": "v1.8.0: a Biblioteca Stand1 ganhou a aba Texturas, so com as 19 napas do Hugo (pasta NAPAS da biblioteca Arqloads). Com a face ou o grupo selecionado, clica na napa e ela pinta com os mapas certos, igual pra todo mundo; sem selecao, ela vai pro balde de tinta. Quem tem a biblioteca em outra pasta usa o botao Trocar pasta da aba. Da 1.7.2: bloco adicionado na Biblioteca nao cai mais no Memorial como 'STAND1 bloco temporario'.",
+    "sha256": "d49cb4459330d5ae67631a2a5c5cfc4f5819dbcf79f923f8eb5f4ba0f93aa69c"
 }
