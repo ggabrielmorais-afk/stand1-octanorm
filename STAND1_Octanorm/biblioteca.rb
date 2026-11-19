@@ -143,11 +143,20 @@ module STAND1
           # sem a posicao no modelo: mantem giro e escala da selecao
           base = Geom::Transformation.translation(ORIGIN - e.transformation.origin) * e.transformation
           base = Geom::Transformation.rotation(ORIGIN, Z_AXIS, 90.degrees) * base if dados["girar"]
+          # "arquivo" e a casca que vira o .skp. O SketchUp grava o NOME DA DEFINICAO dentro do
+          # arquivo e usa esse nome quando o bloco e carregado; o Memorial conta o bloco por ele.
+          # Ate a 1.7.1 a casca se chamava "STAND1 bloco temporario" e todo bloco adicionado
+          # caia no Memorial com esse nome. Agora a casca leva o nome do bloco e o componente de
+          # dentro vira "nome#1" (o mesmo desenho dos blocos antigos do catalogo).
+          # Se o modelo ja tem definicao com esse nome (comum: o proprio bloco selecionado), ela cede
+          # o nome so ate o abort_operation daqui de baixo, senao a casca sairia "nome#1".
+          ja_tem = model.definitions[nome]
+          ja_tem.name = "#{nome} (original)" if ja_tem
+          arquivo = model.definitions.add(nome)
           comp = model.definitions.add(nome)
           dentro = comp.entities.add_instance(e.definition, base)
           bb = dentro.bounds
           dentro.transform!(Geom::Transformation.translation(Geom::Vector3d.new(-bb.min.x, -bb.min.y, -bb.min.z)))
-          arquivo = model.definitions.add("STAND1 bloco temporario")
           principal = arquivo.entities.add_instance(comp, Geom::Transformation.new)
           principal.layer = model.layers[secao] || model.layers.add(secao)
           b = principal.bounds
@@ -311,6 +320,38 @@ module STAND1
         @dlg.execute_script("carregar(#{JSON.generate(dados)})")
       end
 
+      NOME_TEMPORARIO = /\ASTAND1 bloco temporario(#\d+)?\z/i.freeze
+
+      # Nome que a definicao carregada deve ter, ou nil se ja esta certo. So mexe no nome
+      # temporario antigo: pra qualquer outro nome mantem o que o arquivo trouxe. Pura, sem
+      # SketchUp: testada em tests/test_biblioteca.rb. Se ja existir definicao com o nome certo
+      # no modelo, o SketchUp acrescenta "#1" sozinho, como em qualquer bloco do catalogo.
+      def self.nome_para_definicao(nome_carregado, caminho)
+        return nil unless nome_carregado.to_s =~ NOME_TEMPORARIO
+
+        certo = File.basename(caminho.to_s, ".skp").strip
+        certo.empty? ? nil : certo
+      end
+
+      # Troca o nome temporario da definicao recem-carregada pelo nome do arquivo. O componente de
+      # dentro costuma ter justamente esse nome, e o SketchUp poria "#1" na casca (que e quem o
+      # Memorial conta): entao o de dentro cede o nome e vira "nome#1", igual aos blocos antigos
+      # do catalogo. Bloco que ja vem com o nome certo nao e tocado.
+      def self.curar_nome(defn, caminho)
+        certo = nome_para_definicao(defn.name, caminho)
+        return defn unless certo
+
+        defn.entities.each do |e|
+          next unless e.is_a?(Sketchup::ComponentInstance) && e.definition.name == certo
+
+          e.definition.name = "#{certo}#1"
+        end
+        defn.name = certo
+        defn
+      rescue StandardError
+        defn # nunca impede de inserir o bloco por causa do nome
+      end
+
       def self.inserir(arq)
         # so arquivo de dentro da pasta do catalogo (aceita subpasta, nunca "..")
         rel = arq.tr("\\", "/").split("/").reject { |p| p.empty? || p == "." || p == ".." }.join("/")
@@ -321,6 +362,7 @@ module STAND1
         end
         model = Sketchup.active_model
         defn = model.definitions.load(caminho)
+        curar_nome(defn, caminho) # blocos adicionados antes da 1.7.2 vem como "STAND1 bloco temporario"
         model.place_component(defn, false)
       rescue StandardError => e
         UI.messagebox("Nao foi possivel inserir o bloco:\n#{e.message}")

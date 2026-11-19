@@ -40,6 +40,29 @@ class TestAssinaturaDaPasta < Minitest::Test
   end
 end
 
+class TestNomeDaDefinicao < Minitest::Test
+  CAMINHO = "H:/Meu Drive/CATALOGO STAND1/Banqueta alta 0,33 x 0,30 m.skp".freeze
+
+  def test_nome_temporario_vira_o_nome_do_arquivo
+    assert_equal "Banqueta alta 0,33 x 0,30 m", B.nome_para_definicao("STAND1 bloco temporario", CAMINHO)
+  end
+
+  def test_nome_temporario_com_sufixo_do_sketchup_tambem
+    assert_equal "Banqueta alta 0,33 x 0,30 m", B.nome_para_definicao("STAND1 bloco temporario#2", CAMINHO)
+    assert_equal "Banqueta alta 0,33 x 0,30 m", B.nome_para_definicao("stand1 bloco temporario", CAMINHO)
+  end
+
+  def test_nome_normal_nao_e_mexido
+    assert_nil B.nome_para_definicao("Balcão MDF 0,50 x 0,50 m (1)", "x/Balcão MDF 0,50 x 0,50 m (1).skp")
+    assert_nil B.nome_para_definicao("Qualquer outro nome", CAMINHO)
+  end
+
+  def test_nome_vazio_ou_nulo_nao_quebra
+    assert_nil B.nome_para_definicao(nil, CAMINHO)
+    assert_nil B.nome_para_definicao("STAND1 bloco temporario", "")
+  end
+end
+
 class TestNovidades < Minitest::Test
   def entrada(nome, autor, quando)
     { "nome" => nome, "categoria" => "Balcões", "adicionado_por" => autor, "adicionado_em" => quando }

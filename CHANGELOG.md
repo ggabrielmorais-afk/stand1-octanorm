@@ -1,5 +1,10 @@
 # Histórico STAND1 Octanorm
 
+## 1.7.2 — 19/11/2026
+- **Bloco adicionado pela Biblioteca não cai mais no Memorial como "STAND1 bloco temporario".** O "+ Adicionar bloco" salvava o arquivo com um nome interno temporário, e o Memorial conta o bloco por esse nome quando ele é inserido com a tag de seção ativa. Agora o bloco é salvo com o próprio nome.
+- **Blocos que já tinham sido adicionados também se corrigem**, sem precisar refazer nem mexer na pasta do Drive: ao inserir, o plugin troca o nome temporário pelo nome do arquivo. Bloco que já vem com o nome certo não é tocado.
+- Testado dentro do SketchUp: bloco novo, bloco com o mesmo nome do componente selecionado, bloco antigo e o que o Memorial lê de cada um.
+
 ## 1.7.1 — 11/11/2026
 - **Biblioteca se atualiza sozinha.** Com o SketchUp aberto, a cada 10 minutos o plugin confere a pasta do catálogo. Se um colega adicionou bloco, aparece o aviso "Fulano adicionou..." e, se a Biblioteca estiver aberta, a lista recarrega sem precisar fechar nada. Sem mudança na pasta, não faz nada (só lê nome e data dos arquivos). O bloco só chega depois que o Google Drive sincroniza o arquivo.
 
