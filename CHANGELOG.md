@@ -1,10 +1,13 @@
 # Histórico STAND1 Octanorm
 
-## 1.8.0 — 19/11/2026
-- **Aba "Texturas" na Biblioteca Stand1, só com as napas do Hugo (Arqloads).** São as 19 napas da pasta `NAPAS` da biblioteca de materiais dele, com miniatura, busca por cor ou código e um clique pra aplicar. Todo mundo escolhe da mesma lista e a napa entra carregada do `.skm` original, com os mapas certos. O nome do material continua "NAPA 37324 BRANCO", que o Memorial já reconhece como revestimento.
-- **Como aplica:** com face ou grupo selecionado, pinta na hora; sem seleção, a napa vira o material do balde de tinta. Para pintar só um lado de uma parede, selecione a face. Repetir a mesma napa não cria material duplicado, e o Ctrl+Z desfaz.
-- **Pasta:** usa `C:\ARQLOADS - MATERIAIS PBR PARA SKETCHUP\NAPAS`. Quem tem a biblioteca em outro lugar clica em "Trocar pasta" dentro da aba. Só entra arquivo que começa com "NAPA ", o resto da biblioteca (MDF, tapete etc.) não aparece.
-- Testado dentro do SketchUp: lista, miniaturas, aplicar em face, grupo e sem seleção, napa repetida, arquivo que não é napa, desfazer e a janela com a troca de abas.
+## 1.8.1 — 19/11/2026
+(A 1.8.0 só foi mandada por Telegram pra teste e nunca foi publicada: esta versão é a 1.8.0 mais a forração carpete.)
+- **Aba "Texturas" na Biblioteca Stand1, com duas categorias de nome exato: "Napa" e "Forração carpete".** Cada uma tem miniatura, busca por cor ou código e um clique pra aplicar. Todo mundo escolhe da mesma lista.
+- **Napa:** só as 19 napas da pasta `NAPAS` da biblioteca do Hugo (Arqloads), carregadas do `.skm` original, com os mapas certos. O material continua "NAPA 37324 BRANCO", que o Memorial já reconhece como revestimento. Se a napa já foi trazida pelo painel de materiais do SketchUp, o plugin usa a que já está no modelo, sem criar cópia "1". Só entra arquivo que começa com "NAPA ": o resto da biblioteca (MDF, tapete etc.) não aparece.
+- **Forração carpete:** as 20 cores da "Forração com resina" (amostras do fornecedor) vêm dentro do plugin, então ninguém precisa de pasta nenhuma. O nome saiu como "Forração carpete <cor>", igual à convenção do Memorial: preto, grafite, cinza, violeta, azul royal, azul bic N, azul bic IM, azul claro, verde musgo, verde grama, verde bandeira, marrom, castanho, bege, vermelho pigmentado, vermelho, pink, branco, amarelo e laranja. A textura vem das fotos das amostras, sem sombra e repetível, com 0,50 m por repetição. Não tem mapa de relevo nem de brilho, só a cor e o grão da foto.
+- **Como aplica:** com face ou grupo selecionado, pinta na hora; sem seleção, a textura vira o material do balde de tinta. Para pintar só um lado de uma parede, selecione a face. Repetir a mesma textura não cria material duplicado, e o Ctrl+Z desfaz. Se o modelo já tiver um material de outra origem com o mesmo nome, o plugin não mexe nele e avisa que a nova saiu com um número no fim.
+- **Pasta das napas:** usa `C:\ARQLOADS - MATERIAIS PBR PARA SKETCHUP\NAPAS`. Quem tem a biblioteca em outro lugar clica em "Trocar pasta das napas" dentro da aba. Sem a biblioteca do Hugo a aba mostra só a forração carpete.
+- Testado dentro do SketchUp: lista, miniaturas, aplicar em face, grupo e sem seleção, textura repetida, nome já existente no modelo, napa já trazida pelo painel, arquivo que não é textura, desfazer e a janela com as categorias e a troca de abas.
 
 ## 1.7.2 — 19/11/2026
 - **Bloco adicionado pela Biblioteca não cai mais no Memorial como "STAND1 bloco temporario".** O "+ Adicionar bloco" salvava o arquivo com um nome interno temporário, e o Memorial conta o bloco por esse nome quando ele é inserido com a tag de seção ativa. Agora o bloco é salvo com o próprio nome.

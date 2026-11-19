@@ -51,16 +51,16 @@ module STAND1
         @dlg.add_action_callback("abrir_pasta") { |_c| UI.openURL("file:///#{pasta}") unless pasta.empty? }
         @dlg.add_action_callback("preparar_adicionar") { |_c| responder("abrir_form", preparar_adicionar) }
         @dlg.add_action_callback("verificar_atualizacao") { |_c| AutoUpdate.check(true) }
-        # aba Texturas: so as napas do Hugo (texturas.rb)
-        @dlg.add_action_callback("texturas_pronto") { |_c| responder("carregarNapas", Texturas.dados) }
+        # aba Texturas: napas do Hugo + forracao carpete (texturas.rb)
+        @dlg.add_action_callback("texturas_pronto") { |_c| responder("carregarTexturas", Texturas.dados) }
         @dlg.add_action_callback("texturas_miniaturas") do |_c, json|
-          Array(JSON.parse(json.to_s)).first(12).each do |arq|
-            responder("napaMiniatura", { arquivo: arq, src: Texturas.miniatura(arq) })
+          Array(JSON.parse(json.to_s)).first(12).each do |id|
+            responder("texturaMiniatura", { id: id, src: Texturas.miniatura(id) })
           end
         end
-        @dlg.add_action_callback("aplicar_napa") { |_c, arq| responder("napaAplicada", Texturas.aplicar(arq.to_s)) }
+        @dlg.add_action_callback("aplicar_textura") { |_c, id| responder("texturaAplicada", Texturas.aplicar(id.to_s)) }
         @dlg.add_action_callback("escolher_pasta_napas") do |_c|
-          responder("carregarNapas", Texturas.dados) if Texturas.escolher_pasta
+          responder("carregarTexturas", Texturas.dados) if Texturas.escolher_pasta
         end
         @dlg.add_action_callback("adicionar") do |_c, json|
           r = adicionar(JSON.parse(json.to_s))

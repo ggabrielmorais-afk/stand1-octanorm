@@ -1,13 +1,19 @@
 # encoding: UTF-8
 # =============================================================================
 # STAND1 Octanorm — texturas.rb
-# Aba "Texturas" da Biblioteca Stand1: so as NAPAS da biblioteca de materiais do
-# Hugo (Arqloads), pasta "NAPAS". A ideia e a equipe inteira usar as mesmas napas,
-# carregadas do .skm original (cada .skm ja traz os mapas certos do material).
+# Aba "Texturas" da Biblioteca Stand1. Duas categorias, com o nome exato do padrao da Stand1:
 #
-# Parte pura (sem SketchUp, testada em tests/test_texturas.rb): descrever, listar,
-# resolver, ler_do_zip. Parte do SketchUp: pasta, miniatura, aplicar.
+#   Napa              as napas da biblioteca de materiais do Hugo (Arqloads), pasta "NAPAS".
+#                     Carregadas do .skm original, que ja traz os mapas certos do material.
+#   Forracao carpete  as 20 cores da "Forracao com resina" (amostras do fornecedor), que vem
+#                     junto do plugin em materiais/forracao_carpete. O material sai com o nome
+#                     "Forracao carpete <cor>", do jeito que o Memorial le (convencao de 26/10).
+#
+# A ideia e a equipe inteira usar o mesmo material. Parte pura (sem SketchUp, testada em
+# tests/test_texturas.rb): descrever, listar, resolver, ler_do_zip, carpetes. Parte do
+# SketchUp: pasta, dados, miniatura, aplicar.
 # =============================================================================
+require 'json'
 require 'zlib'
 require 'base64'
 
@@ -15,22 +21,27 @@ module STAND1
   module Octanorm
     module Texturas
       CHAVE = "STAND1_Octanorm".freeze
-      ATRIB = "stand1_octanorm_napa".freeze
+      ATRIB = "stand1_octanorm_textura".freeze
+      CAT_NAPA = "Napa".freeze
+      CAT_CARPETE = "Forração carpete".freeze
       PASTA_HUGO = 'C:\ARQLOADS - MATERIAIS PBR PARA SKETCHUP'.freeze
       SUBPASTA = "NAPAS".freeze
       NAPA = /\ANAPA\s/i.freeze # so entra o que e napa de verdade, mesmo que alguem ponha outra coisa na pasta
+      CARPETE_DIR = File.join(__dir__, "materiais", "forracao_carpete").freeze
+      TAMANHO_PADRAO_M = 0.5 # lado real, em metros, de cada repeticao da textura de carpete
 
       def self.padrao
         File.join(PASTA_HUGO, SUBPASTA)
       end
 
-      # Pasta escolhida nesta maquina (Trocar pasta) ou a do Hugo no C:.
+      # Pasta das napas escolhida nesta maquina (Trocar pasta) ou a do Hugo no C:.
       def self.pasta
         p = Sketchup.read_default(CHAVE, "pasta_napas", "").to_s
         p = padrao if p.empty? || !File.directory?(p)
         p
       end
 
+      # ---- napas ----------------------------------------------------------------------
       # "NAPA 37324 BRANCO - MSKP.skm" -> { arquivo:, nome: "NAPA 37324 BRANCO", codigo: "37324", cor: "BRANCO" }
       def self.descrever(arquivo)
         base = File.basename(arquivo.to_s, ".*").sub(/\s*-\s*MSKP\s*\z/i, "").strip
@@ -53,6 +64,44 @@ module STAND1
 
         caminho = File.join(dir.to_s, nome)
         File.exist?(caminho) ? caminho : nil
+      end
+
+      # ---- forracao carpete -------------------------------------------------------------
+      def self.nome_carpete(cor)
+        "Forração carpete #{cor.to_s.strip}"
+      end
+
+      def self.manifesto(dir = CARPETE_DIR)
+        JSON.parse(File.read(File.join(dir, "carpetes.json"), encoding: "UTF-8"))
+      rescue StandardError
+        { "itens" => [] }
+      end
+
+      # [{ arquivo:, cor:, nome: "Forração carpete preto" }] so do que tem o .jpg na pasta
+      def self.carpetes(dir = CARPETE_DIR)
+        manifesto(dir)["itens"].select { |i| File.exist?(File.join(dir, i["arquivo"].to_s)) }.map do |i|
+          { arquivo: i["arquivo"], cor: i["cor"], nome: nome_carpete(i["cor"]) }
+        end
+      end
+
+      def self.tamanho_carpete(dir = CARPETE_DIR)
+        t = manifesto(dir)["tamanho_m"].to_f
+        t > 0 ? t : TAMANHO_PADRAO_M
+      end
+
+      # Caminho do .jpg de um item do manifesto (so o nome do arquivo; "mini" = miniatura).
+      def self.resolver_carpete(arquivo, dir = CARPETE_DIR, mini = false)
+        nome = File.basename(arquivo.to_s.tr("\\", "/"))
+        return nil unless carpetes(dir).any? { |c| c[:arquivo] == nome }
+
+        caminho = mini ? File.join(dir, "mini", nome) : File.join(dir, nome)
+        File.exist?(caminho) ? caminho : nil
+      end
+
+      # ---- ids da janela: "napa:<arquivo>" e "carpete:<arquivo>" ---------------------------
+      def self.separar_id(id)
+        tipo, arq = id.to_s.split(":", 2)
+        [tipo.to_s, arq.to_s]
       end
 
       # ---- miniatura de dentro do .skm (e um zip com doc_thumbnail.png) ----------
@@ -103,25 +152,36 @@ module STAND1
       end
 
       # ---- o que a janela recebe ---------------------------------------------------
+      # itens: [{ id:, categoria:, nome:, cor:, codigo:, arquivo: }]. O erro (se houver) e so das napas:
+      # sem a biblioteca do Hugo a aba ainda mostra a forracao carpete.
       def self.dados
         dir = pasta
-        unless File.directory?(dir.to_s)
-          return { pasta: dir, napas: [],
-                   erro: "Pasta das napas nao encontrada. Instale a biblioteca do Hugo (Arqloads) ou clique em Trocar pasta e escolha a pasta NAPAS." }
+        itens = carpetes.map { |c| c.merge(id: "carpete:#{c[:arquivo]}", categoria: CAT_CARPETE, codigo: "") }
+        r = { pasta: dir, itens: itens }
+        if File.directory?(dir.to_s)
+          napas = listar(dir).map { |n| n.merge(id: "napa:#{n[:arquivo]}", categoria: CAT_NAPA) }
+          r[:itens] = napas + itens
+          r[:erro] = "Nenhuma napa nesta pasta. Escolha a pasta NAPAS da biblioteca do Hugo." if napas.empty?
+        else
+          r[:erro] = "Pasta das napas nao encontrada. Instale a biblioteca do Hugo (Arqloads) ou clique em Trocar pasta e escolha a pasta NAPAS. A forracao carpete funciona sem ela."
         end
-
-        napas = listar(dir)
-        r = { pasta: dir, napas: napas }
-        r[:erro] = "Nenhuma napa nesta pasta. Escolha a pasta NAPAS da biblioteca do Hugo." if napas.empty?
         r
       rescue StandardError => e
-        { pasta: pasta, napas: [], erro: "Erro ao ler as napas: #{e.message}" }
+        { pasta: pasta, itens: [], erro: "Erro ao ler as texturas: #{e.message}" }
       end
 
-      def self.miniatura(arquivo)
-        c = resolver(pasta, arquivo)
-        png = c && ler_do_zip(c)
-        png ? "data:image/png;base64,#{Base64.strict_encode64(png)}" : nil
+      def self.miniatura(id)
+        tipo, arq = separar_id(id)
+        if tipo == "napa"
+          c = resolver(pasta, arq)
+          png = c && ler_do_zip(c)
+          png ? "data:image/png;base64,#{Base64.strict_encode64(png)}" : nil
+        elsif tipo == "carpete"
+          c = resolver_carpete(arq, CARPETE_DIR, true)
+          c ? "data:image/jpeg;base64,#{Base64.strict_encode64(File.binread(c))}" : nil
+        end
+      rescue StandardError
+        nil
       end
 
       def self.escolher_pasta
@@ -137,44 +197,85 @@ module STAND1
         caminho.to_s.tr("\\", "/").downcase
       end
 
-      # Carrega a napa uma vez por modelo (o .skm traz os mapas). Se ja foi carregada por aqui, reusa.
-      def self.carregar(model, caminho)
+      # Napa: carrega uma vez por modelo (o .skm traz os mapas). Reusa a que ja foi carregada por aqui ou a que a
+      # pessoa ja trouxe pelo painel de materiais do SketchUp (mesmo nome do .skm e com textura): sem isso o
+      # SketchUp criaria uma copia "NAPA ... BRANCO1".
+      def self.carregar_napa(model, caminho)
         chave = normalizar(caminho)
         ja = model.materials.find { |m| m.get_attribute(ATRIB, "origem").to_s == chave }
         return ja if ja
+
+        igual = model.materials[descrever(caminho)[:nome]]
+        if igual && igual.texture
+          igual.set_attribute(ATRIB, "origem", chave)
+          return igual
+        end
 
         m = model.materials.load(caminho)
         m.set_attribute(ATRIB, "origem", chave) if m
         m
       end
 
-      # Pinta a selecao: face -> a face; grupo/componente -> o proprio. Sem selecao, a napa
-      # vira o material do balde de tinta. { ok:, msg: }
-      def self.aplicar(arquivo)
-        model = Sketchup.active_model
-        caminho = resolver(pasta, arquivo)
-        return { ok: false, msg: "Napa nao encontrada na pasta: #{arquivo}" } unless caminho
+      # Carpete: material com o nome exato do padrao, textura do .jpg do plugin no tamanho real.
+      # Se o modelo ja tem um material com esse nome que nao veio daqui, nao mexe nele: cria outro
+      # (o SketchUp acrescenta "#1") e o aviso conta isso.
+      def self.carregar_carpete(model, item, caminho)
+        chave = "carpete:#{item[:arquivo]}"
+        ja = model.materials.find { |m| m.get_attribute(ATRIB, "origem").to_s == chave }
+        return [ja, nil] if ja
 
-        model.start_operation("STAND1: aplicar napa", true)
+        outro = model.materials[item[:nome]]
+        m = model.materials.add(item[:nome])
+        m.texture = caminho
+        m.texture.size = tamanho_carpete.m if m.texture
+        m.set_attribute(ATRIB, "origem", chave)
+        aviso = outro ? "Ja existia um material chamado \"#{item[:nome]}\" no modelo; este saiu como \"#{m.name}\"." : nil
+        [m, aviso]
+      end
+
+      def self.pintar(model, m)
+        alvos = model.selection.select { |e| e.is_a?(Sketchup::Face) || e.is_a?(Sketchup::Group) || e.is_a?(Sketchup::ComponentInstance) }
+        alvos.each { |e| e.material = m }
+        model.materials.current = m if alvos.empty?
+        alvos.size
+      end
+
+      # Pinta a selecao: face -> a face; grupo/componente -> o proprio. Sem selecao, o material
+      # vira o do balde de tinta. { ok:, msg: }
+      def self.aplicar(id)
+        model = Sketchup.active_model
+        tipo, arq = separar_id(id)
+        if tipo == "napa"
+          caminho = resolver(pasta, arq)
+          return { ok: false, msg: "Napa nao encontrada na pasta: #{arq}" } unless caminho
+        elsif tipo == "carpete"
+          item = carpetes.find { |c| c[:arquivo] == File.basename(arq) }
+          caminho = item && resolver_carpete(arq)
+          return { ok: false, msg: "Forracao carpete nao encontrada no plugin: #{arq}" } unless caminho
+        else
+          return { ok: false, msg: "Textura desconhecida: #{id}" }
+        end
+
+        model.start_operation("STAND1: aplicar textura", true)
         begin
-          m = carregar(model, caminho)
+          aviso = nil
+          if tipo == "napa"
+            m = carregar_napa(model, caminho)
+          else
+            m, aviso = carregar_carpete(model, item, caminho)
+          end
           unless m
             model.abort_operation
-            return { ok: false, msg: "O SketchUp nao carregou a napa." }
+            return { ok: false, msg: "O SketchUp nao carregou a textura." }
           end
-          alvos = model.selection.select { |e| e.is_a?(Sketchup::Face) || e.is_a?(Sketchup::Group) || e.is_a?(Sketchup::ComponentInstance) }
-          alvos.each { |e| e.material = m }
-          model.materials.current = m if alvos.empty?
+          n = pintar(model, m)
           model.commit_operation
         rescue StandardError => e
           model.abort_operation
-          return { ok: false, msg: "Nao foi possivel aplicar a napa: #{e.message}" }
+          return { ok: false, msg: "Nao foi possivel aplicar a textura: #{e.message}" }
         end
-        if alvos.empty?
-          { ok: true, msg: "#{m.display_name} pronta no balde de tinta (tecla B). Nada estava selecionado." }
-        else
-          { ok: true, msg: "#{m.display_name} aplicada em #{alvos.size} item(ns)." }
-        end
+        msg = n.zero? ? "#{m.display_name} pronta no balde de tinta (tecla B). Nada estava selecionado." : "#{m.display_name} aplicada em #{n} item(ns)."
+        { ok: true, msg: [msg, aviso].compact.join(" ") }
       end
     end
   end

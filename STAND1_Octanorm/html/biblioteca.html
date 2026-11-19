@@ -102,7 +102,8 @@
   <div id="aviso"></div>
   <div class="grade" id="grade"></div>
 </main>
-<div class="dica" id="dica-tex" style="display:none">Napas do Hugo (Arqloads). Selecione a face ou o grupo no modelo e clique na napa; sem seleção ela vai pro balde de tinta. Para pintar só um lado de uma parede, selecione a face.</div>
+<nav id="cats-tex" style="display:none"></nav>
+<div class="dica" id="dica-tex" style="display:none">Napas do Hugo (Arqloads) e forração carpete da Stand1. Selecione a face ou o grupo no modelo e clique na textura; sem seleção ela vai pro balde de tinta. Para pintar só um lado de uma parede, selecione a face.</div>
 <main id="main-tex" style="display:none">
   <div id="aviso-tex"></div>
   <div class="grade" id="grade-tex"></div>
@@ -110,7 +111,7 @@
 <footer id="foot-tex" style="display:none">
   <span class="versao" id="versao-tex" title="Versão do plugin instalada nesta máquina"></span>
   <span class="caminho" id="caminho-tex">Carregando...</span>
-  <button onclick="sketchup.escolher_pasta_napas()">Trocar pasta</button>
+  <button onclick="sketchup.escolher_pasta_napas()" title="Pasta NAPAS da biblioteca do Hugo (a forração carpete vem com o plugin)">Trocar pasta das napas</button>
   <button onclick="sketchup.texturas_pronto()">Atualizar</button>
 </footer>
 <footer id="foot-blocos">
@@ -268,8 +269,9 @@
     document.getElementById("f_cat_nova").style.display = this.value === "__nova" ? "block" : "none";
   });
 
-  // ---- aba Texturas: so as napas do Hugo (texturas.rb) ----
-  var napas = [], napasPedidas = {}, napaMini = {}, napasCarregou = false;
+  // ---- aba Texturas: napas do Hugo + forração carpete (texturas.rb) ----
+  var texturas = [], texCategoria = "Todas", texMini = {}, texPedidas = {}, texCarregou = false;
+  var ORDEM_TEX = ["Napa", "Forração carpete"];
 
   function abrirAba(a) {
     aba = a;
@@ -277,68 +279,86 @@
     document.getElementById("aba-blocos").classList.toggle("ativa", !tex);
     document.getElementById("aba-texturas").classList.toggle("ativa", tex);
     ["cats", "dica-blocos", "main-blocos", "foot-blocos"].forEach(function (id) { document.getElementById(id).style.display = tex ? "none" : ""; });
-    ["dica-tex", "main-tex", "foot-tex"].forEach(function (id) { document.getElementById(id).style.display = tex ? "" : "none"; });
+    ["cats-tex", "dica-tex", "main-tex", "foot-tex"].forEach(function (id) { document.getElementById(id).style.display = tex ? "" : "none"; });
     var q = document.getElementById("q");
     q.value = "";
-    q.placeholder = tex ? "Buscar napa (ex.: azul, branco, 37324)" : "Buscar bloco (ex.: balcão, tv, cachepot)";
-    if (tex) { if (!napasCarregou) sketchup.texturas_pronto(); filtrarNapas(); } else { filtrar(); }
+    q.placeholder = tex ? "Buscar textura (ex.: azul, branco, 37324, grafite)" : "Buscar bloco (ex.: balcão, tv, cachepot)";
+    if (tex) { if (!texCarregou) sketchup.texturas_pronto(); filtrarTexturas(); } else { filtrar(); }
   }
 
-  function carregarNapas(d) {
-    napasCarregou = true;
-    napas = d.napas || [];
+  function carregarTexturas(d) {
+    texCarregou = true;
+    texturas = d.itens || [];
     document.getElementById("caminho-tex").textContent = d.pasta || "";
     document.getElementById("versao-tex").textContent = document.getElementById("versao").textContent;
     document.getElementById("aviso-tex").innerHTML = d.erro ? '<div class="aviso">' + esc(d.erro) + "</div>" : "";
-    filtrarNapas();
+    montarCategoriasTex();
+    filtrarTexturas();
   }
 
-  function filtrarNapas() {
+  function montarCategoriasTex() {
+    var cont = { "Todas": texturas.length };
+    texturas.forEach(function (t) { cont[t.categoria] = (cont[t.categoria] || 0) + 1; });
+    var cats = ["Todas"].concat(ORDEM_TEX.filter(function (c) { return cont[c]; }));
+    Object.keys(cont).forEach(function (c) { if (cats.indexOf(c) < 0) cats.push(c); });
+    if (cats.indexOf(texCategoria) < 0) texCategoria = "Todas";
+    document.getElementById("cats-tex").innerHTML = cats.map(function (c) {
+      return '<button class="' + (c === texCategoria ? "ativo" : "") + '" data-c="' + esc(c) + '">' + esc(c) + "<span>" + cont[c] + "</span></button>";
+    }).join("");
+  }
+
+  function filtrarTexturas() {
     if (aba !== "texturas") return;
     var q = sem_acento(document.getElementById("q").value).trim().split(/\s+/).filter(Boolean);
-    var lista = napas.filter(function (n) {
-      var alvo = sem_acento(n.nome + " " + n.cor + " " + n.codigo);
+    var lista = texturas.filter(function (t) {
+      if (texCategoria !== "Todas" && t.categoria !== texCategoria) return false;
+      var alvo = sem_acento(t.nome + " " + t.cor + " " + t.codigo + " " + t.categoria);
       return q.every(function (p) { return alvo.indexOf(p) >= 0; });
     });
-    document.getElementById("conta").textContent = lista.length + " de " + napas.length;
-    document.getElementById("grade-tex").innerHTML = lista.length ? lista.map(function (n) {
-      var src = napaMini[n.arquivo];
+    document.getElementById("conta").textContent = lista.length + " de " + texturas.length;
+    document.getElementById("grade-tex").innerHTML = lista.length ? lista.map(function (t) {
+      var src = texMini[t.id];
       var img = src ? '<img src="' + src + '" alt="">' : '<span class="vazio">...</span>';
-      return '<div class="card napa" title="' + esc(n.nome) + '" data-a="' + esc(n.arquivo) + '"><div class="img">' + img + '</div>' +
-        '<div class="info"><div class="nome">' + esc(n.cor) + "</div>" +
-        (n.codigo ? '<div class="cod">Napa · cód. ' + esc(n.codigo) + "</div>" : "") + "</div></div>";
-    }).join("") : (napas.length ? '<div class="vazio-total">Nenhuma napa encontrada.</div>' : "");
-    pedirNapaMiniaturas(lista.map(function (n) { return n.arquivo; }));
+      var cor = t.cor.charAt(0).toUpperCase() + t.cor.slice(1);
+      return '<div class="card napa" title="' + esc(t.nome) + '" data-a="' + esc(t.id) + '"><div class="img">' + img + '</div>' +
+        '<div class="info"><div class="nome">' + esc(cor) + '</div><div class="cod">' + esc(t.categoria) +
+        (t.codigo ? " · cód. " + esc(t.codigo) : "") + "</div></div></div>";
+    }).join("") : (texturas.length ? '<div class="vazio-total">Nenhuma textura encontrada.</div>' : "");
+    pedirTexMiniaturas(lista.map(function (t) { return t.id; }));
   }
 
-  function pedirNapaMiniaturas(arqs) {
-    var falta = arqs.filter(function (a) { return !napaMini[a] && !napasPedidas[a]; });
+  function pedirTexMiniaturas(ids) {
+    var falta = ids.filter(function (a) { return !texMini[a] && !texPedidas[a]; });
     for (var i = 0; i < falta.length; i += 6) {
       (function (lote, atraso) {
-        lote.forEach(function (a) { napasPedidas[a] = true; });
+        lote.forEach(function (a) { texPedidas[a] = true; });
         setTimeout(function () { sketchup.texturas_miniaturas(JSON.stringify(lote)); }, atraso);
       })(falta.slice(i, i + 6), (i / 6) * 120);
     }
   }
 
-  function napaMiniatura(d) {
+  function texturaMiniatura(d) {
     if (!d.src) return;
-    napaMini[d.arquivo] = d.src;
+    texMini[d.id] = d.src;
     document.querySelectorAll("#grade-tex .card").forEach(function (c) {
-      if (c.getAttribute("data-a") === d.arquivo) c.querySelector(".img").innerHTML = '<img src="' + d.src + '" alt="">';
+      if (c.getAttribute("data-a") === d.id) c.querySelector(".img").innerHTML = '<img src="' + d.src + '" alt="">';
     });
   }
 
-  function napaAplicada(r) {
+  function texturaAplicada(r) {
     document.getElementById("aviso-tex").innerHTML = '<div class="aviso"' + (r.ok ? "" : ' style="border-left-color:#c0154f"') + ">" + esc(r.msg) + "</div>";
   }
 
-  document.getElementById("q").addEventListener("input", filtrarNapas);
+  document.getElementById("q").addEventListener("input", filtrarTexturas);
+  document.getElementById("cats-tex").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    texCategoria = b.getAttribute("data-c"); montarCategoriasTex(); filtrarTexturas();
+  });
   document.getElementById("grade-tex").addEventListener("click", function (e) {
     var c = e.target.closest(".card"); if (!c) return;
     document.querySelectorAll("#grade-tex .card.inserindo").forEach(function (x) { x.classList.remove("inserindo"); });
     c.classList.add("inserindo");
-    sketchup.aplicar_napa(c.getAttribute("data-a"));
+    sketchup.aplicar_textura(c.getAttribute("data-a"));
   });
 
   // modo noturno: lembra a escolha; na primeira vez segue o tema do Windows

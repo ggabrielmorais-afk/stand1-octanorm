@@ -1,0 +1,86 @@
+{
+ "categoria": "Forração carpete",
+ "tamanho_m": 0.5,
+ "itens": [
+  {
+   "cor": "preto",
+   "arquivo": "forracao_carpete_preto.jpg"
+  },
+  {
+   "cor": "grafite",
+   "arquivo": "forracao_carpete_grafite.jpg"
+  },
+  {
+   "cor": "cinza",
+   "arquivo": "forracao_carpete_cinza.jpg"
+  },
+  {
+   "cor": "violeta",
+   "arquivo": "forracao_carpete_violeta.jpg"
+  },
+  {
+   "cor": "azul royal",
+   "arquivo": "forracao_carpete_azul_royal.jpg"
+  },
+  {
+   "cor": "azul bic N",
+   "arquivo": "forracao_carpete_azul_bic_n.jpg"
+  },
+  {
+   "cor": "azul bic IM",
+   "arquivo": "forracao_carpete_azul_bic_im.jpg"
+  },
+  {
+   "cor": "azul claro",
+   "arquivo": "forracao_carpete_azul_claro.jpg"
+  },
+  {
+   "cor": "verde musgo",
+   "arquivo": "forracao_carpete_verde_musgo.jpg"
+  },
+  {
+   "cor": "verde grama",
+   "arquivo": "forracao_carpete_verde_grama.jpg"
+  },
+  {
+   "cor": "verde bandeira",
+   "arquivo": "forracao_carpete_verde_bandeira.jpg"
+  },
+  {
+   "cor": "marrom",
+   "arquivo": "forracao_carpete_marrom.jpg"
+  },
+  {
+   "cor": "castanho",
+   "arquivo": "forracao_carpete_castanho.jpg"
+  },
+  {
+   "cor": "bege",
+   "arquivo": "forracao_carpete_bege.jpg"
+  },
+  {
+   "cor": "vermelho pigmentado",
+   "arquivo": "forracao_carpete_vermelho_pigmentado.jpg"
+  },
+  {
+   "cor": "vermelho",
+   "arquivo": "forracao_carpete_vermelho.jpg"
+  },
+  {
+   "cor": "pink",
+   "arquivo": "forracao_carpete_pink.jpg"
+  },
+  {
+   "cor": "branco",
+   "arquivo": "forracao_carpete_branco.jpg"
+  },
+  {
+   "cor": "amarelo",
+   "arquivo": "forracao_carpete_amarelo.jpg"
+  },
+  {
+   "cor": "laranja",
+   "arquivo": "forracao_carpete_laranja.jpg"
+  }
+ ]
+}
