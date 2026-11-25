@@ -83,6 +83,95 @@ class TestResolver < Minitest::Test
   end
 end
 
+class TestPastaDasNapas < Minitest::Test
+  def napa_em(dir)
+    FileUtils.mkdir_p(dir)
+    File.binwrite(File.join(dir, "NAPA 37324 BRANCO - MSKP.skm"), "x")
+    dir
+  end
+
+  def test_ordem_das_candidatas_escolhida_hugo_catalogo
+    c = T.candidatas("D:/minhas/napas", "G:/Drive/CATALOGO STAND1")
+    assert_equal ["D:/minhas/napas", T.padrao, File.join("G:/Drive/CATALOGO STAND1", "NAPAS")], c
+  end
+
+  def test_sem_escolha_e_sem_catalogo_sobra_so_a_do_hugo
+    assert_equal [T.padrao], T.candidatas("", "")
+    assert_equal [T.padrao], T.candidatas(nil, nil)
+  end
+
+  def test_candidata_repetida_entra_uma_vez
+    assert_equal [T.padrao], T.candidatas(T.padrao, "")
+  end
+
+  def test_acha_a_napas_ao_lado_do_catalogo_sem_ninguem_clicar
+    Dir.mktmpdir do |d|
+      catalogo = File.join(d, "CATALOGO STAND1")
+      napa_em(File.join(catalogo, "NAPAS"))
+      lista = [File.join(d, "nao-existe-hugo"), File.join(catalogo, "NAPAS")]
+      assert_equal File.join(catalogo, "NAPAS"), T.escolher(lista)
+    end
+  end
+
+  def test_a_pasta_escolhida_ganha_quando_tem_napa
+    Dir.mktmpdir do |d|
+      minha = napa_em(File.join(d, "minha"))
+      catalogo = napa_em(File.join(d, "catalogo", "NAPAS"))
+      assert_equal minha, T.escolher([minha, File.join(d, "hugo"), catalogo])
+    end
+  end
+
+  def test_escolhida_vazia_nao_esconde_a_do_catalogo
+    Dir.mktmpdir do |d|
+      vazia = File.join(d, "vazia")
+      FileUtils.mkdir_p(vazia)
+      catalogo = napa_em(File.join(d, "catalogo", "NAPAS"))
+      assert_equal catalogo, T.escolher([vazia, File.join(d, "hugo"), catalogo])
+    end
+  end
+
+  def test_nenhuma_com_napa_fica_com_a_primeira_que_e_pasta
+    Dir.mktmpdir do |d|
+      vazia = File.join(d, "vazia")
+      FileUtils.mkdir_p(vazia)
+      assert_equal vazia, T.escolher([File.join(d, "hugo"), vazia, File.join(d, "catalogo", "NAPAS")])
+    end
+  end
+
+  def test_nenhuma_existe_devolve_a_primeira_pro_aviso
+    Dir.mktmpdir do |d|
+      primeira = File.join(d, "escolhida")
+      assert_equal primeira, T.escolher([primeira, File.join(d, "hugo")])
+    end
+  end
+
+  def test_catalogo_sem_biblioteca_carregada_nao_quebra
+    assert_equal "", T.catalogo # nos testes puros a Biblioteca nao existe
+  end
+
+  # No SketchUp quem sabe a pasta do catalogo e a Biblioteca: o Texturas a acha pelo nome do modulo.
+  def test_catalogo_vem_da_pasta_da_biblioteca
+    mod = STAND1::Octanorm
+    begin
+      mod.const_set(:Biblioteca, Module.new { def self.pasta; "G:/Drive/CATALOGO STAND1"; end })
+      assert_equal "G:/Drive/CATALOGO STAND1", T.catalogo
+      assert_equal File.join("G:/Drive/CATALOGO STAND1", "NAPAS"), T.candidatas("", T.catalogo).last
+    ensure
+      mod.send(:remove_const, :Biblioteca)
+    end
+  end
+
+  def test_catalogo_com_erro_na_biblioteca_nao_quebra_a_aba
+    mod = STAND1::Octanorm
+    begin
+      mod.const_set(:Biblioteca, Module.new { def self.pasta; raise "sem Sketchup"; end })
+      assert_equal "", T.catalogo
+    ensure
+      mod.send(:remove_const, :Biblioteca)
+    end
+  end
+end
+
 class TestCarpete < Minitest::Test
   def manifesto_em(dir, itens, tamanho = 0.5)
     File.write(File.join(dir, "carpetes.json"), JSON.generate("categoria" => "Forração carpete", "tamanho_m" => tamanho, "itens" => itens),

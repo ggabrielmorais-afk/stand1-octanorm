@@ -1,6 +1,6 @@
 {
-    "versao": "1.8.1",
+    "versao": "1.8.2",
     "rbz": "https://raw.githubusercontent.com/ggabrielmorais-afk/stand1-octanorm/main/STAND1_Octanorm.rbz",
-    "notas": "v1.8.1: a Biblioteca Stand1 ganhou a aba Texturas com duas categorias: Napa (as 19 napas do Hugo, pasta NAPAS da biblioteca Arqloads) e Forracao carpete (20 cores, ja vem dentro do plugin com o nome Forracao carpete <cor>). Com a face ou o grupo selecionado, clica na textura e ela pinta igual pra todo mundo; sem selecao, vai pro balde de tinta. Quem tem a biblioteca do Hugo em outra pasta usa o botao Trocar pasta das napas. Da 1.7.2: bloco adicionado na Biblioteca nao cai mais no Memorial como 'STAND1 bloco temporario'.",
-    "sha256": "6168c6de075fda4bb794ed56ee11a9763cd2dc03852a94b4ffced75cc24a734e"
+    "notas": "v1.8.2: as napas da aba Texturas agora aparecem sozinhas pra quem nao tem a biblioteca do Hugo instalada. O plugin procura a pasta NAPAS em tres lugares: a que voce escolheu em Trocar pasta, a do Hugo no C: e uma pasta NAPAS dentro do CATALOGO STAND1 (a mesma pasta da Biblioteca). Se a pasta NAPAS estiver no catalogo do Drive, nao precisa clicar em nada. Da 1.8.1: aba Texturas com Napa e Forracao carpete (20 cores, ja vem dentro do plugin).",
+    "sha256": "a084302796c059bc540e2c76eb3c63e0d5ba879cb11f0708b4a87ae89ca47819"
 }

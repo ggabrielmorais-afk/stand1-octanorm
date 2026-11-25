@@ -5,6 +5,8 @@
 #
 #   Napa              as napas da biblioteca de materiais do Hugo (Arqloads), pasta "NAPAS".
 #                     Carregadas do .skm original, que ja traz os mapas certos do material.
+#                     A pasta e achada sozinha: a escolhida em Trocar pasta, a do Hugo no C: ou a
+#                     NAPAS ao lado do catalogo da Biblioteca (os .skm nao vao dentro do plugin).
 #   Forracao carpete  as 20 cores da "Forracao com resina" (amostras do fornecedor), que vem
 #                     junto do plugin em materiais/forracao_carpete. O material sai com o nome
 #                     "Forracao carpete <cor>", do jeito que o Memorial le (convencao de 26/10).
@@ -34,11 +36,34 @@ module STAND1
         File.join(PASTA_HUGO, SUBPASTA)
       end
 
-      # Pasta das napas escolhida nesta maquina (Trocar pasta) ou a do Hugo no C:.
+      # Onde procurar as napas, em ordem: a pasta escolhida em Trocar pasta, a do Hugo no C: e a
+      # pasta NAPAS ao lado do catalogo da Biblioteca (quem copia as napas pro Drive da equipe
+      # nao precisa clicar em nada).
+      def self.candidatas(escolhida, catalogo)
+        lista = []
+        lista << escolhida.to_s unless escolhida.to_s.empty?
+        lista << padrao
+        lista << File.join(catalogo.to_s, SUBPASTA) unless catalogo.to_s.empty?
+        lista.uniq
+      end
+
+      # A primeira candidata que tem napa. Se nenhuma tem, a primeira que e pasta (a aba avisa
+      # que esta vazia); se nenhuma existe, a escolhida ou a do Hugo, so pro aviso de pasta nao achada.
+      def self.escolher(candidatas)
+        candidatas.find { |d| !listar(d).empty? } ||
+          candidatas.find { |d| File.directory?(d) } ||
+          candidatas.first
+      end
+
+      def self.catalogo
+        Biblioteca.pasta.to_s
+      rescue StandardError # NameError (Biblioteca ainda nao carregada, como nos testes puros) tambem cai aqui
+        ""
+      end
+
+      # Pasta das napas nesta maquina (ver candidatas).
       def self.pasta
-        p = Sketchup.read_default(CHAVE, "pasta_napas", "").to_s
-        p = padrao if p.empty? || !File.directory?(p)
-        p
+        escolher(candidatas(Sketchup.read_default(CHAVE, "pasta_napas", ""), catalogo))
       end
 
       # ---- napas ----------------------------------------------------------------------
@@ -163,7 +188,7 @@ module STAND1
           r[:itens] = napas + itens
           r[:erro] = "Nenhuma napa nesta pasta. Escolha a pasta NAPAS da biblioteca do Hugo." if napas.empty?
         else
-          r[:erro] = "Pasta das napas nao encontrada. Instale a biblioteca do Hugo (Arqloads) ou clique em Trocar pasta e escolha a pasta NAPAS. A forracao carpete funciona sem ela."
+          r[:erro] = "Pasta das napas nao encontrada. Ponha a pasta NAPAS ao lado do catalogo da Biblioteca, instale a biblioteca do Hugo (Arqloads) ou clique em Trocar pasta e escolha a pasta NAPAS. A forracao carpete funciona sem ela."
         end
         r
       rescue StandardError => e

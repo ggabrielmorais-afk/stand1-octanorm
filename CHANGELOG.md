@@ -1,5 +1,10 @@
 # Histórico STAND1 Octanorm
 
+## 1.8.2 — 25/11/2026
+- **As napas aparecem sozinhas pra quem não tem a biblioteca do Hugo no C:.** O plugin procura a pasta das napas em 3 lugares, nesta ordem: a que a pessoa escolheu em "Trocar pasta", a do Hugo (`C:\ARQLOADS - MATERIAIS PBR PARA SKETCHUP\NAPAS`) e uma pasta `NAPAS` ao lado do catálogo da Biblioteca (dentro do `CATALOGO STAND1`). Fica com a primeira que tiver napa. Pasta escolhida vazia não esconde as outras.
+- Pra equipe: copiar a pasta `NAPAS` (os `.skm`) pra dentro do `CATALOGO STAND1` no Drive. Quem já usa a Biblioteca recebe as napas sem clicar em nada. Os `.skm` não vão dentro do plugin, só da pasta do Drive. Os blocos da Biblioteca não mudam: ela só lê os `.skp` da raiz do catálogo.
+- O aviso de "pasta das napas não encontrada" agora cita a pasta `NAPAS` ao lado do catálogo.
+
 ## 1.8.1 — 19/11/2026
 (A 1.8.0 só foi mandada por Telegram pra teste e nunca foi publicada: esta versão é a 1.8.0 mais a forração carpete.)
 - **Aba "Texturas" na Biblioteca Stand1, com duas categorias de nome exato: "Napa" e "Forração carpete".** Cada uma tem miniatura, busca por cor ou código e um clique pra aplicar. Todo mundo escolhe da mesma lista.
